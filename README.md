@@ -14,7 +14,7 @@ To install and setup this repository, you can simply clone it to the server you 
 ```
 git config --global user.name "<user name>"
 git config --global user.email "<user email>"
-git config --global http.SslVerify flase
+git config --global http.sslVerify flase
 git clone git@gitlab.bateswhite.com:ts/dataengineering/bw-cs-web-portal.git
 ```
 
