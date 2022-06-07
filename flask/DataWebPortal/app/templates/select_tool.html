@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Select a Tool</h1>
+<div class="form-top">
+	<form action="" method="post">
+		{{ form.hidden_tag() }}
+
+		<h3>{{ form.selection.label }}</h3><br>
+		<p style="color:black;font-style:bold;font-size:18;">
+			{{ form.selection }}
+		</p>
+
+		<p>{{ form.submit() }}</p>
+	</form>
+</div>
+{% endblock %}
+
+<!--
+	<table>
+		{ % for subfield in form.selection % }
+		<tr>
+			<td>{{ subfield }}</td>
+			<td>{{ subfield.label }}</td>
+		</tr>
+		{ % endfor % }
+	</table>
+-->

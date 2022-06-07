@@ -1,0 +1,1841 @@
+ 
+ 
+
+ 
+
+ 
+
+COVID-19 High-Frequency Monitoring Dashboard Technical Note 
+
+  
+What does the COVID-19 dashboard show? 
+ 
+The dashboard visualizes harmonized indicators from high-frequency phone surveys conducted in 
+over 40 countries in response to the COVID-19 pandemic. Data are available from indicators in 12 
+topic areas: 
+  
+
+Figure 1. Indicator Topics 
+
+Category  
+Demographic characteristics   Age,  gender,  education,  household  size,  dependency  ratio, 
+
+Description  
+
+Geographic  
+Knowledge  
+
+Housing characteristics  
+Food security  
+Education  
+Health 
+Labor 
+Income 
+Safety nets  
+Coping mechanisms  
+Financial 
+Preventative Behaviors 
+Subjective Wellbeing 
+Metadata 
+
+disability 
+Urban/rural and province  
+Awareness  of  government  regulations  and  adoption  of 
+preventive behavior  
+Homeowner, Recent mover, number of rooms, ability to pay rent   
+Indicators of food security and access to staple foods and water  
+Engaged in educational activities, previous enrolment in school  
+Access to medical services  
+Stopped working, changed jobs, sector of work 
+Self-reported income shock, decline in remittances  
+Receipt of assistance and type received   
+Asset sale, reduced consumption (yes/no), use of savings 
+Access to financial institutions (ATM, Bank, Mobile Money) 
+Adopted handwashing and social distancing practices 
+Life satisfaction now and in one year, concern about coronavirus. 
+Total survey and indicator sample size 
+
+  
+A full list of indicators can be found here. 
+ 
+An addendum on data collection design and weighting by region can be found on page 6.  
+ 
+Why create a harmonized survey dashboard? 
+ 
+With  the  onset  of  the  COVID-19  pandemic  face-to-face  data  collection  has  become  increasingly 
+difficult,  due  to  both  the  health  risks  associated  with  traditional  survey  collection  and  quickly 
+evolving  government  restrictions.  To  monitor  the  impact  of  the  pandemic  on  the  poor  and 
+vulnerable,  the  World  Bank  has  supported  the  deployment  of  high  frequency  phone  surveys 
+through a flexible questionnaire template that can be adapted to country needs, implementation 
+manuals, phone survey guidelines, as well as advisory support and financing.  
+
+1 
+
+ 
+ 
+
+ 
+
+  
+Despite the creation of common survey questionnaire templates with core and optional modules, 
+a  fully  standardized  approach  to  COVID-19  survey  monitoring  was  not  possible.  In  many  cases, 
+partner countries and national statistical offices had already launched surveys or needed to include 
+additional topics of interest. 
+  
+Given the divergence in survey construction, harmonization was necessary to create a comparable 
+picture of how the pandemic affects the live of the poor around the world. Harmonized indicators 
+help to track the impact of the pandemic and mitigating policies over time in a comparable manner.  
+  
+Where does the dashboard survey data come from?  
+ 
+The figures presented in this dashboard are derived from the Rapid Monitoring Database (RMD). 
+The RMD is a harmonized collection of high-frequency phone surveys in response to the COVID-19 
+crisis conducted by the World Bank Group and partners so that they share a common format. This 
+involves  renaming  variables  and  recoding  categories  to  be  consistent  with  a  common  set  of 
+guidelines, which facilitates consistent comparison and aggregation across countries.  
+  
+Creating  the  guidelines  and  the  harmonization  of  the  surveys  equally  require  an  element  of 
+judgment. The guidelines were based on a careful a review of the questionnaires that identified 
+questions common to several surveys. Questions that were present in a large share of surveys, as 
+well as topics of particular interest for monitoring welfare during the crisis, were included in the 
+harmonization.  Nonetheless,  surveys  do  not  generally  contain  all  the  questions  listed  in  the 
+guidelines. In cases where questions or indicators are not asked in a particular country survey or 
+asked in a different way, that indicator is coded as missing in the RMD.  
+  
+Since surveys are being executed in several waves, updates to the RMD will make it easy to monitor 
+changing socio-economic conditions over time.   
+ 
+What are High-Frequency Monitoring Phone Surveys? 
+ 
+The  World  Bank  has  significant  experience  using  phone  surveys  to  monitor  welfare  in  many 
+circumstances,  including  in  times  of  crisis  and  in  response  to  emergencies.  Experts  from  teams 
+across  the  World  Bank 
+leveraged  this  experience  to  develop  technical  materials  and 
+implementation  protocols  to  quickly  produce  reliable  information  on  the  impacts  of  COVID-19 
+using phone surveys.  
+ 
+A modular global template questionnaire was created to make it easier to adapt surveys to country 
+contexts and information needs, while facilitating cross-country comparability and analysis.  
+ 
+ 
+ 
+
+2 
+
+ 
+ 
+
+ 
+
+Are the surveys representative of the population?  
+ 
+All  high-frequency  mobile  surveys  in  the  dashboard  were  designed  to  be  representative  of  the 
+underlying population. However, while a useful tool for data collection during the pandemic, phone 
+surveys are not a panacea. They have important limitations, including under-coverage of groups 
+with poor network connections or limited access to phones. They are known to be affected by high 
+levels  of  non-response  and  attrition.  The  practical  length  of  phone  interviews  is  also  an  issue, 
+limiting the breadth and depth of the information that can be collected. 
+ 
+In cases where countries had recently conducted representative household survey that contains 
+re-contact information for some or all household members, this data was often used to create a 
+representative  sampling  frame for  telephone-based  surveys.  In  other  cases,  list-based  sampling 
+frames  used  numbers  from  government  registries,  telecommunications  companies,  marketing 
+firms, or other sources to survey representative samples. 
+   
+It  is  important  to  keep  in  mind  that  cross-country  comparisons  and  aggregations  should  be 
+interpreted  with  caution.  Because  the  surveys  were  collected  by  phone,  they  are  only 
+representative  of  phone  owners  who  are  willing  to  respond  to  the  survey.  Differences  in  the 
+characteristics  of  phone  owners  are  likely  to  bias  comparisons  across  countries  or  areas. 
+Nonetheless, the figures are presented with the belief that putting results in context will shed light 
+on differences across countries in the economic impacts of the COVID-19 crisis, which will in turn 
+put the survey results into context and inform policy responses.     
+ 
+How was the data harmonized? 
+ 
+The harmonization process was a global effort whereby teams from multiple Global Practices and 
+Regions  gathered  to  create  a  data  dictionary  of  frequent,  comparable  and  relevant  survey 
+questions  in  order  to  understand  the  impact  of  COVID-19.  Once  a  data  dictionary  was  created, 
+several Bank teams and poverty economists embedded in client countries monitored the execution 
+of  the  surveys  and  reviewed  the  acquired  data  before  sharing  with  a  team  in  charge  of  the 
+harmonization process.  
+ 
+This team reviewed the received raw data and recoded categories to create high-level indicators. 
+In cases where questions or indicators are not asked in the survey or asked in a different way, that 
+indicator is coded as missing in the RMD.  
+ 
+Because  all  survey  respondents  are  phone  owners,  which  are  likely  to  bias  comparisons  across 
+countries or areas, it is difficult to obtain nationally representative results using individual weights. 
+To prepare national representative statistics at the individual level in other countries, household 
+weights were applied for all the indicators in the dashboard. Care was taken to include accurate 
+indicator descriptions to reflect whether the indicator data pertains to individuals or households.  
+ 
+You can learn more about the indicator harmonization process using our Data Dictionary. 
+  
+
+3 
+
+ 
+ 
+
+ 
+
+How do I know how survey rounds have been completed in each country? 
+ 
+Nearly all countries in the dashboard will include harmonized indicator data from multiple survey 
+rounds. To know if a country contains multiple rounds of data, and when the data was collected, 
+simply over data points until a tooltip with additional information appears. (See Figure 2.) 
+ 
+
+Figure 2. Dashboard Tooltip Example 
+
+ 
+The tooltip  contains data  on the indicator name, topic, region, country and whether the  data is 
+disaggregated  by  National/Urban/Rural  and  Industry  Sector  categories.  It  also  includes  the  data 
+when the data was collected and the total number of data points of that indicator. 
+ 
+How do we present disaggregated data? 
+ 
+Current data can be  disaggregated at the respondent level by Urban/Rural and Industry Sector, 
+however  these  figures  should  be  taken  with  caution.  Limitations  inherent  to  phone  surveys, 
+including under-coverage of groups with poor network connections or limited access to  phones 
+may lead to selection biases and issues with representation. For example, despite the near ubiquity 
+of mobile devices, there are significant gaps in phone ownership by gender and profession. These 
+gaps  vary  hugely  across  countries.  Although  in  most  cases  the  sampled  phone  numbers  are  for 
+households  and  individuals  that  had  been  interviewed  face-to-face  by  a  recent  survey.  We  will 
+continue conducting exercises to understand and account for selection biases associated with lack 
+of cell phone ownership, non-response, and attrition. 
+ 
+Why do some countries not appear in the dashboard?  Will you add more countries? 
+ 
+The countries displayed in the dashboard are those that have completed at least one survey round 
+and have had survey data harmonized to match the dashboard data structure. In some cases, data 
+
+4 
+
+agreements  between  the  survey  collection  agencies  -  partner  governments,  national  statistical 
+offices, and multilateral agencies – and data privacy concerns restrict the data that can be made 
+publicly available. In other cases, surveys are still in progress or are completed but have not yet 
+been harmonized.  
+ 
+At  the  time  of  the  dashboard  launch  on  November  11,  2020,  it  contained  survey  data  from  43 
+countries. In  most countries, survey rounds are conducted every 4-6 weeks over a period  of 12 
+months.  As  the  COVID-19  pandemic  continues,  new  rounds  of  HFPS  will  continue  in  many 
+countries. By early 2021, we expect to have harmonized survey data from around 100 countries in 
+the  dashboard.  Around  the  same  time,  we  intend  to  make  -  whenever  feasible  -  anonymized 
+microdata  available  in  the World  Bank  Microdata  Library,  recognizing  that  there  are  country 
+specificities with respect to data access and remaining mindful of data privacy considerations. 
+ 
+ 
+ 
+
+ 
+ 
+
+ 
+
+5 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+	
+
+	
+
+	
+
+	
+
+	
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+	
+ 
+
+ 
+	
+ 
+
+ 
+	
+	
+	
+Methology Note: COVID-19 High-Frequency Survey (HFS) in Latin American Countries 
+ 
+Sampling Design and Weighing *
+ 
+ 
+The	COVID-19	High-Frequency	Survey	was	conducted	by	phone	in	thirteen	Latin	American	countries:	
+Argentina,	Bolivia,	Chile,	Colombia,	Costa	Rica,	Dominican	Republic,	Ecuador,	El	Salvador,	Guatemala,	
+ 
+Honduras,	Mexico,	Paraguay	and	Peru.	Data	collection	spanned	over	three	waves	between	May	and	
+ 
+ 
+ 
+August	2020,	and	collection	periods	lasted	about	ten	days	per	wave	on	average.	The	survey	interviewed	
+ 
+ 
+one	adult	per	household	and	asked	both	individual	and	household-level	questions.
+ 
+ 
+All	national	samples	are	based	on	a	dual	frame	of	cell	phones	and	landlines	and	have	a	probability	one-	
+ 
+stage	design	with	geographic	stratification.	The	samples	were	generated	through	a	Random	Digit	Dialing	
+ 
+ 
+(RDD)	process,	thus	ensuring	coverage	of	all	landline	and	cell	phone	numbers	active	at	the	time	of	the	
+survey.
+ 
+Survey	estimates	for	each	country	represent	households	with	a	landline	or	in	which	at	least	one	member	
+ 
+ 
+ 
+has	a	cell	phone,	and	individuals	18	years	of	age	or	above	who	have	an	active	cell	phone	number	or	a	
+ 
+landline	at	home.
+ 
+Sampling design
+ 
+Each country’s sample is based on a dual frame of cell phone and landline numbers generated through 
+an RDD process. The RDD methodology produces all possible phone numbers in the country under the 
+national phone numbering plan and draws a random sample of numbers. This way, the process 
+guarantees full coverage of phone numbers and eliminates any potential coverage bias with respect to 
+the population with a phone1. 
+ 
+First, in each country a large first-phase sample was selected in each of both number frames, with an 
+allocation ranging from 0% landlines and 100% cell phones to 20% landlines and 80% cell phones (which 
+can be distinguished based on their prefixes). Landlines were included with a small share in order to 
+cover the landline-only households and persons, which have a low prevalence in most Latin American 
+countries but yet exist, particularly among the senior population. 
+ 
+In all countries, the landline frame was geographically stratified by department, province or state, and 
+the sample of landlines was selected with proportionate allocation among strata. Geographic 
+proportionate stratification was also done for cell phones in Argentina, Bolivia and México2. It is 
+underscored that the HFS sample design permits to obtain precise estimates at the country level only. 
+Subnational estimates would have large sampling errors. 
+ 
+
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+* This technical note was prepared by Ramiro Flores Cruz, partner member at Sistemas Integrales and World Bank 
+consultant. 
+
+1 In other words, given that the HFS used a sampling frame of phone numbers, its results represent only the 
+population with a phone and exclude the population with no phone. 
+
+2 Geographic stratification of cell phone numbers was feasible only in these three countries because only in them it 
+is possible to link a cell phone number to the district (department, province or state) where it was issued. 
+
+ 
+6
+
+!
+"
+"
+#
+$
+"
+%
+&
+’
+ 
+
+ 
+
+ 
+
+ 
+
+The first-phase samples of landline and cell phone numbers were then screened through an automated 
+process to identify the active numbers, and these were then cross-checked with business registries 
+(based on yellow pages and websites) to identify business numbers, not eligible for this survey. 
+ 
+Second, a smaller second-phase sample3 was selected from the active residential numbers identified in 
+the first-phase sample and was delivered to the country team to be called by the interviewers. The 
+reason for selecting a second-phase sample was that delivering a large first-phase sample of active 
+numbers to the country teams at once could facilitate the “misuse” of the sample, raise nonresponse 
+rates, and increase potential nonresponse biases. 
+ 
+Table 1 shows the final sample size per country and the allocation between both frames.4 
+ 
+
+ 
+Table 1. Sample size and allocation to cell phones and landlines in HFS Round 1
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+
+When an interview was obtained through a cell phone, the interviewer interviewed the person who 
+answered the call (as long as he or she was 18 years of age or above) and asked all questions about the 
+respondent and his or her household. When an interview was obtained through a landline, the 
+interviewer requested to talk to any household member 18 years of age or older and asked all questions 
+about the respondent and his or her household. Landlines are 10% - 15% of the sample in most 
+countries, 20% in two of them, and 0% in three of them. 
+ 
+Respondents were recontacted in two additional rounds, thus producing panel data. 
+
+ 
+
+3 Note that the selection of phone numbers involves two sampling phases, and not two sampling stages. 
+
+4 The HFS samples have one-stage, so the design effects of all variables equal 1, or are even smaller than 1 due to 
+stratification. As a result, the effective sample sizes are equal or larger than the nominal sizes, reducing the 
+standard errors. This feature contrasts with multi-stage clustered samples, which typically have design effects 
+significantly larger than 1 and, therefore, their effective sizes are smaller than their nominal size, increasing the 
+standard errors. 
+
+ 
+
+ 
+
+CountrySample sizeCell phonesLandlinesArgentina100085%15%Bolivia1,000100%0%Chile100080%20%Colombia1,00085%15%Costa Rica80090%10%Domincan Rep80085%15%Ecuador1,20085%15%El Salvador80090%10%Guatemala80090%10%Honduras800100%0%Mexico2,00080%20%Paraguay800100%0%Peru1,00090%10%!
+ 
+
+ 
+
+ 
+
+Weighting
+ 
+The HFS has two sample units: households and individuals. Sampling weights were computed for each 
+unit and should be used according to the estimate of interest. The weighting process involves four steps: 
+ 
+
+1.  Calculation of the inclusion probabilities of landline and cell phone numbers. 
+
+2.  Computation of base weights for households and individuals. 
+
+3.  Nonresponse weighting adjustment. 
+
+4.  Calibration of individual and household weights, using external data from official sources 
+
+(adjusted for the national phone coverage). 
+
+ 
+
+ 
+
+ 
+
+ 
+In the second and third HFS waves, household and individual weights were adjusted for attrition. 
+ 
+Step 1: Inclusion probabilities of landline and cell phone numbers
+ 
+ 
+A first-phase sample was selected in each of the two frames (cell phone numbers and landline numbers) 
+with simple random selection without replacement, and the automated screening classified the selected 
+numbers into active and inactive. The first-phase inclusion probabilities of cell phones and landlines are5 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+𝐶
+𝑛(1)
+𝐶 =
+𝑁(1)
+
+𝐶
+
+𝐶 + 𝑛(1)𝐼𝑁
+𝑛(1)𝐴
+𝐶
+𝑁(1)
+
+ 
+
+𝐿
+𝑛(1)ℎ
+𝐿 =
+𝑁(1)ℎ
+
+𝐿
+𝑛(1)ℎ𝐴
+
+𝐿
++ 𝑛(1)ℎ𝐼𝑁
+𝐿
+𝑁(1)ℎ
+
+ 
+
+ 𝐶 =  
+
+ (1)𝑖
+
+ 
+
+ 𝐿
+ (1)ℎ𝑖
+
+=  
+
+ 
+where 
+ 
+
+ 𝐶  is the first-phase inclusion probability of the i-th cell phone number 
+ (1)𝑖
+𝐶  is the size of the first-phase sample of cell phones, composed of 𝑛(1)𝐴
+𝑛(1)
+
+𝐶
+
+ active cell phones and 
+
+𝐶
+𝑛(1)𝐼𝑁
+
+ inactive cell phones 
+
+numbering plan) 
+
+𝐶  is the cell phone frame size (all possible cell phone numbers according to the national 
+
+𝑁(1)
+
+ 𝐿
+ (1)ℎ𝑖
+𝐿
+𝑛(1)ℎ
+
+𝐿
+𝑁(1)ℎ
+
+ is the first-phase inclusion probability of the i-th landline number in stratum h 
+
+𝑙
+
+ is the size of the first-phase sample of landlines in stratum h, composed of 𝑛(1)ℎ𝐴
+landlines and 𝑛(1)ℎ𝐼𝑁
+ is the landline frame size in stratum h (all possible landline numbers according to the 
+national numbering plan) 
+
+ inactive landlines 
+
+ 
+
+𝐿
+
+ active 
+
+ 
+
+5 Inclusion probabilities of cell phone numbers do not show a stratum index since most cell phone samples were 
+not stratified because of the reasons stated above. Only the cell phone samples for Argentina, Bolivia and Mexico 
+were stratified. 
+
+ 
+
+!
+ 
+
+ 
+
+ 
+
+ 
+
+Next, two second-phase samples were selected independently out of the first-phase samples of active 
+cell phones and landlines. The second-phase inclusion probabilities of cell phones and landlines are 
+ 
+
+ 𝐶
+
+ (2)𝑖|(1)𝑖
+
+=  
+
+𝐶
+𝑛(2)𝐴
+𝐶
+𝑛(1)𝐴
+
+ 
+
+ 𝐿
+
+ (2)ℎ𝑖|(1)ℎ𝑖
+
+=  
+
+𝐿
+𝑛(2)ℎ𝐴
+𝐿
+𝑛(1)ℎ𝐴
+
+ 
+
+ 
+where 
+ 
+
+ 𝐶
+
+𝐶
+𝑛(2)𝐴
+ 𝐿
+
+𝐿
+𝑛(2)ℎ𝐴
+
+ 
+
+ 
+ 
+
+ (2)𝑖|(1)𝑖
+on being selected in the first phase 
+
+ is the second-phase inclusion probability of the i-th active cell phone number conditional 
+
+ is the size of the second-phase sample of active cell phones 
+
+ (2)ℎ𝑖|(1)ℎ𝑖
+h conditional on being selected in the first phase 
+
+ is the second-phase inclusion probability of the i-th active landline number in stratum 
+
+ is the size of the second-phase sample of active landlines in stratum h 
+
+ 
+Then, the unconditional inclusion probabilities of the second-phase active cell phones and landlines are 
+ 
+ 
+
+ 𝐶 =  (1)𝑖
+ 𝑖
+
+ 𝐶
+
+ 𝐶
+
+  (2)𝑖|(1)𝑖
+
+=
+
+𝐶
+
+𝐶 + 𝑛(1)𝐼𝑁
+𝑛(1)𝐴
+𝐶
+𝑁(1)
+
+𝐶
+𝑛(2)𝐴
+𝐶 =
+𝑛(1)𝐴
+
+ 
+
+𝐶
+
+𝐶 + 𝑛(1)𝐼𝑁
+𝑛(1)𝐴
+𝐶
+𝑛(1)𝐴
+
+𝐶
+𝑛(2)𝐴
+𝐶 =
+𝑁(1)
+
+ 
+
+𝐶
+𝑛(2)𝐴
+𝐶 𝑁(1)
+(1)
+
+𝐶 =
+
+𝐶
+𝑛(2)𝐴
+𝐶  
+𝐴̂
+(1)
+
+𝑅𝐴̂
+
+ 𝐿 =  (1)ℎ𝑖
+ ℎ𝑖
+
+ 𝐿
+
+ 𝐿
+
+  (2)ℎ𝑖|(1)ℎ𝑖
+
+  =  
+
+𝐿
+𝑛(1)ℎ𝐴
+
+𝐿
++ 𝑛(1)ℎ𝐼𝑁
+𝐿
+𝑁(1)ℎ
+
+ 
+
+𝐿
+𝑛(2)ℎ𝐴
+𝐿
+𝑛(1)ℎ𝐴
+
+=
+
+𝐿
+𝑛(1)ℎ𝐴
+
+𝐿
++ 𝑛(1)ℎ𝐼𝑁
+𝐿
+𝑛(1)ℎ𝐴
+
+ 
+
+𝐿
+𝑛(2)ℎ𝐴
+𝑁(1)ℎ
+
+𝐿 = 
+
+                                      =
+
+𝐿
+𝑛(2)ℎ𝐴
+𝐿
+𝑅𝐴̂
+(1)ℎ
+
+𝐿 =
+
+ 𝑁(1)ℎ
+
+𝐿
+𝑛(2)ℎ𝐴
+𝐿
+𝐴̂
+(1)ℎ
+
+  
+
+ 
+ 
+Where 𝑅𝐴̂ (1) is the rate of active phones estimated in the first phase6. Hence, the unconditional 
+inclusion probabilities of the second-phase active numbers  𝑖
+between the second-phase selected active numbers and an estimate of the total active numbers in the 
+frame 𝐴̂(1). 
+ 
+
+ 𝐿  can be expressed as the ratio 
+
+ 𝐶and  ℎ𝑖
+
+6 𝑅𝐴̂ (1) estimates are highly precise due to the very large size of the first-phase samples. 
+
+ 
+
+ 
+
+!
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Step 2: Base weights for households and individuals
+ 
+The selection probabilities of households and individuals 18+ are based on the inclusion probabilities of 
+the cell phone and landline numbers through which they are reached. Therefore, the computation of 
+household and individual weights should account for multiplicity and for the specific overlapping pattern 
+between the frames of cell phones and landlines. Otherwise, household and individual-level estimates 
+will be biased. 
+ 
+Multiplicity adjustment 
+ 
+There is multiplicity when a household has a larger selection probability because it can be selected 
+through different sample elements. Thus, if a household has more than one cell phone or more than one 
+landline, the household selection probability needs to be adjusted to account for the increased chance 
+of selection. The multiplicity-adjusted household selection probabilities in each frame are computed as 
+ 
+
+ 𝐿  
+ = 𝑚𝑙𝑗 ℎ𝑖
+
+ 𝐶 
+ 𝐶  = 𝑚𝑐𝑗 𝑖
+ 𝑚𝑗
+ 
+ 𝐿
+ 𝑚ℎ𝑗
+ 
+where 
+ 
+ 𝐶  is selection probability of the j-th household when contacted through a cell phone, adjusted 
+ 𝑚𝑗
+for multiplicity of working cell phones in the household 
+
+𝑚𝑐𝑗 is the number of working cell phones in the j-th household 
+
+is the selection probability of the j-th household in stratum h when contacted through a 
+
+ 𝐿
+ 𝑚ℎ𝑗 
+landline, adjusted for multiplicity of working landlines in the household 
+
+𝑚𝑙𝑗 is the number of working landlines in the j-th household 
+
+ 
+Therefore, if a household has mc cell phones, its chance of being selected through a cell phone is mc 
+higher than a household where there is only one cell phone. The same applies to landlines, in which case 
+the multiplicity factor is ml. Since the number of cell phones and landlines in a household is unknown at 
+the time of the sample design, it needs to be asked during the interview as part of the questionnaire. 
+ 
+The probability of an individual being selected through a cell phone equals the inclusion probability of 
+his or her cell phone number. On the other hand, the probability of an individual being selected through 
+a landline equals the selection probability of his or her household, conditional on the number of working 
+landlines in the household, over the number of adult individuals in the household: 
+
+ 
+
+ 
+
+!
+"
+ 
+
+ 
+
+ 𝐶 
+ 𝐶 =  𝑖
+ 𝑘
+ 
+ 𝐿
+ ℎ𝑗𝑘
+ 
+where 
+ 
+
+ 𝐿
+ =  𝑚ℎ𝑗
+
+ / ∑ 𝑘𝑗
+
+ 
+
+ 𝐶  is the selection probability of the k-th individual when contacted through a cell phone 
+ 𝑘
+ 𝐿
+ ℎ𝑗𝑘
+landline in the j-th household 
+
+ is the selection probability of the k-th individual in stratum h when contacted through a 
+
+ 
+Overlapping sampling frames 
+ 
+Households and individuals that have both cell phone and landline (dual cases) have a higher probability 
+of being selected than those which have only cell phones or only landlines. The following diagram 
+displays the overlapping pattern of cell phone and landline sampling frames. 
+ 
+ 
+
+ 
+Figure 2. Partially overlapping frames
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+
+A (cell phone 
+frame) 
+
+B (landline 
+frame) 
+
+Cell phone 
+only 
+
+Dual 
+
+Landline 
+only 
+
+ 
+ 
+In order to adjust the selection probabilities for overlapping frames and multiplicity, it is essential to 
+collect some related information during the interview. It is necessary to know the domain ownership of 
+the sample households and individuals, as well as the number of cell phones and landlines in the sample 
+households. To this purpose, the HFS questionnaire included the following three questions: 
+ 
+
+1. How many working cell phones in total are owned by the persons in your household, including you? 
+
+ 
+
+2. Is there any working landline in your household? 
+
+3. How many working landlines are there in your household currently? 
+
+ 
+By knowing the domain of ownership, the selection probability for each sample unit can be calculated 
+based on the following probability property 
+ 
+
+𝑃 (𝐴⋃𝐵) = 𝑃 (𝐴) + 𝑃 (𝐵) − 𝑃 (𝐴⋂𝐵) 
+
+where 𝑃 (𝐴⋂𝐵) = 𝑃 (𝐴) × 𝑃 (𝐵), given that A and B are independent 
+
+ 
+
+ 
+
+!
+!
+ 
+
+ 
+
+➢  In general, in a dual-frame telephone sample design 
+ 
+
+𝜋C   if the sample unit is cell phone only 
+
+      𝜋 = 
+= 
+
+𝜋L
+
+   if the sample unit is landline only 
+
+𝜋C + 𝜋L – 𝜋C 𝜋L   if the sample unit is dual 
+
+ 
+where 𝜋C y 𝜋L are the selection probabilities of the sample units (households or individuals) in each 
+domain (cell phone only, landline only, dual). 
+ 
+ 
+➢  In the specific HFS setting (with overlapping frames and multiplicity) 
+ 
+Selection probabilities for households are 
+ 
+
+  𝑚𝑐𝑗 𝑖
+ 𝐿
+𝜋𝑗 =      𝑚𝑙𝑗 ℎ𝑖
+
+ 𝐶   if the household is cell phone only 
+
+   if the household is landline only 
+
+𝑚𝑐𝑗 𝑖
+
+ 𝐶 + 𝑚𝑙𝑗 ℎ𝑖
+
+ 𝐿  − 𝑚𝑐𝑗 𝑖
+
+ 𝐶 𝑚𝑙𝑗 ℎ𝑖
+
+ 𝐿    if the household is dual 
+
+ 
+And selection probabilities for individuals are 
+ 
+
+ 𝐶  if the individual is cell phone only 
+
+     𝑖
+𝜋𝑘 =      𝑚𝑙𝑗 ℎ𝑖
+
+ 𝐿  / ∑ 𝑘𝑗
+ 𝐶 + 𝑚𝑙𝑗 ℎ𝑖
+ 𝑖
+
+   if the individual is landline only 
+
+ 𝐿  / ∑ 𝑘𝑗
+
+ −  𝑖
+
+ 𝐶 𝑚𝑙𝑗 ℎ𝑖
+
+ 𝐿  / ∑ 𝑘𝑗
+
+  if the individual is dual 
+
+ 
+Household and individual base weights, w0j and w0k respectively, are the inverse of the above selection 
+probabilities 
+ 
+
+ −1 
+
+𝑤0𝑗 = 𝜋𝑗
+ 
+𝑤0𝑘 = 𝜋𝑘
+
+ −1 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+Step 3: Nonresponse adjustment
+ 
+When a phone number is called, it is not always possible to carry out an interview. Nonresponse occurs 
+either because nobody answers the call (no contact), because the respondent is unwilling to cooperate 
+(refusal), or because of other barriers such as language. 
+ 
+The HFS put in place four main strategies to minimize nonresponse: 
+ 
+
+a.  The survey central management team sent SMSs to the sample cell phone numbers before 
+
+calling to inform the user who was about to call and to persuade him or her to answer the call. 
+
+ 
+
+!
+"
+ 
+
+ 
+
+ 
+ 
+
+ 
+
+b. 
+
+In some countries, the sample was released to the country teams over successive replicates in 
+order to keep nonresponse properly monitored and under the control of the central 
+management team. 
+
+c.  Stringent calling protocols were put in place and monitored to ensure a minimum number of 
+
+attempts on different days and times (5 to 10 attempts depending on the country). 
+
+d.  The survey offered monetary and nonmonetary incentives to those who cooperated (gift cards 
+
+and phone credit). 
+
+e. 
+
+In some countries, the most experienced interviewers recontacted the numbers classified as a 
+“Refusal” to convert them into a “Complete interview”. 
+
+ 
+These actions allowed reaching response rates higher than similar studies based on RDD samples. Final 
+nonresponse rates varied across the HFS countries, with the lowest levels in Bolivia and Ecuador, and 
+the highest in Argentina and Mexico. 
+ 
+The base weights of the responding households and individuals were adjusted to compensate for 
+nonresponse and thus reduce the potential bias it may cause on the survey estimates. For this purpose, 
+a class-based adjustment was used. This approach consists of forming classes by crossing all categories 
+of auxiliary variables that are both known to be correlated with the likelihood of responding and are 
+available for respondents and nonrespondents. Given that the survey used an RDD sample, the 
+information in the sampling frame was limited and the only variables known for both respondents and 
+nonrespondents were the type of phone number (landline or cell phone) and the corresponding 
+geographic region (known for landlines in all countries, and for cell phones only in Argentina, Bolivia and 
+Mexico). 
+ 
+One type of weighting class nonresponse adjustment is based on the inverse of the weighted response 
+rate estimate in each class. This is the ratio of the sum of the base weights for all units (respondents and 
+nonrespondents) in class c to the sum of the base weights for the respondents in that class. 
+ 
+ 
+
+𝑎𝑗𝑐 =  
+
+∑
+
+𝑗∈𝑐,𝑅
+
+ + ∑
+
+𝑤0𝑗
+∑
+
+𝑗∈𝑐,𝑅
+
+𝑗∈𝑐,𝑁𝑅
+𝑤0𝑗
+
+𝑤0𝑗
+
+     ;      𝑎𝑘𝑐 =  
+
+∑
+
+𝑘∈𝑐,𝑅
+
+ + ∑
+
+𝑤0𝑘
+∑
+
+𝑘∈𝑐,𝑅
+
+𝑘∈𝑐,𝑁𝑅
+𝑤0𝑘
+
+𝑤0𝑘
+
+ 
+
+ 
+ 
+where ajc is the nonresponse adjustment factor that should be applied to responding households in 
+class c, and akc is the nonresponse adjustment factor for responding individuals in that class. R and NR 
+indicate the responding and nonresponding units, respectively. 
+ 
+Thus, the nonresponse adjusted weights for responding households and individuals are 
+ 
+
+𝑤′𝑗
+
+   = 𝑤0𝑗 𝑎𝑗𝑐 
+
+𝑤′𝑘
+
+   = 𝑤0𝑘 𝑎𝑘𝑐 
+
+ 
+
+ 
+
+!
+"
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Step 4: Calibration if individual and household weights
+ 
+As the last step, the weights for the responding households and individuals were calibrated using 
+external data from official sources. This last adjustment has two objectives: 
+ 
+
+ 
+
+ 
+
+-  Use auxiliary variables from external sources to further reduce potential nonresponse biases that 
+were not addressed by the auxiliary variables used in Step 3. This can be achieved as long as the 
+calibration auxiliaries are correlated with nonresponse.  
+
+-  Improve the precision of estimators (i.e. reduce the sampling variances), as long as the auxiliaries 
+
+are correlated with the analysis variables of interest.7 
+
+ 
+The goal of calibration is to find a set of weights that are close to the input weights (nonresponse 
+adjusted weights in this case), and when used to estimate totals of the auxiliaries, reproduce the 
+population totals exactly. Put formally, calibration minimizes a measure of the distance8 between the 
+input weights and the calibrated weights, under the constraint that the sum of the calibrated weights 
+equals the sum of the totals of the auxiliaries from an external source. Unlike the nonresponse 
+adjustment carried out in the previous step, calibration requires that the auxiliary variables be available 
+for respondents only, and not for both respondents and nonrespondents. 
+ 
+Among the several existing calibration techniques, the HFS used the raking method. This method was 
+most suitable given that the available auxiliary variables (region, sex and age groups) were all 
+categorical, that region had many categories in most countries, and that the HFS samples are rather 
+small. 
+ 
+The final weights for responding households and individuals can then be expressed as 
+ 
+
+𝑤𝑗 = 𝑤𝑗
+
+𝑤𝑘= 𝑤𝑘
+
+′ 𝑔𝑗 = 𝑤0𝑗 𝑎𝑗𝑐 𝑔𝑗 
+′  𝑔𝑘= 𝑤0𝑘 𝑎𝑘𝑐 𝑔𝑘 
+
+where 
+ 
+
+𝑤0𝑗 is the base weight for the j-th household 
+
+𝑎𝑗𝑐 is the nonresponse adjustment factor for households in class c 
+
+𝑔𝑗 is the calibration factor for the j-th household 
+
+𝑤0𝑘 is the base weight for the k-th individual 
+𝑎𝑘𝑐 is the nonresponse adjustment factor for individuals in class c 
+𝑔𝑘 is the calibration factor for the k-th individual 
+
+ 
+
+7 This objective was not addressed in this survey since it would have entailed computing a large set of replicate 
+weights (with bootstrap or jackknife replication methods), which could be confusing for the final user and lead to 
+error when estimating. 
+
+8 The HFS weight calibration applies the raking calibration method, using the logit distance function. 
+
+ 
+
+!
+"
+ 
+
+ 
+ 
+
+ 
+
+Table 2 shows the data sources used for calibrating the weights in each country. All the population 
+counts taken from these sources were adjusted for telephone coverage, using the national phone 
+coverage rates published by the International Telecommunication Union (ITU) from the United Nations. 
+ 
+ 
+
+Table 2. Data sources for the auxiliary data used for weight calibration
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+HFPS Indicator Weight Comparison between LAC Region and Global dashboard
+ 
+ 
+ 
+
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+	
+
+ 
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+   
+ 
+
+ 
+ 
+
+	
+
+ 
+
+ 
+
+	
+
+ 
+
+ 
+
+ 
+
+	
+
+ 
+ 
+
+	
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+	
+
+ 
+
+ 
+
+	
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+	
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+15
+
+CountryData source used for weight calibrationArgentinaInstituto Nacional de Estadística y Censos. Proyecciones Elaboradas en base al Censo Nacional de Población, Hogares y Viviendas 2010.BoliviaInstituto Nacional de Estadística. Proyecciones de Población. 2020.ChileInstituto Nacional de Estadística. Estimaciones y Proyecciones de la Población de Chile 1992-2050.ColombiaDepartamento Administrativo Nacional de Estadística. Proyecciones de Población Nacional para el Periodo 2018-2070.Costa RicaCentro Centroamericano de Población. Proyecciones Distritales de Población de Costa Rica 2000-2050.Domincan Rep.Oficina Nacional de Estadistica. Población Estimada y Proyectada para el Período 1950 – 2100.EcuadorWorld Bank. Ecuador Sociodemographic and Labor Force Survey for Oopulation in Human Mobility - EPEC (2019).El SalvadorCentro Centroamericano de Población. Proyecciones de Población de El Salvador. 2000-2050.GuatemalaInstituto Nacional de Estadística. Proyecciones Nacionales 1950-2050.HondurasInstituto Nacional de Estadística. Proyecciones de Población 2013-2015.MexicoConsejo Nacional de Población. Proyecciones de la Población de México y de las Entidades Federativas, 2016-2050.ParaguayDirección General de Estadística, Encuestas y Censos. Proyección de la población nacional por sexo y edad, 2000-2025. Revisión 2015.PeruInstituto Nacional de Estadística e Informática. Estimaciones y Proyecciones de Población. Boletín Especial Nº 21 y 22.!
+"
+ 
+"
+#
+$
+%
+&
+’
+%
+ 
+(
+)
+%
+ 
+*
++
+,
+,
+%
+&
+%
+-
+.
+%
+ 
++
+-
+ 
+&
+%
+$
+/
+0
+(
+$
+ 
+#
+%
+(
+1
+%
+%
+-
+ 
++
+-
+*
++
+*
++
+’
+/
+2
+0
+0
+3
+4
+1
+%
++
+5
+)
+(
+%
+*
+4
++
+-
+*
++
+.
+2
+(
+"
+&
+$
+4
++
+-
+4
+6
+7
+8
+9
+4
+:
+0
+%
+2
+$
+%
+4
+.
+0
++
+.
+;
+4
+)
+%
+&
+%
+<
+ 
+
+Reference literature
+ 
+ 
+Lohr, S., RAO, J., (2006). Estimation in Multiple-Frame Surveys, Journal of the American Statistical 
+Association, 101, 1019−1030. 
+
+Lohr, S., (2011). Alternative Survey Sample Designs: Sampling with Multiple Overlapping Frames, Survey 
+Methodology, 37, 197−213. Statistics Canada. 
+
+Skinner, C., Rao, J., (1996). Estimation in Dual-Frame Surveys with Complex Designs, Journal of the 
+American Statistical Association, 91, 349−356. 
+
+Thompson, S. (2012). Chapter 15: Network Sampling and Link-Tracing Designs, in Sampling. New York, 
+Wiley. 
+
+Valliant, R., Dever J., and Kreuter F., (2016). Practical Tools for Designing and Weighting Sample Surveys. 
+New York, Springer. 
+
+ 
+
+ 
+
+ 
+
+ 
+
+!
+"
+

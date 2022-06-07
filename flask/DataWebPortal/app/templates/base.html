@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ title }}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{url_for('static',filename='fonts/icomoon/style.css')}}">
+
+    <link rel="stylesheet" href="{{url_for('static',filename='css/owl.carousel.min.css')}}">
+
+    <!-- Bootsrap CSS -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <!-- File Dropzone -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.1/min/dropzone.min.css">
+
+</head>
+
+<body>
+
+<div class="site-mobile-menu">
+    <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+            <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+</div>
+<header class="site-navbar" role="banner">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-11 col-xl-2">
+                <a href="https://bateswhite.com" target="_blank">
+                    <img src="{{url_for('static',filename='images/BW_Logo_White.png')}}"
+                         alt="BW Logo" style="width:175px;backgroun-color:black;">
+                </a>
+            </div>
+            <div class="col-12 col-md-10 d-none d-xl-block">
+                <nav class="site-navigation position-relative text-right" role="navigation">
+                    <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+                        <li><a href="/index"><span>Home</span></a></li>
+                        <li><a href="/about"><span>About</span></a></li>
+                        <li><a href="/convert_data"><span>Convert</span></a></li>
+                        <li><a href="/select_tool"><span>Select Tool</span></a></li>
+                        <li><a href="/contact"><span>Contact & Help</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;">
+                <a href="#" class="site-menu-toggle js-menu-toggle text-white">
+                    <span class="icon-menu h3"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</header>
+
+{% block content %}{% endblock %}
+
+<script src="{{url_for('static',filename='js/jquery-3.3.1.min.js')}}"></script>
+<script src="{{url_for('static',filename='js/popper.min.js')}}"></script>
+<script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+<script src="{{url_for('static',filename='js/jquery.sticky.js')}}"></script>
+<script src="{{url_for('static',filename='js/main.js')}}"></script>
+
+</body>
+</html>
+

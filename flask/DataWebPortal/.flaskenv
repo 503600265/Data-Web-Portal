@@ -1,0 +1,4 @@
+FLASK_APP=DataWebPortal.py
+FLASK_RUN_HOST=localhost
+FLASK_RUN_PORT=4212
+FLASK_ENV=development
