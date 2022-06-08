@@ -1,0 +1,8 @@
+
+<ul>
+{% for labeling in labeling_list %}
+
+        <li><a href="/labels/{{ labeling.id }}/">{{ labeling.name }}</a></li>
+    {% endfor %}
+
+</ul>
