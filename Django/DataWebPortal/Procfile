@@ -1,0 +1,2 @@
+web: gunicorn DataWebPortal.wsgi
+release: python manage.py migrate
