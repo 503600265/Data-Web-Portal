@@ -1,20 +1,43 @@
-# DataWebPortal
-This is a web application that is created for the convenience of internal users from BatesWhite. In the application, users can OCR Documents, Convert them to Parquet, Upload Data to HDFS, and Upload Data to S3.
-Deployed at https://. 
+# BW CS Web Portal
 
-# Setup
-Clone the current project from Gitlab:
+This repository is to maintain and track all of the code used to create the BW Self Service Web Portal
 
-$ git clone https://gitlab.bateswhite.com/ts/dataengineering/bw-cs-web-portal.git
+## Name
+Bates White Self Service Portal
 
-Install required packages:
+## Description
+This web application is meant to act as a self service location for Client Services to be able to access, and perform minor tasks, like basic OCR, file conversions, email data extractions, excel file merging, etc. without needing the assistance of the Data Engineering/TS team.
 
-$ pip install -r requirements.txt
+## Set Up
+To install and setup this repository, you can simply clone it to the server you are working on.
 
+```
+git config --global user.name "<user name>"
+git config --global user.email "<user email>"
+git config --global http.sslVerify flase
+git clone git@gitlab.bateswhite.com:ts/dataengineering/bw-cs-web-portal.git
+```
+Or
+```
+git clone https://gitlab.bateswhite.com/ts/dataengineering/bw-cs-web-portal.git
+```
+
+## Support
+douglas.post@bateswhite.com
+balaji.lakshmanan@bateswhite.com
+
+## Run 
+Install required packages
+```
+pip install -r requirements.txt
+```
 Run from Localhost:
-
-$ python manage.py runserver
-
+```
+python manage.py runserver
+```
 If you visit http://127.0.0.1:8000/, you should be able to see the website to be tested! 
+
+
+
 
 
