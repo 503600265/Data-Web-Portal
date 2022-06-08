@@ -19,28 +19,28 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User, Group
 
 # Create your views here.
-@login_required
+# @login_required
 def index(request):
-    labeling_list = Labeling.objects.filter(user=request.user).all()
+    jobs_list = Jobs.objects.filter(user=request.user).all()
     context = {
-        'labeling_list': labeling_list
+        'jobs_list': jobs_list
     }
     return render(request, 'tools/index.html', context)
 
-@login_required
-def detail(request, labeling_id):
-    labeling = get_object_or_404(Labeling, pk=labeling_id)
-    return render(request, 'tools/detail.html', {'labeling': labeling})
+# @login_required
+# def detail(request, labeling_id):
+#     labeling = get_object_or_404(Labeling, pk=labeling_id)
+#     return render(request, 'tools/detail.html', {'labeling': labeling})
 
-@login_required
+# @login_required
 def about(request):
     return render(request, 'tools/about.html')
 
-@login_required
+# @login_required
 def upload(request):
-    context = dict( backend_form = LabelingForm())
+    context = dict( backend_form = JobsForm())
     if request.method == 'POST':
-        form = LabelingForm(request.POST, request.FILES)
+        form = JobsForm(request.POST, request.FILES)
         context['posted'] = form.instance
         if form.is_valid():
             obj= form.save(commit=False)
@@ -49,37 +49,37 @@ def upload(request):
             return redirect('/tools')
 
         if not form.is_valid():
-            return render(request=request, template_name="tools/failedsubmit.html")
-    return render(request, 'tools/labelingsubmit.html', context)
+            return render(request=request, template_name="tools/failedupload.html")
+    return render(request, 'tools/upload.html', context)
 
-@login_required
-def edit(request, id):
-    labeling = get_object_or_404(Labeling, id=id)
-    context = dict( backend_form = LabelingForm())
-    if request.method == 'POST':
-        form = LabelingForm(request.POST, request.FILES, instance=labeling)
-        if form.is_valid():
-            labeling.publishDate=timezone.datetime.now()
-            labeling.save()
-            return redirect('/tools')
-    return render(request, 'tools/edit.html', context)
-
-@login_required
-def delete(request, id):
-    # dictionary for initial data with
-    # field names as keys
-    context = dict( backend_form = LabelingForm())
-    obj = get_object_or_404(Labeling, id = id)
+# @login_required
+# def edit(request, id):
+#     labeling = get_object_or_404(Labeling, id=id)
+#     context = dict( backend_form = LabelingForm())
+#     if request.method == 'POST':
+#         form = LabelingForm(request.POST, request.FILES, instance=labeling)
+#         if form.is_valid():
+#             labeling.publishDate=timezone.datetime.now()
+#             labeling.save()
+#             return redirect('/tools')
+#     return render(request, 'tools/edit.html', context)
+#
+# @login_required
+# def delete(request, id):
+#     # dictionary for initial data with
+#     # field names as keys
+#     context = dict( backend_form = LabelingForm())
+#     obj = get_object_or_404(Labeling, id = id)
 
 
     # fetch the object related to passed id
 
 
 
-    if request.method =="POST":
-        # delete object
-        obj.delete()
-        # after deleting redirect to
-        # home page
-        return redirect('/tools')
-    return render(request, "tools/index.html", context)
+    # if request.method =="POST":
+    #     # delete object
+    #     obj.delete()
+    #     # after deleting redirect to
+    #     # home page
+    #     return redirect('/tools')
+    # return render(request, "tools/index.html", context)

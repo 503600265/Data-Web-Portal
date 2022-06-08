@@ -23,7 +23,7 @@ from django.contrib.auth.models import User
 
 
 class Jobs(models.Model):
-    id = models.Column(models.Integer, primary_key=True)
+    id = models.IntegerField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="jobs", null=True)
     task = models.CharField(max_length=50, index=True, unique=False)
     inloc = models.CharField(max_length=120, unique=False)
