@@ -18,19 +18,23 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User, Group
 
 # Create your views here.
-# @login_required
+@login_required
 def jobs(request):
     jobs_list = Jobs.objects.filter().all()
     context = {
         'jobs_list': jobs_list
     }
     return render(request, 'tools/myjobs.html', context)
+    
+@login_required
 def document(request):
     documents_list = Document.objects.filter().all()
     context = {
         'documents_list': documents_list
     }
     return render(request, 'tools/mydocuments.html', context)
+
+@login_required
 def select_tools(request):
     return render(request, 'tools/select_tools.html')
 # @login_required
@@ -42,7 +46,7 @@ def select_tools(request):
 def about(request):
     return render(request, 'tools/about.html')
 
-# @login_required
+@login_required
 def upload(request):
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES)
