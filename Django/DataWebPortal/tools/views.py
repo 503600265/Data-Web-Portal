@@ -12,7 +12,6 @@ from django.template import loader
 
 from .models import Jobs, Activity
 from .forms import JobsForm, ActivityForm
-from cloudinary.forms import cl_init_js_callbacks
 import pandas as pd
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth import login, logout, authenticate
@@ -21,7 +20,7 @@ from django.contrib.auth.models import User, Group
 # Create your views here.
 # @login_required
 def index(request):
-    jobs_list = Jobs.objects.filter(user=request.user).all()
+    jobs_list = Jobs.objects.filter().all()
     context = {
         'jobs_list': jobs_list
     }

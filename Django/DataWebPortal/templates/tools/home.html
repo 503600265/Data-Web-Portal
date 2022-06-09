@@ -1,8 +1,7 @@
 {% extends "base.html" %}
-
 {% block content %}
-
-<div class="hero" style="background-image: url({{url_for('static',filename='images/DataBackground_editted.png')}});">
+{% load static %}
+<div class="hero" style=background-image: url('{% static 'images/DataBackground_editted.png' %}');>
     <div class="hero-inner">
         <h1 class="page-title">BW Data Tools</h1>
     </div>

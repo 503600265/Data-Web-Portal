@@ -24,8 +24,8 @@ from tools import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('allauth.urls')),
-    path('', TemplateView.as_view(template_name="index.html")),
+    # path('accounts/', include('allauth.urls')),
+    path('', TemplateView.as_view(template_name="tools/home.html")),
     path('logout', LogoutView.as_view()),
     path('tools/', include(('tools.urls', 'tools'), namespace='tools')),
 ]

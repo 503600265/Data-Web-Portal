@@ -25,11 +25,11 @@ from django.contrib.auth.models import User
 class Jobs(models.Model):
     id = models.IntegerField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="jobs", null=True)
-    task = models.CharField(max_length=50, index=True, unique=False)
+    task = models.CharField(max_length=50, unique=False)
     inloc = models.CharField(max_length=120, unique=False)
     outloc = models.CharField(max_length=120, unique=False)
     start_time = models.DateTimeField('start time', auto_now_add=True)
-    duration = models.Column(models.Float, unique=False)
+    duration = models.FloatField(unique=False)
     inloc_size = models.IntegerField(unique = False)
 
     def __repr__(self):
@@ -38,7 +38,7 @@ class Jobs(models.Model):
 
 class Activity(models.Model):
     id = models.IntegerField(primary_key=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="jobs", null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="activity", null=True)
     time_in = models.DateTimeField('time in', auto_now_add=True)
     time_out = models.DateTimeField('time out', auto_now=True)
 

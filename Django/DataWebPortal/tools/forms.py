@@ -14,5 +14,5 @@ class ActivityForm(forms.ModelForm):
 
     class Meta:
         model = Activity
-        fields = ('time_in', 'time_out')
+        fields = ()
         exclude = ('user',)
