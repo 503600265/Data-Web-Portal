@@ -1,0 +1,18 @@
+{% load static %}
+{% extends "base.html" %}
+
+{% if jobs_list %}
+
+{% for job in jobs_list %}
+
+
+<center><h2>{{ job.task }}</h2></center>
+
+
+
+{% endfor %}
+
+
+{% else %}
+    <p>No labeling options posted.</p>
+{% endif %}

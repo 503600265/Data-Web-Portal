@@ -26,6 +26,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path('accounts/', include('allauth.urls')),
     path('', TemplateView.as_view(template_name="tools/home.html")),
+    path('about/', views.about, name='about'),
     path('logout', LogoutView.as_view()),
     path('tools/', include(('tools.urls', 'tools'), namespace='tools')),
+    path('myjobs/', views.jobs, name='myjobs'),
+    path('help/', TemplateView.as_view(template_name="tools/help.html")),
+
+
 ]

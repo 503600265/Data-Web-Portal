@@ -19,13 +19,15 @@ from django.contrib.auth.models import User, Group
 
 # Create your views here.
 # @login_required
-def index(request):
+def jobs(request):
     jobs_list = Jobs.objects.filter().all()
     context = {
         'jobs_list': jobs_list
     }
-    return render(request, 'tools/index.html', context)
+    return render(request, 'tools/myjobs.html', context)
 
+def select_tools(request):
+    return render(request, 'tools/select_tools.html')
 # @login_required
 # def detail(request, labeling_id):
 #     labeling = get_object_or_404(Labeling, pk=labeling_id)
