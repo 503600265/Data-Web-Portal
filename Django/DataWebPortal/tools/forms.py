@@ -16,3 +16,8 @@ class ActivityForm(forms.ModelForm):
         model = Activity
         fields = ()
         exclude = ('user',)
+
+class DocumentForm(forms.ModelForm):
+    class Meta:
+        model = Document
+        fields = ('description', 'document', )

@@ -11,7 +11,7 @@ from django.contrib import messages
 from django.template import loader
 
 from .models import Jobs, Activity
-from .forms import JobsForm, ActivityForm
+from .forms import *
 import pandas as pd
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth import login, logout, authenticate
@@ -25,7 +25,12 @@ def jobs(request):
         'jobs_list': jobs_list
     }
     return render(request, 'tools/myjobs.html', context)
-
+def document(request):
+    documents_list = Document.objects.filter().all()
+    context = {
+        'documents_list': documents_list
+    }
+    return render(request, 'tools/mydocuments.html', context)
 def select_tools(request):
     return render(request, 'tools/select_tools.html')
 # @login_required
@@ -39,19 +44,16 @@ def about(request):
 
 # @login_required
 def upload(request):
-    context = dict( backend_form = JobsForm())
     if request.method == 'POST':
-        form = JobsForm(request.POST, request.FILES)
-        context['posted'] = form.instance
+        form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
-            obj= form.save(commit=False)
-            obj.user = request.user
-            obj.save()
-            return redirect('/tools')
-
-        if not form.is_valid():
-            return render(request=request, template_name="tools/failedupload.html")
-    return render(request, 'tools/upload.html', context)
+            form.save()
+            return redirect('/')
+    else:
+        form = DocumentForm()
+    return render(request, 'tools/upload.html', {
+        'form': form
+    })
 
 # @login_required
 # def edit(request, id):

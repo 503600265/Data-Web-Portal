@@ -30,7 +30,9 @@ urlpatterns = [
     path('logout', LogoutView.as_view()),
     path('tools/', include(('tools.urls', 'tools'), namespace='tools')),
     path('myjobs/', views.jobs, name='myjobs'),
+    path('mydocuments/', views.document, name='mydocuments'),
     path('help/', TemplateView.as_view(template_name="tools/help.html")),
 
 
 ]
+urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

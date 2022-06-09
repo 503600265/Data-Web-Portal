@@ -1,13 +1,11 @@
-{% extends "base.html" %}
+
 
 {% block content %}
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload</button>
+  </form>
 
-<div id='uploadForm'>
-	<form method="POST" enctype="multipart/form-data">
-		{{ form.hidden_tag() }}
-		{{ form.file }}
-		<input type="submit">
-	</form>
-</div>
-
+  <p><a href="/">Return to home</a></p>
 {% endblock %}

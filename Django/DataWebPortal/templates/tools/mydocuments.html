@@ -1,0 +1,19 @@
+
+
+{% block content %}
+{% if documents_list %}
+
+{% for document in documents_list %}
+
+
+<center><h2><a href="{{document.document.url}}" download>{{ document.document }}</h2></a></center>
+
+
+
+{% endfor %}
+
+
+{% else %}
+    <p>No documents uploaded.</p>
+{% endif %}
+{% endblock %}
