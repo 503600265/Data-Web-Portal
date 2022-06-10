@@ -1,7 +1,0 @@
-This is a text file
-It has multiple lines
-of
-text
-in a really weird format
-whoop
-whoop

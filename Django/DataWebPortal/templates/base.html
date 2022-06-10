@@ -49,29 +49,34 @@
                         <li><a href="/about"><span>About</span></a></li>
                         <li><a href="/tools"><span>Select Tool</span></a></li>
                         <li><a href="/help"><span>Contact & Help</span></a></li>
+                        {% if user.is_authenticated %}
+                        <li>
+                          <div class="nav-item dropdown">
+                            <a class="btn btn-secondary btn-sm dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ user.username }}</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown01">
+                              <center><a href="/mydocuments" style="text-decoration:none;">My Documents</a></center>
+                              <center><a href="/logout" style="text-decoration:none;">Logout</a></center>
+                            </div>
+                          </div>
+                        </li>
+                        {% else %}
+                        <li>
+                          <div class="row">
+                            <div class="col-md-3">
+                              <a class="btn btn-outline-dark" href="{% provider_login_url 'google' %}" role="button" style="text-transform:none">
+                                <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+                                Login with Google
+                              </a>
+                            </div>
+                          </div>
+                        </li>
+                        {% endif %}
                     </ul>
+
                 </nav>
-            </div>
-            {% if user.is_authenticated %}
 
-            <div class="nav-item dropdown">
-              <a class="btn btn-secondary btn-sm dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ user.username }}</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown01">
-                <center><a href="/logout" style="text-decoration:none;">Logout</a></center>
-                <center><a href="/mydocuments" style="text-decoration:none;">My Documents</a></center>
-              </div>
             </div>
 
-            {% else %}
-            <div class="row">
-              <div class="col-md-3">
-                <a class="btn btn-outline-dark" href="{% provider_login_url 'google' %}" role="button" style="text-transform:none">
-                  <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
-                  Login with Google
-                </a>
-              </div>
-            </div>
-            {% endif %}
             <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;">
                 <a href="#" class="site-menu-toggle js-menu-toggle text-white">
                     <span class="icon-menu h3"></span>
@@ -80,6 +85,7 @@
         </div>
     </div>
     </div>
+
 </header>
 
 {% block content %}{% endblock %}

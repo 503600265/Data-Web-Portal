@@ -1,3 +1,0 @@
-Name,Country,Occupation
-Rachel,Liberia,Pilot
-Victoria,Portugal,Accountant
