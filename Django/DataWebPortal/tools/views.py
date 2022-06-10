@@ -20,15 +20,15 @@ from django.contrib.auth.models import User, Group
 # Create your views here.
 @login_required
 def jobs(request):
-    jobs_list = Jobs.objects.filter().all()
+    jobs_list = Jobs.objects.filter(user=request.user).all()
     context = {
         'jobs_list': jobs_list
     }
     return render(request, 'tools/myjobs.html', context)
-    
+
 @login_required
 def document(request):
-    documents_list = Document.objects.filter().all()
+    documents_list = Document.objects.filter(user=request.user).all()
     context = {
         'documents_list': documents_list
     }
@@ -51,8 +51,12 @@ def upload(request):
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            obj= form.save(commit=False)
+            obj.user = request.user
+            obj.save()
             return redirect('/')
+        if not form.is_valid():
+            return render(request=request, template_name="tools/failedupload.html")
     else:
         form = DocumentForm()
     return render(request, 'tools/upload.html', {
