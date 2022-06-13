@@ -18,7 +18,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User, Group
 import sys
 sys.path.insert(0, 'H:\Gitlab Repo\bw-cs-web-portal\Django\DataWebPortal\tools\data_processes')
-from convert_data impport *
+from .data_processes.convert_data import *
 # Create your views here.
 @login_required
 def jobs(request):
