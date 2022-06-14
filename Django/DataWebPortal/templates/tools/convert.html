@@ -1,6 +1,166 @@
 {% extends "base.html" %}
 
 {% block content %}
+<script language="javascript">
+	function fillInputType(){
+addOption(document.drop_list.InputType, "csv", "parquet", "xlsx", "xls", "txt", "json");
+}
+function SelectOutputType(){
+removeAllOptions(document.drop_list.OutputType);
+addOption(document.drop_list.OutputType, "", "OutputType", "");
 
-	<h1>Hello!!!!</h1>
+if(document.drop_list.InputType.value == 'csv'){
+addOption(document.drop_list.OutputType,"xlsx", "parquet");
+}
+if(document.drop_list.InputType.value == 'parquet'){
+addOption(document.drop_list.OutputType,"csv");
+}
+if(document.drop_list.InputType.value == 'xlsx'){
+addOption(document.drop_list.OutputType,"parquet");
+}
+if(document.drop_list.InputType.value == 'txt'){
+addOption(document.drop_list.OutputType,"csv", "xlsx");
+}
+if(document.drop_list.InputType.value == 'xls'){
+addOption(document.drop_list.OutputType,"xlsx");
+}
+if(document.drop_list.InputType.value == 'json'){
+addOption(document.drop_list.OutputType,"csv", "xlsx");
+}
+}
+//////////////////
+
+function removeAllOptions(selectbox)
+{
+var i;
+for(i=selectbox.options.length-1;i>=0;i--)
+{
+	//selectbox.options.remove(i);
+	selectbox.remove(i);
+}
+}
+
+
+function addOption(selectbox, value, text )
+{
+var optn = document.createElement("OPTION");
+optn.text = text;
+optn.value = value;
+
+selectbox.options.add(optn);
+}
+///////////////////
+
+function SelectRedirect(){
+// ON selection of Sub InputType  this function will work
+
+//alert( document.drop_list.OutputType.value);
+
+switch(document.drop_list.InputType.value)
+{
+case "csv":
+switch (document.drop_list.OutputType.value){
+	case 'xlsx': window.location="/tools/convert/csv2xlsx"; break;
+	case 'parquet': window.location="/tools/convert/csv2parquet"; break;
+}
+break;
+
+
+
+/// Can be extended to other different selections of OutputTypeegory //////
+
+default:
+window.location="../"; // if no selection matches then redirected to home page
+break;
+
+}// end of switch
+}
+</script>
+
+<div class="page-content-inner">
+  <h1 class="page-title"> Upload Documents </h1>
+  <br>
+
+<body onload="fillInputType();">
+<SELECT id="InputType"NAME="InputType" onChange="SelectOutputType();" >
+	<!-- <option value="csv">csv</option>
+	<option value="parquet">parquet</option>
+	<option value="xlsx">xlsx</option>
+	<option value="txt">txt</option>
+	<option value="xls">xls</option>
+	<option value="json">json</option> -->
+	<Option value="">InputType</option>
+</SELECT>
+<SELECT id="OutputType" NAME="OutputType" onChange="SelectRedirect();">
+	<option value="csv">csv</option>
+	<option value="parquet">parquet</option>
+	<option value="xlsx">xlsx</option>
+	<option value="txt">txt</option>
+	<option value="xls">xls</option>
+	<option value="json">json</option>
+</SELECT>
+<br><br>
+</body>
+
+	<!-- <label for="From">From:</label>
+	<select name="input_type" id="input_type">
+		<option value="csv">csv</option>
+		<option value="parquet">parquet</option>
+		<option value="xlsx">xlsx</option>
+		<option value="txt">txt</option>
+		<option value="xls">xls</option>
+		<option value="json">json</option>
+	</select>
+	<label for="To">To:</label>
+	<select name="output_type" id="output_type">
+		<option value="csv">csv</option>
+		<option value="parquet">parquet</option>
+		<option value="xlsx">xlsx</option>
+		<option value="txt">txt</option>
+		<option value="xls">xls</option>
+		<option value="json">json</option>
+	</select> -->
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+	<!-- <div class="nav-item dropdown">
+		<a class="btn btn-secondary btn-sm dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">type</a>
+		<div class="dropdown-menu" aria-labelledby="dropdown01">
+			<a href="/tools/convert/csv2xlsx" style="text-decoration:none;padding-left: 10px;">xlsx</a>
+			<a href="/tools/convert/csv2parquet" style="text-decoration:none;padding-left: 10px;">parquet</a>
+		</div>
+	</div> -->
+
+  <br><br>
+<!--
+	{% if form.filetype == '.csv' %}
+	<li>
+		<div class="nav-item dropdown">
+			<a class="btn btn-secondary btn-sm dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">type</a>
+			<div class="dropdown-menu" aria-labelledby="dropdown01">
+				<a href="/tools/convert/csv2xlsx" style="text-decoration:none;padding-left: 10px;">xlsx</a>
+				<a href="/tools/convert/csv2parquet" style="text-decoration:none;padding-left: 10px;">parquet</a>
+			</div>
+		</div>
+	</li>
+	{% elif form.filetype == '.txt' %}
+	<li>
+		<div class="nav-item dropdown">
+			<a class="btn btn-secondary btn-sm dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">type</a>
+			<div class="dropdown-menu" aria-labelledby="dropdown01">
+				<a href="/csv2xlsx" style="text-decoration:none;padding-left: 10px;">none</a>
+				<a href="/csv2parquet" style="text-decoration:none;padding-left: 10px;">none</a>
+			</div>
+		</div>
+	</li>
+	{% endif %} -->
+
+
+    <button class="btn btn-primary" type="submit">Convert</button>
+</form>
+
+<br><br>
+<h5><a href="/">Return to home</a></h5>
+</div>
 {% endblock %}

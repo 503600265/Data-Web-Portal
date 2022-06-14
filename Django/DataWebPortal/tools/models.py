@@ -24,9 +24,13 @@ from django.contrib.auth.models import User
 class Document(models.Model):
     description = models.CharField(max_length=255, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="document", null=True)
-    document = models.FileField(upload_to='documents/%Y/%m/%d/')
+    document = models.FileField(upload_to='documents/uploaded/%Y/%m/%d/')
     uploaded_at = models.DateTimeField(auto_now_add=True)
-
+    def file_type(self):
+        name, extension = os.path.splitext(self.document)
+        input_type = file_extension
+        return input_type
+    # def view():
 class Jobs(models.Model):
     id = models.IntegerField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="jobs", null=True)

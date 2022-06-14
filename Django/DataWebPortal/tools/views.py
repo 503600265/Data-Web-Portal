@@ -9,7 +9,7 @@ from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.contrib import messages
 from django.template import loader
-
+from datetime import datetime
 from .models import Jobs, Activity
 from .forms import *
 import pandas as pd
@@ -109,6 +109,7 @@ def about(request):
 #     return render(request, 'tools/upload.html', {
 #         'form': form
 #     })
+
 def upload(request):
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES)
@@ -116,18 +117,63 @@ def upload(request):
             obj= form.save(commit=False)
             obj.user = request.user
             obj.save()
-            file_name, file_extension = os.path.splitext(str(obj.document))
-            convert('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + (file_name + ".xlsx"), output_type = 'xlsx' )
+            return redirect('/')
+        if not form.is_valid():
+            return render(request=request, template_name="tools/failedupload.html")
+    else:
+        form = DocumentForm()
+    return render(request, 'tools/convert.html', {
+        'form': form
+    })
+
+def csv2xlsx(request):
+    if request.method == 'POST':
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            obj= form.save(commit=False)
+            obj.user = request.user
+            obj.save()
+            base = os.path.basename(str(obj.document))
+            file_name = os.path.splitext(base)[0]
+            convert('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/%Y/%m/%d/' + file_name + ".xlsx", output_type = 'xlsx' )
             converted = Document()
             converted.user = request.user
-            print(True)
-            converted.document = file_name + ".xlsx"
+            converted.document = 'documents/converted/%Y/%m/%d/' + file_name + ".xlsx"
             converted.save()
             return redirect('/')
         if not form.is_valid():
             return render(request=request, template_name="tools/failedupload.html")
     else:
         form = DocumentForm()
-    return render(request, 'tools/upload.html', {
+    return render(request, 'tools/convert.html', {
+        'form': form
+    })
+
+def csv2parquet(request):
+    if request.method == 'POST':
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            obj= form.save(commit=False)
+            obj.user = request.user
+            obj.save()
+            base = os.path.basename(str(obj.document))
+            file_name = os.path.splitext(base)[0]
+            currentDay = datetime.datetime.now().day
+            currentMonth = datetime.datetime.now().month
+            currentYear = datetime.datetime.now().year
+            isExist = os.path.exists('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+            if not isExist:
+              os.makedirs('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+            convert('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + ".parquet", output_type = 'parquet' )
+            converted = Document()
+            converted.user = request.user
+            converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + ".parquet"
+            converted.save()
+            return redirect('/')
+        if not form.is_valid():
+            return render(request=request, template_name="tools/failedupload.html")
+    else:
+        form = DocumentForm()
+    return render(request, 'tools/convert.html', {
         'form': form
     })

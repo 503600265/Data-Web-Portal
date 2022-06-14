@@ -8,6 +8,8 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.select_tools, name='select_tools'),
+    path('convert/csv2xlsx', views.csv2xlsx, name='csv2xlsx'),
+    path('convert/csv2parquet', views.csv2parquet, name='csv2parquet'),
     path('convert/', views.upload, name='convert'),
     path('ocr/', views.upload, name='ocr'),
     path('upload/', views.upload, name='upload'),
