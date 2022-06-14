@@ -7,6 +7,7 @@ from pathlib import Path
 import json
 import xmltodict
 from xml2xlsx import xml2xlsx
+import os
 # class File:
 #     def _init_(self, name, type):
 #         self.name = name
@@ -20,7 +21,7 @@ def convert(input_dir, output_dir, output_type):
             csv_to_xlsx(input_dir,output_dir)
         if output_type == 'parquet':
             csv_parquet(input_dir,output_dir)
-    if input_type = ".parquet":
+    if input_type == ".parquet":
         if output_type == 'csv':
             parquet_csv(input_dir,output_dir)
     if input_type == ".xlsx":
@@ -39,7 +40,7 @@ def convert(input_dir, output_dir, output_type):
             json_csv(input_dir,output_dir)
         if output_type == 'xlsx':
             json_xlsx(input_dir,output_dir)
-    if input_type == ".XML":
+    # if input_type == ".XML":
 
 
 #
