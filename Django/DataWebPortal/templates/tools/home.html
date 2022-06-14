@@ -1,9 +1,39 @@
 {% extends "base.html" %}
 {% block content %}
 {% load static %}
-<div class="hero" style=background-image: url('{% static 'images/DataBackground_editted.png' %}');>
-    <div class="hero-inner">
-        <h1 class="page-title">BW Data Tools</h1>
+<div class="hero">
+    <div class="page-content-inner">
+        <h1 class="main-title">Document Applications Portal</h1>
+        <hr style="border: solid 1px lightgray;">
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card w-30 h-10 mt-5 mr-2" style="background-color:rgba(235, 238, 204, 0.15);">
+              <div class="card-body w-30 h-30" style="background-color:rgba(235, 238, 204, 0.15);">
+                <h5 class="card-header" style="background-color:rgb(173, 194, 227);">Upload Document(s)</h5>
+                <br>
+                    <a href="tools/upload" class="btn btn-primary">Start</a>
+              </div>
+            </div>
+          </div>
+        <div class="col-md-3">
+            <div class="card w-30 h-10 mt-5 mr-2" style="background-color:rgba(235, 238, 204, 0.15);">
+              <div class="card-body w-30 h-30" style="background-color:rgba(235, 238, 204, 0.15);">
+                <h5 class="card-header" style="background-color:rgb(173, 194, 227);">Convert Document(s)</h5>
+                <br>
+                <a href="tools/convert" class="btn btn-primary">Start</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card w-30 h-10 mt-5 mr-2" style="background-color:rgba(235, 238, 204, 0.15);">
+              <div class="card-body w-30 h-30" style="background-color:rgba(235, 238, 204, 0.15);">
+                <h5 class="card-header" style="background-color:rgb(173, 194, 227);">OCR Document(s)</h5>
+                <br>
+                <a href="tools/ocr" class="btn btn-primary">Start</a>
+              </div>
+            </div>
+          </div>
     </div>
 </div>
 

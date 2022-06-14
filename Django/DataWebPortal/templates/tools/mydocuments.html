@@ -1,19 +1,27 @@
+{% extends "base.html" %}
 {% block content %}
 {% if documents_list %}
+<div class="page-content-inner">
+    <h1 class="page-title"> My Documents </h1>
+    <br>
+    <table class="user-documents-table">
+        <tr>
+            <th><h5><strong>Filename</strong></h5></th>
+        </tr>
 
 {% for document in documents_list %}
-
-
-<center><h2><a href="{{document.document.url}}" download>{{ document.document }}</h2></a></center>
-
-
-
+        <tr>
+            <td><a href="{{document.document.url}}" download><p class="user-documents-file">{{ document.document }}</p></a></td>
+        </tr>
 {% endfor %}
+</table>
 
 
 {% else %}
-    <p>No documents uploaded.</p>
+<div class="page-content-inner">
+    <h3 class="page-title"> No documents uploaded </h3>
 {% endif %}
-<p><a href="/">Return to home</a></p>
-
+<br><br>
+<h5><a href="/">Return to home</a></h5>
+</div>
 {% endblock %}

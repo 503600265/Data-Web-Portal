@@ -42,32 +42,124 @@ a {
   width: 100%;
   background-size: cover;
   background-position: center center;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  background-color:rgba(228, 211, 255, 0.4)}
 
 .hero-inner {
-  padding-left: 23vw;
-  padding-top: 40vh;
-  padding-right: 45vw;
+  padding-left: 10vw;
+  padding-top: 25vh;
+  padding-right: 20vw;
+}
+
+.house-title {
+  align-content: center;
+}
+
+.page-content-inner {
+  padding-left: 2vw;
+  padding-top: 20vh;
+  padding-right: 2vw;
+  background-color: transparent;
+}
+.main-title {
+  margin-left: 5vw;
+  font-size: 35px;
+  font-weight: bold;
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  text-align: left;
+  color:rgb(0, 12, 122);
+}
+
+.form-top {
+	width: 100%;
+	padding-right: 5vw;
+	padding-left: 5vw;
+	padding-top: 200px;
+}
+
+.upload-for-normal {
+    width: 100%;
+    padding-right: 5vw;
+    padding-left: 5vw;
+    padding-top: 50px;
+}
+
+.inputfolder {
+  /* visibility: hidden etc. wont work */
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.inputfolder:focus + label {
+  /* keyboard navigation */
+  outline: 1px dotted rgb(0,0,0);
+  outline: -webkit-focus-ring-color auto 5px;
+}
+.inputfolder + label * {
+  pointer-events: none;
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+.row {
+  margin-left: 2vw;
+  margin-right: 0vw;
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.user-documents-file {
+  color: rgb(52, 52, 255);
+  text-decoration: underline;
+  font-size: 0.9em;
 }
 
 .page-title {
-  font-size: 70px;
-  font-weight: bold;
-  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  backgroud: transparent;
-  color: #F5C320;
-  text-shadow: -2px 2px 0 #000,
-				  3px 3px 0 #000,
-				 2px -2px 0 #000;
-				-2px -2px 0 #000;
-  text-align: center;
+  margin-bottom: 5vh;
+  color:rgb(0, 12, 122);
+}
+
+table, th, td {
+  border: solid 1px black;
+  border-collapse: collapse;
+}
+
+th {
+  padding: 10px;
+}
+
+td {
+  padding-bottom: 5px;
+  padding-top: 5px;
+  padding-left:8px;
+  padding-right: 8px;
+}
+
+#dropdown01 {
+  background-color:rgb(54, 53, 51);
+  color: beige;
+  border: 1px solid rgb(163, 163, 163);
+}
+
+nav.site-navigation.position-relative.text-right {
+  text-align: left !important;
 }
 
 .site-navbar {
   margin-bottom: 0px;
   z-index: 1999;
   position: fixed;
- /*  background-color: black; */
+ background-color: black;
   padding-top: 2vh !important;
   padding-bottom: 1vh;
   width: 100%; }
@@ -86,9 +178,9 @@ a {
   .site-navbar .site-navigation .site-menu {
     margin-bottom: 0; }
     .site-navbar .site-navigation .site-menu .active > li > a > span {
-      background-color: #1E488A;
-      color: #000;
-      border-radius: 30px;
+      background-color: #003791;
+      color: rgb(223, 223, 223);
+      border-radius: 10px;
       display: inline-block;
       padding: 5px 15px; }
     .site-navbar .site-navigation .site-menu a {
@@ -98,7 +190,7 @@ a {
       display: inline-block; }
       .site-navbar .site-navigation .site-menu > li > a {
         padding: 10px 0px;
-        color: #000;
+        color: rgb(223, 223, 223);
 	font-weight: bold;
         font-size: 22px;
         text-decoration: none !important; }
@@ -110,7 +202,7 @@ a {
           transition: .3s all ease;
           border-radius: 25px; }
         .site-navbar .site-navigation .site-menu > li > a:hover > span {
-          background: #1E488A;
+          background: #003791;
           color: #fff;
           border-radius: 30px;
           display: inline-block; }
@@ -167,9 +259,9 @@ a {
           -webkit-transition: 0s all;
           -o-transition: 0s all;
           transition: 0s all;
-          color: #343a40; }
+          color: rgb(223, 223, 223); }
         .site-navbar .site-navigation .site-menu .has-children .dropdown .active > a {
-          color: #1E488A !important; }
+          color: #003791 !important; }
         .site-navbar .site-navigation .site-menu .has-children .dropdown > li {
           list-style: none;
           padding: 0;
@@ -194,9 +286,9 @@ a {
           .site-navbar .site-navigation .site-menu .has-children .dropdown > li.has-children:hover > a, .site-navbar .site-navigation .site-menu .has-children .dropdown > li.has-children:active > a, .site-navbar .site-navigation .site-menu .has-children .dropdown > li.has-children:focus > a {
             background: #fafafb; }
       .site-navbar .site-navigation .site-menu .has-children:hover > a, .site-navbar .site-navigation .site-menu .has-children:focus > a, .site-navbar .site-navigation .site-menu .has-children:active > a {
-        color: #1E488A; }
+        color: rgb(163, 163, 163);; }
         .site-navbar .site-navigation .site-menu .has-children:hover > a span, .site-navbar .site-navigation .site-menu .has-children:focus > a span, .site-navbar .site-navigation .site-menu .has-children:active > a span {
-          background: #1E488A;
+          background: rgb(163, 163, 163);;
           color: #fff; }
       .site-navbar .site-navigation .site-menu .has-children:hover, .site-navbar .site-navigation .site-menu .has-children:focus, .site-navbar .site-navigation .site-menu .has-children:active {
         cursor: pointer; }
@@ -347,51 +439,3 @@ a {
         width: auto; }
         .site-mobile-menu .site-nav-wrap[data-class="social"] > li:first-child a {
           padding-left: 15px !important; }
-
-.form-top {
-	width: 100%;
-	padding-right: 5vw;
-	padding-left: 5vw;
-	padding-top: 200px;
-}
-
-.upload-for-normal {
-    width: 100%;
-    padding-right: 5vw;
-    padding-left: 5vw;
-    padding-top: 50px;
-}
-
-.inputfolder {
-  /* visibility: hidden etc. wont work */
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-}
-.inputfolder:focus + label {
-  /* keyboard navigation */
-  outline: 1px dotted #000;
-  outline: -webkit-focus-ring-color auto 5px;
-}
-.inputfolder + label * {
-  pointer-events: none;
-}
-
-.column {
-  float: left;
-  width: 50%;
-}
-
-.row{
-    margin-left: 5vw;
-    margin-right: 5vw;
-}
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}

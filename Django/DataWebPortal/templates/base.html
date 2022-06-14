@@ -47,15 +47,15 @@
                     <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
                         <li><a href="/"><span>Home</span></a></li>
                         <li><a href="/about"><span>About</span></a></li>
-                        <li><a href="/tools"><span>Select Tool</span></a></li>
+                        <li><a href="/tools"><span>Tools</span></a></li>
                         <li><a href="/help"><span>Contact & Help</span></a></li>
                         {% if user.is_authenticated %}
                         <li>
                           <div class="nav-item dropdown">
                             <a class="btn btn-secondary btn-sm dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ user.username }}</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown01">
-                              <center><a href="/mydocuments" style="text-decoration:none;">My Documents</a></center>
-                              <center><a href="/logout" style="text-decoration:none;">Logout</a></center>
+                              <a href="/mydocuments" style="text-decoration:none;padding-left: 10px;">My Documents</a>
+                              <a href="/logout" style="text-decoration:none;padding-left: 10px;">Logout</a>
                             </div>
                           </div>
                         </li>
@@ -63,7 +63,7 @@
                         <li>
                           <div class="row">
                             <div class="col-md-3">
-                              <a class="btn btn-outline-dark" href="{% provider_login_url 'google' %}" role="button" style="text-transform:none">
+                              <a class="btn btn-outline-light" href="{% provider_login_url 'google' %}" role="button" style="text-transform:none">
                                 <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
                                 Login with Google
                               </a>
