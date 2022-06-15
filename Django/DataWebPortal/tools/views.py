@@ -135,10 +135,17 @@ def csv2xlsx(request):
             obj.save()
             base = os.path.basename(str(obj.document))
             file_name = os.path.splitext(base)[0]
-            convert('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/%Y/%m/%d/' + file_name + ".xlsx", output_type = 'xlsx' )
+            convert_type = 'xlsx'
+            currentDay = datetime.datetime.now().day
+            currentMonth = datetime.datetime.now().month
+            currentYear = datetime.datetime.now().year
+            isExist = os.path.exists('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+            if not isExist:
+              os.makedirs('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+            convert('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
             converted = Document()
             converted.user = request.user
-            converted.document = 'documents/converted/%Y/%m/%d/' + file_name + ".xlsx"
+            converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
             converted.save()
             return redirect('/')
         if not form.is_valid():
@@ -158,16 +165,227 @@ def csv2parquet(request):
             obj.save()
             base = os.path.basename(str(obj.document))
             file_name = os.path.splitext(base)[0]
+            convert_type = 'parquet'
             currentDay = datetime.datetime.now().day
             currentMonth = datetime.datetime.now().month
             currentYear = datetime.datetime.now().year
             isExist = os.path.exists('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
             if not isExist:
               os.makedirs('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-            convert('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + ".parquet", output_type = 'parquet' )
+            convert('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
             converted = Document()
             converted.user = request.user
-            converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + ".parquet"
+            converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
+            converted.save()
+            return redirect('/')
+        if not form.is_valid():
+            return render(request=request, template_name="tools/failedupload.html")
+    else:
+        form = DocumentForm()
+    return render(request, 'tools/convert.html', {
+        'form': form
+    })
+
+def parquet2csv(request):
+    if request.method == 'POST':
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            obj= form.save(commit=False)
+            obj.user = request.user
+            obj.save()
+            base = os.path.basename(str(obj.document))
+            file_name = os.path.splitext(base)[0]
+            convert_type = 'csv'
+            currentDay = datetime.datetime.now().day
+            currentMonth = datetime.datetime.now().month
+            currentYear = datetime.datetime.now().year
+            isExist = os.path.exists('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+            if not isExist:
+              os.makedirs('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+            convert('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
+            converted = Document()
+            converted.user = request.user
+            converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
+            converted.save()
+            return redirect('/')
+        if not form.is_valid():
+            return render(request=request, template_name="tools/failedupload.html")
+    else:
+        form = DocumentForm()
+    return render(request, 'tools/convert.html', {
+        'form': form
+    })
+
+def xlsx2parquet(request):
+    if request.method == 'POST':
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            obj= form.save(commit=False)
+            obj.user = request.user
+            obj.save()
+            base = os.path.basename(str(obj.document))
+            file_name = os.path.splitext(base)[0]
+            convert_type = 'parquet'
+            currentDay = datetime.datetime.now().day
+            currentMonth = datetime.datetime.now().month
+            currentYear = datetime.datetime.now().year
+            isExist = os.path.exists('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+            if not isExist:
+              os.makedirs('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+            convert('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
+            converted = Document()
+            converted.user = request.user
+            converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
+            converted.save()
+            return redirect('/')
+        if not form.is_valid():
+            return render(request=request, template_name="tools/failedupload.html")
+    else:
+        form = DocumentForm()
+    return render(request, 'tools/convert.html', {
+        'form': form
+    })
+
+def txt2csv(request):
+    if request.method == 'POST':
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            obj= form.save(commit=False)
+            obj.user = request.user
+            obj.save()
+            base = os.path.basename(str(obj.document))
+            file_name = os.path.splitext(base)[0]
+            convert_type = 'csv'
+            currentDay = datetime.datetime.now().day
+            currentMonth = datetime.datetime.now().month
+            currentYear = datetime.datetime.now().year
+            isExist = os.path.exists('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+            if not isExist:
+              os.makedirs('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+            convert('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
+            converted = Document()
+            converted.user = request.user
+            converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
+            converted.save()
+            return redirect('/')
+        if not form.is_valid():
+            return render(request=request, template_name="tools/failedupload.html")
+    else:
+        form = DocumentForm()
+    return render(request, 'tools/convert.html', {
+        'form': form
+    })
+
+def txt2xlsx(request):
+    if request.method == 'POST':
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            obj= form.save(commit=False)
+            obj.user = request.user
+            obj.save()
+            base = os.path.basename(str(obj.document))
+            file_name = os.path.splitext(base)[0]
+            convert_type = 'xlsx'
+            currentDay = datetime.datetime.now().day
+            currentMonth = datetime.datetime.now().month
+            currentYear = datetime.datetime.now().year
+            isExist = os.path.exists('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+            if not isExist:
+              os.makedirs('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+            convert('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
+            converted = Document()
+            converted.user = request.user
+            converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
+            converted.save()
+            return redirect('/')
+        if not form.is_valid():
+            return render(request=request, template_name="tools/failedupload.html")
+    else:
+        form = DocumentForm()
+    return render(request, 'tools/convert.html', {
+        'form': form
+    })
+
+def xls2xlsx(request):
+    if request.method == 'POST':
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            obj= form.save(commit=False)
+            obj.user = request.user
+            obj.save()
+            base = os.path.basename(str(obj.document))
+            file_name = os.path.splitext(base)[0]
+            convert_type = 'xlsx'
+            currentDay = datetime.datetime.now().day
+            currentMonth = datetime.datetime.now().month
+            currentYear = datetime.datetime.now().year
+            isExist = os.path.exists('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+            if not isExist:
+              os.makedirs('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+            convert('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
+            converted = Document()
+            converted.user = request.user
+            converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
+            converted.save()
+            return redirect('/')
+        if not form.is_valid():
+            return render(request=request, template_name="tools/failedupload.html")
+    else:
+        form = DocumentForm()
+    return render(request, 'tools/convert.html', {
+        'form': form
+    })
+
+def json2csv(request):
+    if request.method == 'POST':
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            obj= form.save(commit=False)
+            obj.user = request.user
+            obj.save()
+            base = os.path.basename(str(obj.document))
+            file_name = os.path.splitext(base)[0]
+            convert_type = 'csv'
+            currentDay = datetime.datetime.now().day
+            currentMonth = datetime.datetime.now().month
+            currentYear = datetime.datetime.now().year
+            isExist = os.path.exists('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+            if not isExist:
+              os.makedirs('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+            convert('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
+            converted = Document()
+            converted.user = request.user
+            converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
+            converted.save()
+            return redirect('/')
+        if not form.is_valid():
+            return render(request=request, template_name="tools/failedupload.html")
+    else:
+        form = DocumentForm()
+    return render(request, 'tools/convert.html', {
+        'form': form
+    })
+
+def json2xlsx(request):
+    if request.method == 'POST':
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            obj= form.save(commit=False)
+            obj.user = request.user
+            obj.save()
+            base = os.path.basename(str(obj.document))
+            file_name = os.path.splitext(base)[0]
+            convert_type = 'xlsx'
+            currentDay = datetime.datetime.now().day
+            currentMonth = datetime.datetime.now().month
+            currentYear = datetime.datetime.now().year
+            isExist = os.path.exists('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+            if not isExist:
+              os.makedirs('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+            convert('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
+            converted = Document()
+            converted.user = request.user
+            converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
             converted.save()
             return redirect('/')
         if not form.is_valid():

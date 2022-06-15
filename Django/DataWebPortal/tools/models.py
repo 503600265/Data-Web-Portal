@@ -3,7 +3,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib import admin
 from django.contrib.auth.models import User
-
+import os
 # class Users(models.Model):
 #     def set_password(self, password):
 #         self.password_hash = generate_password_hash(password)
@@ -27,10 +27,15 @@ class Document(models.Model):
     document = models.FileField(upload_to='documents/uploaded/%Y/%m/%d/')
     uploaded_at = models.DateTimeField(auto_now_add=True)
     def file_type(self):
-        name, extension = os.path.splitext(self.document)
+        name, extension = os.path.splitext(str(self.document))
         input_type = file_extension
         return input_type
-    # def view():
+    def is_uploaded(self):
+        path = os.path.normpath(str(self.document))
+        path_list = path.split(os.sep)
+        if 'uploaded' in path_list:
+            return True
+
 class Jobs(models.Model):
     id = models.IntegerField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="jobs", null=True)

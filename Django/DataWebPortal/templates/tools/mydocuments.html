@@ -4,18 +4,37 @@
 <div class="page-content-inner">
     <h1 class="page-title"> My Documents </h1>
     <br>
-    <table class="user-documents-table">
+    <table style="float: left;" class="user-documents-table">
         <tr>
-            <th><h5><strong>Filename</strong></h5></th>
+            <th><h5><strong>Uploaded</strong></h5></th>
         </tr>
 
 {% for document in documents_list %}
+    {% if document.is_uploaded %}
         <tr>
             <td><a href="{{document.document.url}}" download><p class="user-documents-file">{{ document.document }}</p></a></td>
         </tr>
+    {% else %}
+
+    {% endif %}
 {% endfor %}
 </table>
 
+<table class="user-documents-table">
+    <tr>
+        <th><h5><strong>Converted</strong></h5></th>
+    </tr>
+
+{% for document in documents_list %}
+{% if document.is_uploaded %}
+
+{% else %}
+    <tr>
+        <td><a href="{{document.document.url}}" download><p class="user-documents-file">{{ document.document }} </p></a></td>
+    </tr>
+{% endif %}
+{% endfor %}
+</table>
 
 {% else %}
 <div class="page-content-inner">
