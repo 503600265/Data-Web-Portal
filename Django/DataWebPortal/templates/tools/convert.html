@@ -241,11 +241,11 @@ break;
 
 <form method="post" enctype="multipart/form-data">
   {% csrf_token %}
+	<!-- <input name="uploadFile" id="uploadFile" type="file" />
+
+	<input type="submit" /> -->
   {{ form.as_p }}
-
-  <br><br>
-
-    <button class="btn btn-primary" type="submit">Convert</button>
+  <button class="btn btn-primary" type="submit">Convert</button>
 </form>
 
 <br><br>

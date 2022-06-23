@@ -20,6 +20,8 @@ import os
 import sys
 sys.path.insert(0, 'H:\Gitlab Repo\bw-cs-web-portal\Django\DataWebPortal\tools\data_processes')
 from .data_processes.convert_data import *
+from .data_processes.ocr_docs import *
+
 # Create your views here.
 @login_required
 def jobs(request):
@@ -57,7 +59,7 @@ def about(request):
 #             obj= form.save(commit=False)
 #             obj.user = request.user
 #             obj.save()
-#             return redirect('/')
+#             return redirect('/mydocuments')
 #         if not form.is_valid():
 #             return render(request=request, template_name="tools/failedupload.html")
 #     else:
@@ -101,7 +103,7 @@ def about(request):
 #             converted = Document()
 #             converted.user = request.user
 #             converted.document = file_name + ".xlsx"
-#             return redirect('/')
+#             return redirect('/mydocuments')
 #         if not form.is_valid():
 #             return render(request=request, template_name="tools/failedupload.html")
 #     else:
@@ -117,7 +119,23 @@ def upload(request):
             obj= form.save(commit=False)
             obj.user = request.user
             obj.save()
-            return redirect('/')
+            return redirect('/mydocuments')
+        if not form.is_valid():
+            return render(request=request, template_name="tools/failedupload.html")
+    else:
+        form = DocumentForm()
+    return render(request, 'tools/upload.html', {
+        'form': form
+    })
+
+def converts(request):
+    if request.method == 'POST':
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            obj= form.save(commit=False)
+            obj.user = request.user
+            obj.save()
+            return redirect('/mydocuments')
         if not form.is_valid():
             return render(request=request, template_name="tools/failedupload.html")
     else:
@@ -147,7 +165,7 @@ def csv2xlsx(request):
             converted.user = request.user
             converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
             converted.save()
-            return redirect('/')
+            return redirect('/mydocuments')
         if not form.is_valid():
             return render(request=request, template_name="tools/failedupload.html")
     else:
@@ -177,7 +195,7 @@ def csv2parquet(request):
             converted.user = request.user
             converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
             converted.save()
-            return redirect('/')
+            return redirect('/mydocuments')
         if not form.is_valid():
             return render(request=request, template_name="tools/failedupload.html")
     else:
@@ -207,7 +225,7 @@ def parquet2csv(request):
             converted.user = request.user
             converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
             converted.save()
-            return redirect('/')
+            return redirect('/mydocuments')
         if not form.is_valid():
             return render(request=request, template_name="tools/failedupload.html")
     else:
@@ -237,7 +255,7 @@ def xlsx2parquet(request):
             converted.user = request.user
             converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
             converted.save()
-            return redirect('/')
+            return redirect('/mydocuments')
         if not form.is_valid():
             return render(request=request, template_name="tools/failedupload.html")
     else:
@@ -267,7 +285,7 @@ def txt2csv(request):
             converted.user = request.user
             converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
             converted.save()
-            return redirect('/')
+            return redirect('/mydocuments')
         if not form.is_valid():
             return render(request=request, template_name="tools/failedupload.html")
     else:
@@ -297,7 +315,7 @@ def txt2xlsx(request):
             converted.user = request.user
             converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
             converted.save()
-            return redirect('/')
+            return redirect('/mydocuments')
         if not form.is_valid():
             return render(request=request, template_name="tools/failedupload.html")
     else:
@@ -327,7 +345,7 @@ def xls2xlsx(request):
             converted.user = request.user
             converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
             converted.save()
-            return redirect('/')
+            return redirect('/mydocuments')
         if not form.is_valid():
             return render(request=request, template_name="tools/failedupload.html")
     else:
@@ -357,7 +375,7 @@ def json2csv(request):
             converted.user = request.user
             converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
             converted.save()
-            return redirect('/')
+            return redirect('/mydocuments')
         if not form.is_valid():
             return render(request=request, template_name="tools/failedupload.html")
     else:
@@ -387,11 +405,42 @@ def json2xlsx(request):
             converted.user = request.user
             converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
             converted.save()
-            return redirect('/')
+            return redirect('/mydocuments')
         if not form.is_valid():
             return render(request=request, template_name="tools/failedupload.html")
     else:
         form = DocumentForm()
     return render(request, 'tools/convert.html', {
+        'form': form
+    })
+
+def ocr(request):
+    output_format = request.POST.get('output', False)
+    print(output_format)
+    if request.method == 'POST':
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            obj= form.save(commit=False)
+            obj.user = request.user
+            obj.save()
+            base = os.path.basename(str(obj.document))
+            file_name = os.path.splitext(base)[0]
+            currentDay = datetime.datetime.now().day
+            currentMonth = datetime.datetime.now().month
+            currentYear = datetime.datetime.now().year
+            isExist = os.path.exists('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+            if not isExist:
+                 os.makedirs('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+            ocr_file('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ output_format, output_format )
+            ocred = Document()
+            ocred.user = request.user
+            ocred.document = 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + output_format
+            ocred.save()
+            return redirect('/mydocuments')
+        if not form.is_valid():
+            return render(request=request, template_name="tools/failedupload.html")
+    else:
+        form = DocumentForm()
+    return render(request, 'tools/ocr.html', {
         'form': form
     })

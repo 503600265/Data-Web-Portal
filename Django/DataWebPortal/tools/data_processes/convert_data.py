@@ -25,7 +25,7 @@ def convert(input_dir, output_dir, output_type):
         if output_type == 'csv':
             parquet_csv(input_dir,output_dir)
     if input_type == ".xlsx":
-        if out_type == 'parquet':
+        if output_type == 'parquet':
             xlsx_parquet(input_dir,output_dir)
     if input_type == ".txt":
         if output_type == 'csv':

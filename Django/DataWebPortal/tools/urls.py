@@ -17,8 +17,8 @@ urlpatterns = [
     path('convert/xls2xlsx', views.xls2xlsx, name='xls2xlsx'),
     path('convert/json2csv', views.json2csv, name='json2csv'),
     path('convert/json2xlsx', views.json2xlsx, name='json2xlsx'),
-    path('convert/', views.upload, name='convert'),
-    path('ocr/', views.upload, name='ocr'),
+    path('convert/', views.converts, name='converts'),
+    path('ocr/', views.ocr, name='ocr'),
     path('upload/', views.upload, name='upload'),
 
 

@@ -1,7 +1,30 @@
 {% extends "base.html" %}
-
 {% block content %}
 
+<br><br>
+<br><br>
+<br><br>
 
-	<h1>Hello!!!!</h1>
+
+
+<form method="post" enctype="multipart/form-data">
+	To: <select name="output" id="output">
+	    <option value="" selected="selected">Select Output Format</option>
+			<option value="pdf">pdf</option>
+			<option value="hocr">hocr</option>
+			<option value="txt">txt</option>
+			<option value="xml">xml</option>
+	  </select>
+	  <br><br>
+  {% csrf_token %}
+	<!-- <input name="uploadFile" id="uploadFile" type="file" />
+
+	<input type="submit" /> -->
+  {{ form.as_p }}
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+
+<br><br>
+<h5><a href="/">Return to home</a></h5>
+</div>
 {% endblock %}
