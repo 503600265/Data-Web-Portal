@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alto xmlns="http://www.loc.gov/standards/alto/ns-v3#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/standards/alto/ns-v3# http://www.loc.gov/alto/v3/alto-3-0.xsd">
+	<Description>
+		<MeasurementUnit>pixel</MeasurementUnit>
+		<sourceImageInformation>
+			<fileName>C:\Users\jxu\AppData\Local\Temp\2\tess_headetiz.PNG</fileName>
+		</sourceImageInformation>
+		<OCRProcessing ID="OCR_0">
+			<ocrProcessingStep>
+				<processingSoftware>
+					<softwareName>tesseract v5.1.0.20220510</softwareName>
+				</processingSoftware>
+			</ocrProcessingStep>
+		</OCRProcessing>
+	</Description>
+	<Layout>
+		<Page WIDTH="262" HEIGHT="173" PHYSICAL_IMG_NR="0" ID="page_0">
+			<PrintSpace HPOS="0" VPOS="0" WIDTH="262" HEIGHT="173">
+				<ComposedBlock ID="cblock_0" HPOS="30" VPOS="27" WIDTH="79" HEIGHT="93">
+					<TextBlock ID="block_0" HPOS="30" VPOS="27" WIDTH="79" HEIGHT="93">
+						<TextLine ID="line_0" HPOS="30" VPOS="27" WIDTH="79" HEIGHT="9">
+							<String ID="string_0" HPOS="30" VPOS="27" WIDTH="49" HEIGHT="9" WC="0.81" CONTENT="‘customer"/><SP WIDTH="3" VPOS="27" HPOS="79"/>
+							<String ID="string_1" HPOS="82" VPOS="29" WIDTH="27" HEIGHT="7" WC="0.93" CONTENT="name"/>
+						</TextLine>
+						<TextLine ID="line_1" HPOS="54" VPOS="55" WIDTH="34" HEIGHT="10">
+							<String ID="string_2" HPOS="54" VPOS="55" WIDTH="34" HEIGHT="10" WC="0.94" CONTENT="Project"/>
+						</TextLine>
+						<TextLine ID="line_2" HPOS="47" VPOS="83" WIDTH="50" HEIGHT="8">
+							<String ID="string_3" HPOS="47" VPOS="83" WIDTH="34" HEIGHT="8" WC="0.60" CONTENT="Involee"/><SP WIDTH="4" VPOS="83" HPOS="81"/>
+							<String ID="string_4" HPOS="85" VPOS="85" WIDTH="12" HEIGHT="6" WC="0.94" CONTENT="no"/>
+						</TextLine>
+						<TextLine ID="line_3" HPOS="57" VPOS="111" WIDTH="28" HEIGHT="9">
+							<String ID="string_5" HPOS="57" VPOS="111" WIDTH="28" HEIGHT="9" WC="0.88" CONTENT="Dated"/>
+						</TextLine>
+					</TextBlock>
+				</ComposedBlock>
+				<ComposedBlock ID="cblock_1" HPOS="130" VPOS="27" WIDTH="111" HEIGHT="92">
+					<TextBlock ID="block_1" HPOS="130" VPOS="27" WIDTH="111" HEIGHT="92">
+						<TextLine ID="line_4" HPOS="130" VPOS="27" WIDTH="111" HEIGHT="10">
+							<String ID="string_6" HPOS="130" VPOS="27" WIDTH="35" HEIGHT="7" WC="0.27" CONTENT="Hallium"/><SP WIDTH="4" VPOS="27" HPOS="165"/>
+							<String ID="string_7" HPOS="169" VPOS="27" WIDTH="32" HEIGHT="10" WC="0.93" CONTENT="Energy"/><SP WIDTH="3" VPOS="27" HPOS="201"/>
+							<String ID="string_8" HPOS="204" VPOS="27" WIDTH="37" HEIGHT="8" WC="0.73" CONTENT="services"/>
+						</TextLine>
+						<TextLine ID="line_5" HPOS="144" VPOS="54" WIDTH="81" HEIGHT="10">
+							<String ID="string_9" HPOS="144" VPOS="54" WIDTH="81" HEIGHT="10" WC="0.48" CONTENT="NEHINS-HIB-HSA"/>
+						</TextLine>
+						<TextLine ID="line_6" HPOS="161" VPOS="84" WIDTH="46" HEIGHT="8">
+							<String ID="string_10" HPOS="161" VPOS="84" WIDTH="46" HEIGHT="8" WC="0.75" CONTENT="43876324"/>
+						</TextLine>
+						<TextLine ID="line_7" HPOS="151" VPOS="111" WIDTH="67" HEIGHT="8">
+							<String ID="string_11" HPOS="151" VPOS="111" WIDTH="19" HEIGHT="8" WC="0.82" CONTENT="17th"/><SP WIDTH="4" VPOS="111" HPOS="170"/>
+							<String ID="string_12" HPOS="174" VPOS="111" WIDTH="19" HEIGHT="8" WC="0.51" CONTENT="Nov"/><SP WIDTH="3" VPOS="111" HPOS="193"/>
+							<String ID="string_13" HPOS="196" VPOS="111" WIDTH="22" HEIGHT="8" WC="0.51" CONTENT="2018"/>
+						</TextLine>
+					</TextBlock>
+				</ComposedBlock>
+				<ComposedBlock ID="cblock_2" HPOS="160" VPOS="139" WIDTH="46" HEIGHT="8">
+					<TextBlock ID="block_2" HPOS="160" VPOS="139" WIDTH="46" HEIGHT="8">
+						<TextLine ID="line_8" HPOS="160" VPOS="139" WIDTH="46" HEIGHT="8">
+							<String ID="string_14" HPOS="160" VPOS="139" WIDTH="46" HEIGHT="8" WC="0.61" CONTENT="76486234"/>
+						</TextLine>
+					</TextBlock>
+				</ComposedBlock>
+			</PrintSpace>
+		</Page>
+	</Layout>
+</alto>
