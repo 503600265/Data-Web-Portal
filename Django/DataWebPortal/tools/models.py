@@ -35,6 +35,16 @@ class Document(models.Model):
         path_list = path.split(os.sep)
         if 'uploaded' in path_list:
             return True
+    def is_converted(self):
+        path = os.path.normpath(str(self.document))
+        path_list = path.split(os.sep)
+        if 'converted' in path_list:
+            return True
+    def is_ocred(self):
+        path = os.path.normpath(str(self.document))
+        path_list = path.split(os.sep)
+        if 'ocred' in path_list:
+            return True
 
 class Jobs(models.Model):
     id = models.IntegerField(primary_key=True)

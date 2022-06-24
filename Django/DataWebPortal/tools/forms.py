@@ -1,3 +1,4 @@
+from django.forms import ClearableFileInput
 from django import forms
 from .models import *
 from django.contrib.auth.forms import UserCreationForm
@@ -21,6 +22,6 @@ class DocumentForm(forms.ModelForm):
     class Meta:
         model = Document
         fields = ('description', 'document', )
-        # widgets = {
-        #         'media': ClearableFileInput(attrs={'multiple': True})
-        # }
+        widgets = {
+                'document': ClearableFileInput(attrs={'multiple': True})
+        }

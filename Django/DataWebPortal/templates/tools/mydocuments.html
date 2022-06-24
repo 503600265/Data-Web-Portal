@@ -20,18 +20,34 @@
 {% endfor %}
 </table>
 
-<table class="user-documents-table">
+<table width="100" border="1" style="float:left;" class="user-documents-table">
     <tr>
         <th><h5><strong>Converted</strong></h5></th>
     </tr>
 
 {% for document in documents_list %}
-{% if document.is_uploaded %}
-
+{% if document.is_converted %}
+<tr>
+    <td><a href="{{document.document.url}}" download><p class="user-documents-file">{{ document.document }} </p></a></td>
+</tr>
 {% else %}
+
+{% endif %}
+{% endfor %}
+</table>
+
+<table class="user-documents-table">
     <tr>
-        <td><a href="{{document.document.url}}" download><p class="user-documents-file">{{ document.document }} </p></a></td>
+        <th><h5><strong>OCR</strong></h5></th>
     </tr>
+
+{% for document in documents_list %}
+{% if document.is_ocred%}
+<tr>
+    <td><a href="{{document.document.url}}" download><p class="user-documents-file">{{ document.document }} </p></a></td>
+</tr>
+{% else %}
+
 {% endif %}
 {% endfor %}
 </table>

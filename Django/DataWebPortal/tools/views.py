@@ -115,10 +115,14 @@ def about(request):
 def upload(request):
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES)
+        files = request.FILES.getlist('document')
         if form.is_valid():
-            obj= form.save(commit=False)
-            obj.user = request.user
-            obj.save()
+            for f in files:
+                file_instance = Document(document=f, user=request.user)
+                file_instance.save()
+            # obj= form.save(commit=False)
+            # obj.user = request.user
+            # obj.save()
             return redirect('/mydocuments')
         if not form.is_valid():
             return render(request=request, template_name="tools/failedupload.html")
@@ -131,10 +135,11 @@ def upload(request):
 def converts(request):
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES)
+        files = request.FILES.getlist('document')
         if form.is_valid():
-            obj= form.save(commit=False)
-            obj.user = request.user
-            obj.save()
+            for f in files:
+                file_instance = Document(document=f, user=request.user)
+                file_instance.save()
             return redirect('/mydocuments')
         if not form.is_valid():
             return render(request=request, template_name="tools/failedupload.html")
@@ -419,23 +424,24 @@ def ocr(request):
     print(output_format)
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES)
+        files = request.FILES.getlist('document')
         if form.is_valid():
-            obj= form.save(commit=False)
-            obj.user = request.user
-            obj.save()
-            base = os.path.basename(str(obj.document))
-            file_name = os.path.splitext(base)[0]
-            currentDay = datetime.datetime.now().day
-            currentMonth = datetime.datetime.now().month
-            currentYear = datetime.datetime.now().year
-            isExist = os.path.exists('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-            if not isExist:
-                 os.makedirs('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-            ocr_file('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ output_format, output_format )
-            ocred = Document()
-            ocred.user = request.user
-            ocred.document = 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + output_format
-            ocred.save()
+            for f in files:
+                obj = Document(document=f, user=request.user)
+                obj.save()
+                base = os.path.basename(str(obj.document))
+                file_name = os.path.splitext(base)[0]
+                currentDay = datetime.datetime.now().day
+                currentMonth = datetime.datetime.now().month
+                currentYear = datetime.datetime.now().year
+                isExist = os.path.exists('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+                if not isExist:
+                    os.makedirs('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+                ocr_file('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ output_format, output_format )
+                ocred = Document()
+                ocred.user = request.user
+                ocred.document = 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + output_format
+                ocred.save()
             return redirect('/mydocuments')
         if not form.is_valid():
             return render(request=request, template_name="tools/failedupload.html")
