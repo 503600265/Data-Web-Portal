@@ -4,6 +4,8 @@ from django.utils import timezone
 from django.contrib import admin
 from django.contrib.auth.models import User
 import os
+from django.core.exceptions import ValidationError
+
 # class Users(models.Model):
 #     def set_password(self, password):
 #         self.password_hash = generate_password_hash(password)
@@ -24,7 +26,8 @@ import os
 class Document(models.Model):
     description = models.CharField(max_length=255, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="document", null=True)
-    document = models.FileField(upload_to='documents/uploaded/%Y/%m/%d/')
+    document = models.FileField(upload_to='documents/uploaded/%Y/%m/%d/', blank=True, null=True)
+    folder = models.FileField(upload_to='documents/uploaded/%Y/%m/%d/', blank=True, null=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)
     def file_type(self):
         name, extension = os.path.splitext(str(self.document))
@@ -45,7 +48,9 @@ class Document(models.Model):
         path_list = path.split(os.sep)
         if 'ocred' in path_list:
             return True
-
+    def clean(self):
+        if not (self.document or self.folder):
+            raise ValidationError("You must select either file or folder")
 class Jobs(models.Model):
     id = models.IntegerField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="jobs", null=True)

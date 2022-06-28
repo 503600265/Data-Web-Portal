@@ -21,7 +21,8 @@ class ActivityForm(forms.ModelForm):
 class DocumentForm(forms.ModelForm):
     class Meta:
         model = Document
-        fields = ('description', 'document', )
+        fields = ('description', 'document', 'folder' )
         widgets = {
-                'document': ClearableFileInput(attrs={'multiple': True})
+                'document': ClearableFileInput(attrs={'multiple': True, 'accept' : "image/*,.pdf"}),
+                'folder': ClearableFileInput(attrs={'multiple': True,'webkitdirectory': True, 'directory': True, 'accept' : "image/*,.pdf"})
         }

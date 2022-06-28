@@ -5,7 +5,7 @@ from django.views.generic.detail import SingleObjectMixin
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 
-from django.http import Http404, HttpResponse, HttpResponseRedirect
+from django.http import Http404, HttpResponse, HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 from django.contrib import messages
 from django.template import loader
@@ -425,26 +425,52 @@ def ocr(request):
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES)
         files = request.FILES.getlist('document')
+        folder = request.FILES.getlist('folder')
         if form.is_valid():
             for f in files:
-                obj = Document(document=f, user=request.user)
-                obj.save()
-                base = os.path.basename(str(obj.document))
-                file_name = os.path.splitext(base)[0]
-                currentDay = datetime.datetime.now().day
-                currentMonth = datetime.datetime.now().month
-                currentYear = datetime.datetime.now().year
-                isExist = os.path.exists('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-                if not isExist:
-                    os.makedirs('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-                ocr_file('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ output_format, output_format )
-                ocred = Document()
-                ocred.user = request.user
-                ocred.document = 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + output_format
-                ocred.save()
+                # print('this is the file name')
+                print(str(f))
+                # print(type(f))
+                print(str(f).endswith('.jpg'))
+                if str(f).endswith('.jpg') or str(f).endswith('.png') or str(f).endswith('.pdf'):
+                    obj = Document(document=f, user=request.user)
+                    obj.save()
+                    base = os.path.basename(str(obj.document))
+                    file_name = os.path.splitext(base)[0]
+                    currentDay = datetime.datetime.now().day
+                    currentMonth = datetime.datetime.now().month
+                    currentYear = datetime.datetime.now().year
+                    isExist = os.path.exists('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+                    if not isExist:
+                        os.makedirs('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+                    ocr_file('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ output_format, output_format )
+                    ocred = Document()
+                    ocred.user = request.user
+                    ocred.document = 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + output_format
+                    ocred.save()
+            for f in folder:
+                # print('this is the file name')
+                print(str(f))
+                # print(type(f))
+                print(str(f).endswith('.jpg'))
+                if str(f).endswith('.jpg') or str(f).endswith('.png') or str(f).endswith('.pdf'):
+                    obj = Document(document=f, user=request.user)
+                    obj.save()
+                    base = os.path.basename(str(obj.document))
+                    file_name = os.path.splitext(base)[0]
+                    currentDay = datetime.datetime.now().day
+                    currentMonth = datetime.datetime.now().month
+                    currentYear = datetime.datetime.now().year
+                    isExist = os.path.exists('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+                    if not isExist:
+                        os.makedirs('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+                    ocr_file('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ output_format, output_format )
+                    ocred = Document()
+                    ocred.user = request.user
+                    ocred.document = 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + output_format
+                    ocred.save()
+            # return JsonResponse({'data':'Data uploaded'})
             return redirect('/mydocuments')
-        if not form.is_valid():
-            return render(request=request, template_name="tools/failedupload.html")
     else:
         form = DocumentForm()
     return render(request, 'tools/ocr.html', {

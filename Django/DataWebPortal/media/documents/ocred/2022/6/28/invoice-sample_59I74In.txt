@@ -1,0 +1,22 @@
+http://mrsinvoice.com
+I | 7
+Your Company LLC Address 123, State, My Country P 111-222-333, F 111-222-334
+BILL TO:
+aE
+P: 111-222-333, F: 111-222-334
+client@example.net
+Contact Phone 101-102-103
+John Doe Office Y x os ay
+Office Road 38
+P: 111-333-222, F: 122-222-334 Amount Due: $4,170
+office@example.net
+NO PRODUCTS / SERVICE QUANTITY / RATE / UNIT AMOUNT
+HOURS PRICE
+1 | Tyre 2 $20 $40
+2 Steering Wheel 5 $10 $50
+3 Engine Oil 10 $15 $150
+4 Brake Pad 24 $1000 $2,400
+Subtotal $275
+Tax (10%) $27.5
+Grand Total $302.5
+THANK YOU FOR YOUR BUSINESS
