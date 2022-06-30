@@ -18,9 +18,17 @@ class ActivityForm(forms.ModelForm):
         fields = ()
         exclude = ('user',)
 
-class DocumentForm(forms.ModelForm):
+class ConvertForm(forms.ModelForm):
     class Meta:
-        model = Document
+        model = Convert
+        fields = ('description', 'document')
+        widgets = {
+                'document': ClearableFileInput(attrs={'accept' : "text/csv, text/plain, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel, application/json, .parquet, "}),
+        }
+
+class OCRForm(forms.ModelForm):
+    class Meta:
+        model = OCR
         fields = ('description', 'document', 'folder' )
         widgets = {
                 'document': ClearableFileInput(attrs={'multiple': True, 'accept' : "image/*,.pdf"}),

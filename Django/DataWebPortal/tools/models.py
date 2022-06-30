@@ -4,6 +4,7 @@ from django.utils import timezone
 from django.contrib import admin
 from django.contrib.auth.models import User
 import os
+from winmagic import magic
 from django.core.exceptions import ValidationError
 
 # class Users(models.Model):
@@ -23,10 +24,54 @@ from django.core.exceptions import ValidationError
 #     def __repr__(self):
 #         return '<Users {}>'.format(self.username)
 
-class Document(models.Model):
+# def validate_mime_type_ocr(value):
+#     supported_types=['application/pdf', 'image/*']
+#     with magic.Magic(flags=magic.MAGIC_MIME_TYPE) as m:
+#         mime_type=m.id_buffer(value.file.read(1024))
+#         value.file.seek(0)
+#     if mime_type not in supported_types:
+#         raise ValidationError(u'Unsupported file type.')
+
+def validate_file_extension_convert(value):
+    if value.file.content_type != 'text/csv' and value.file.content_type != 'text/plain' and value.file.content_type != 'application/json' and value.file.content_type != 'application/vnd.ms-excel' and value.file.content_type != 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' and not value.name.endswith('.parquet') :
+        raise ValidationError(u'Wrong File Input, choose csv, xlsx, parquet, txt, xls, or json')
+
+def validate_file_extension_ocr(value):
+    if value.file.content_type != 'application/pdf' and value.file.content_type != 'image/*' :
+        raise ValidationError(u'Wrong File Input, choose image or pdf')
+
+class Convert(models.Model):
     description = models.CharField(max_length=255, blank=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="document", null=True)
-    document = models.FileField(upload_to='documents/uploaded/%Y/%m/%d/', blank=True, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="converted_document", null=True)
+    document = models.FileField(upload_to='documents/uploaded/%Y/%m/%d/', blank=True, null=True, validators=[validate_file_extension_convert])
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+    def file_type(self):
+        name, extension = os.path.splitext(str(self.document))
+        input_type = extension
+        return input_type
+    def is_uploaded(self):
+        path = os.path.normpath(str(self.document))
+        path_list = path.split(os.sep)
+        if 'uploaded' in path_list:
+            return True
+    def is_converted(self):
+        path = os.path.normpath(str(self.document))
+        path_list = path.split(os.sep)
+        if 'converted' in path_list:
+            return True
+    def is_ocred(self):
+        path = os.path.normpath(str(self.document))
+        path_list = path.split(os.sep)
+        if 'ocred' in path_list:
+            return True
+    # def clean(self):
+    #     if not (self.document or self.folder):
+    #         raise ValidationError("You must select either file or folder")
+
+class OCR(models.Model):
+    description = models.CharField(max_length=255, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="ocred_document", null=True)
+    document = models.FileField(upload_to='documents/uploaded/%Y/%m/%d/', blank=True, null=True, validators=[validate_file_extension_ocr])
     folder = models.FileField(upload_to='documents/uploaded/%Y/%m/%d/', blank=True, null=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)
     def file_type(self):
@@ -51,6 +96,7 @@ class Document(models.Model):
     def clean(self):
         if not (self.document or self.folder):
             raise ValidationError("You must select either file or folder")
+
 class Jobs(models.Model):
     id = models.IntegerField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="jobs", null=True)

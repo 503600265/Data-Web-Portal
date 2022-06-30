@@ -13,7 +13,7 @@ import os
 #         self.name = name
 #         self.type = type
 #
-def convert(input_dir, output_dir, output_type):
+def convert_document(input_dir, output_dir, output_type):
     file_name, file_extension = os.path.splitext(input_dir)
     input_type = file_extension
     if input_type == ".csv":

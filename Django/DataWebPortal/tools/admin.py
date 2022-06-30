@@ -6,7 +6,8 @@ from django.utils.safestring import mark_safe
 # Register your models here.
 from .models import *
 
-admin.site.register(Document)
+admin.site.register(Convert)
+admin.site.register(OCR)
 admin.site.register(Jobs)
 admin.site.register(Activity)
 

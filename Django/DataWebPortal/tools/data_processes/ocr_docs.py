@@ -643,7 +643,6 @@ def ocr_pdf(input_dir, output_dir, output_type):
 def ocr_image(input_dir, output_dir, output_type):
     image = cv2.imread(input_dir)
     cfg_filename = r'--oem 3 --psm 6'
-    # print(pytesseract.image_to_string(image, config=custom_config))
     if output_type == 'pdf':
         data = pytesseract.image_to_pdf_or_hocr(image, extension='pdf')
     if output_type == 'hocr':

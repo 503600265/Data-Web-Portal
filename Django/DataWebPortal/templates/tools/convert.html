@@ -1,36 +1,77 @@
 {% extends "base.html" %}
 {% block content %}
+
+<div class="page-content-inner">
+  <h1 class="page-title"> Convert Documents </h1>
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+
+  {{ form.as_p }}
+
+To: <select name="output" id="output">
+    <option value="" selected="selected">Please select input first</option>
+  </select>
+  <br><br>
+  <button class="btn btn-primary" type="submit">Convert</button>
+</form>
+
+<br><br>
+<h5><a href="/">Return to home</a></h5>
+</div>
 <script>
 var InputObject = {
   "csv": ["xlsx", "parquet"],
   "parquet": ["csv"],
 	"xlsx": ["parquet"],
+  "txt": ["csv", 'xlsx'],
+  "xls": ["xlsx"],
+  "json": ["csv", 'xlsx'],
 }
-window.onload = function() {
-  var InputSel = document.getElementById("input");
+// window.onload = function() {
+
+  // var InputSel = document.getElementById("id_document");
+  //
+  //
+  // var InputType = InputSel.value.split('.').pop();
   var OutputSel = document.getElementById("output");
-	var ConversionType = (window.location.href.substr(window.location.href.lastIndexOf('/') + 1));
-  for (var x in InputObject) {
-    InputSel.options[InputSel.options.length] = new Option(x,x);
-  }
-	switch (true) {
-		case (ConversionType === "csv2xlsx"): OutputSel.options[OutputSel.options.length] = new Option('xlsx', 'xlsx'); $("#input").val("csv"); $("#output").val("xlsx"); break;
-		case (ConversionType === "csv2parquet"): OutputSel.options[OutputSel.options.length] = new Option('parquet', 'parquet'); $("#input").val("csv"); $("#output").val("parquet"); break;
-		case (ConversionType === "parquet2csv"): OutputSel.options[OutputSel.options.length] = new Option('csv', 'csv'); $("#input").val("parquet"); $("#output").val("csv"); break;
-		case (ConversionType === "xlsx2parquet"): OutputSel.options[OutputSel.options.length] = new Option('parquet', 'parquet'); $("#input").val("xlsx"); $("#output").val("parquet"); break;
-		case (ConversionType === "txt2csv"): OutputSel.options[OutputSel.options.length] = new Option('csv', 'csv'); $("#input").val("txt"); $("#output").val("csv"); break;
-		case (ConversionType === "txt2xlsx"): OutputSel.options[OutputSel.options.length] = new Option('xlsx', 'xlsx'); $("#input").val("txt"); $("#output").val("xlsx"); break;
-		case (ConversionType === "xls2xlsx"): OutputSel.options[OutputSel.options.length] = new Option('xlsx', 'xlsx'); $("#input").val("xls"); $("#output").val("xlsx"); break;
-		case (ConversionType === "json2csv"): OutputSel.options[OutputSel.options.length] = new Option('csv', 'csv'); $("#input").val("json"); $("#output").val("csv"); break;
-		case (ConversionType === "json2xlsx"): OutputSel.options[OutputSel.options.length] = new Option('xlsx', 'xlsx'); $("#input").val("json"); $("#output").val("xlsx"); break;
-	}
-	InputSel.onchange = function() {
-	    OutputSel.length = 1;
-			var y = InputObject[this.value];
-			for (var i = 0; i < y.length; i++) {
-				OutputSel.options[OutputSel.options.length] = new Option(y[i],y[i]);
-			}
+	// var ConversionType = (window.location.href.substr(window.location.href.lastIndexOf('/') + 1));
+
+  // for (var x in InputObject) {
+  //   InputSel.options[InputSel.options.length] = new Option(x,x);
+  // }
+	// switch (true) {
+	// 	case (ConversionType === "csv2xlsx"): OutputSel.options[OutputSel.options.length] = new Option('xlsx', 'xlsx'); $("#input").val("csv"); $("#output").val("xlsx"); break;
+	// 	case (ConversionType === "csv2parquet"): OutputSel.options[OutputSel.options.length] = new Option('parquet', 'parquet'); $("#input").val("csv"); $("#output").val("parquet"); break;
+	// 	case (ConversionType === "parquet2csv"): OutputSel.options[OutputSel.options.length] = new Option('csv', 'csv'); $("#input").val("parquet"); $("#output").val("csv"); break;
+	// 	case (ConversionType === "xlsx2parquet"): OutputSel.options[OutputSel.options.length] = new Option('parquet', 'parquet'); $("#input").val("xlsx"); $("#output").val("parquet"); break;
+	// 	case (ConversionType === "txt2csv"): OutputSel.options[OutputSel.options.length] = new Option('csv', 'csv'); $("#input").val("txt"); $("#output").val("csv"); break;
+	// 	case (ConversionType === "txt2xlsx"): OutputSel.options[OutputSel.options.length] = new Option('xlsx', 'xlsx'); $("#input").val("txt"); $("#output").val("xlsx"); break;
+	// 	case (ConversionType === "xls2xlsx"): OutputSel.options[OutputSel.options.length] = new Option('xlsx', 'xlsx'); $("#input").val("xls"); $("#output").val("xlsx"); break;
+	// 	case (ConversionType === "json2csv"): OutputSel.options[OutputSel.options.length] = new Option('csv', 'csv'); $("#input").val("json"); $("#output").val("csv"); break;
+	// 	case (ConversionType === "json2xlsx"): OutputSel.options[OutputSel.options.length] = new Option('xlsx', 'xlsx'); $("#input").val("json"); $("#output").val("xlsx"); break;
+	// }
+	// InputSel.onchange = function() {
+	//     OutputSel.length = 1;
+	// 		var y = InputObject[InputType];
+	// 		for (var i = 0; i < y.length; i++) {
+	// 			OutputSel.options[OutputSel.options.length] = new Option(y[i],y[i]);
+	// 		}
+	// 	}
+  id_document.onchange = evt => {
+    var file = document.getElementById('id_document');
+    var filename = file.files[0].name;
+    var type = filename.split('.').pop();
+    OutputSel.length = 1;
+		var y = InputObject[type];
+		for (var i = 0; i < y.length; i++) {
+			OutputSel.options[OutputSel.options.length] = new Option(y[i],y[i]);
 		}
+
+    // var InputType = image.value.split('.').pop();
+    // document.write(type);
+
+  };
 	// OutputSel.onchange = function() {
 	// 	switch (true) {
 	// 		case (InputSel.value === 'csv') && (OutputSel.value === 'xlsx'): window.location="/tools/convert/csv2xlsx" break;
@@ -44,210 +85,65 @@ window.onload = function() {
 	// 		case (InputSel.value === 'json') && (OutputSel.value === 'xlsx'): window.location="/tools/convert/json2xlsx" break;
 	// 	}
 	// }
-	OutputSel.onchange = function() {
-		switch (InputSel.value) {
-			case 'csv':
-				switch(OutputSel.value){
-					case 'xlsx': window.location="/tools/convert/csv2xlsx";
-					break;
-					case 'parquet': window.location="/tools/convert/csv2parquet";
-					break;
-				}
-				break;
-			case 'parquet':
-				switch(OutputSel.value){
-					case 'csv': window.location="/tools/convert/parquet2csv";
-					break;
-				}
-				break;
-			case 'xlsx':
-				switch(OutputSel.value){
-					case 'parquet': window.location="/tools/convert/xlsx2parquet";
-					break;
-				}
-				break;
-			case 'txt':
-				switch(OutputSel.value){
-					case 'csv': window.location="/tools/convert/txt2csv";
-					break;
-					case 'xlsx': window.location="/tools/convert/txt2xlsx";
-					break;
-				}
-				break;
-			case 'xls':
-				switch(OutputSel.value){
-					case 'xlsx': window.location="/tools/convert/xls2xlsx";
-					break;
-				}
-				break;
-			case 'json':
-				switch(OutputSel.value){
-					case 'csv': window.location="/tools/convert/json2csv";
-					break;
-					case 'xlsx': window.location="/tools/convert/json2xlsx";
-					break;
-				}
-				break;
-		}
-	}
-		// for (var x in InputObject){
-		// 	switch(x)
-		// {
-		// 	case "csv":
-		// 		switch (InputObject[this.value]){
-		// 			case 'xlsx': window.location="/tools/convert/csv2xlsx"; break;
-		// 			case 'parquet': window.location="/tools/convert/csv2parquet"; break;
-		// 		}
-		// break;
-		// 	}
-		// }
-};
+	// OutputSel.onchange = function() {
+	// 	switch (InputSel.value) {
+	// 		case 'csv':
+	// 			switch(OutputSel.value){
+	// 				case 'xlsx': window.location="/tools/convert/csv2xlsx";
+	// 				break;
+	// 				case 'parquet': window.location="/tools/convert/csv2parquet";
+	// 				break;
+	// 			}
+	// 			break;
+	// 		case 'parquet':
+	// 			switch(OutputSel.value){
+	// 				case 'csv': window.location="/tools/convert/parquet2csv";
+	// 				break;
+	// 			}
+	// 			break;
+	// 		case 'xlsx':
+	// 			switch(OutputSel.value){
+	// 				case 'parquet': window.location="/tools/convert/xlsx2parquet";
+	// 				break;
+	// 			}
+	// 			break;
+	// 		case 'txt':
+	// 			switch(OutputSel.value){
+	// 				case 'csv': window.location="/tools/convert/txt2csv";
+	// 				break;
+	// 				case 'xlsx': window.location="/tools/convert/txt2xlsx";
+	// 				break;
+	// 			}
+	// 			break;
+	// 		case 'xls':
+	// 			switch(OutputSel.value){
+	// 				case 'xlsx': window.location="/tools/convert/xls2xlsx";
+	// 				break;
+	// 			}
+	// 			break;
+	// 		case 'json':
+	// 			switch(OutputSel.value){
+	// 				case 'csv': window.location="/tools/convert/json2csv";
+	// 				break;
+	// 				case 'xlsx': window.location="/tools/convert/json2xlsx";
+	// 				break;
+	// 			}
+	// 			break;
+	// 	}
+	// }
+	// 	for (var x in InputObject){
+	// 		switch(x)
+	// 	{
+	// 		case "csv":
+	// 			switch (InputObject[this.value]){
+	// 				case 'xlsx': window.location="/tools/convert/csv2xlsx"; break;
+	// 				case 'parquet': window.location="/tools/convert/csv2parquet"; break;
+	// 			}
+	// 	break;
+	// 		}
+	// 	}
+// <!-- }; -->
 
 </script>
 
-
-<div class="page-content-inner">
-  <h1 class="page-title"> Convert Documents </h1>
-From: <select name="input" id="input">
-    <option value="" selected="selected">Select input</option>
-
-  </select>
-  <br><br>
-To: <select name="output" id="output">
-    <option value="" selected="selected">Please select input first</option>
-
-  </select>
-  <br><br>
-<!-- <script language="javascript">
-	function fillInputType(){
-addOption(document.drop_list.InputType, "csv", "parquet", "xlsx", "xls", "txt", "json");
-}
-function SelectOutputType(){
-removeAllOptions(document.drop_list.OutputType);
-addOption(document.drop_list.OutputType, "", "OutputType", "");
-
-if(document.drop_list.InputType.value == 'csv'){
-addOption(document.drop_list.OutputType,"xlsx", "parquet");
-}
-if(document.drop_list.InputType.value == 'parquet'){
-addOption(document.drop_list.OutputType,"csv");
-}
-if(document.drop_list.InputType.value == 'xlsx'){
-addOption(document.drop_list.OutputType,"parquet");
-}
-if(document.drop_list.InputType.value == 'txt'){
-addOption(document.drop_list.OutputType,"csv", "xlsx");
-}
-if(document.drop_list.InputType.value == 'xls'){
-addOption(document.drop_list.OutputType,"xlsx");
-}
-if(document.drop_list.InputType.value == 'json'){
-addOption(document.drop_list.OutputType,"csv", "xlsx");
-}
-}
-//////////////////
-
-function removeAllOptions(selectbox)
-{
-var i;
-for(i=selectbox.options.length-1;i>=0;i--)
-{
-	//selectbox.options.remove(i);
-	selectbox.remove(i);
-}
-}
-
-
-function addOption(selectbox, value, text )
-{
-var optn = document.createElement("OPTION");
-optn.text = text;
-optn.value = value;
-
-selectbox.options.add(optn);
-}
-///////////////////
-
-function SelectRedirect(){
-// ON selection of Sub InputType  this function will work
-
-//alert( document.drop_list.OutputType.value);
-
-switch(document.drop_list.InputType.value)
-{
-case "csv":
-switch (document.drop_list.OutputType.value){
-	case 'xlsx': window.location="/tools/convert/csv2xlsx"; break;
-	case 'parquet': window.location="/tools/convert/csv2parquet"; break;
-}
-break;
-
-
-
-/// Can be extended to other different selections of OutputTypeegory //////
-
-default:
-window.location="../"; // if no selection matches then redirected to home page
-break;
-
-}// end of switch
-}
-</script>
-
-<div class="page-content-inner">
-  <h1 class="page-title"> Upload Documents </h1>
-  <br>
-
-<body onload="fillInputType();">
-<SELECT id="InputType"NAME="InputType" onChange="SelectOutputType();" >
-	<!-- <option value="csv">csv</option>
-	<option value="parquet">parquet</option>
-	<option value="xlsx">xlsx</option>
-	<option value="txt">txt</option>
-	<option value="xls">xls</option>
-	<option value="json">json</option> -->
-	<!-- <Option value="">InputType</option>
-</SELECT>
-<SELECT id="OutputType" NAME="OutputType" onChange="SelectRedirect();"> -->
-	<!-- <option value="csv">csv</option>
-	<option value="parquet">parquet</option>
-	<option value="xlsx">xlsx</option>
-	<option value="txt">txt</option>
-	<option value="xls">xls</option>
-	<option value="json">json</option> -->
-<!-- </SELECT> -->
-
-
-
-	<!-- <label for="From">From:</label>
-	<select name="input_type" id="input_type">
-		<option value="csv">csv</option>
-		<option value="parquet">parquet</option>
-		<option value="xlsx">xlsx</option>
-		<option value="txt">txt</option>
-		<option value="xls">xls</option>
-		<option value="json">json</option>
-	</select>
-	<label for="To">To:</label>
-	<select name="output_type" id="output_type">
-		<option value="csv">csv</option>
-		<option value="parquet">parquet</option>
-		<option value="xlsx">xlsx</option>
-		<option value="txt">txt</option>
-		<option value="xls">xls</option>
-		<option value="json">json</option>
-	</select> -->
-
-<form method="post" enctype="multipart/form-data">
-  {% csrf_token %}
-	<!-- <input name="uploadFile" id="uploadFile" type="file" />
-
-	<input type="submit" /> -->
-  {{ form.as_p }}
-  <button class="btn btn-primary" type="submit">Convert</button>
-</form>
-
-<br><br>
-<h5><a href="/">Return to home</a></h5>
-</div>
 {% endblock %}

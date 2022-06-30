@@ -1,31 +1,36 @@
 {% extends "base.html" %}
 {% block content %}
-{% if documents_list %}
+{% if convert_list or ocr_list %}
 <div class="page-content-inner">
     <h1 class="page-title"> My Documents </h1>
     <br>
-    <table style="float: left;" class="user-documents-table">
+    <!-- <table style="float: left;" class="user-documents-table">
         <tr>
             <th><h5><strong>Uploaded</strong></h5></th>
         </tr>
 
-{% for document in documents_list %}
-    {% if document.is_uploaded %}
+{% for a, b in upload_list %}
+    {% if a.is_uploaded %}
         <tr>
-            <td><a href="{{document.document.url}}" download><p class="user-documents-file">{{ document.document }}</p></a></td>
+            <td><a href="{{a.document.url}}" download><p class="user-documents-file">{{ a.document }}</p></a></td>
         </tr>
+    {% elif b.is_uploaded %}
+      <tr>
+          <td><a href="{{b.document.url}}" download><p class="user-documents-file">{{ b.document }}</p></a></td>
+      </tr>
     {% else %}
 
     {% endif %}
+
 {% endfor %}
-</table>
+</table> -->
 
 <table width="100" border="1" style="float:left;" class="user-documents-table">
     <tr>
         <th><h5><strong>Converted</strong></h5></th>
     </tr>
 
-{% for document in documents_list %}
+{% for document in convert_list %}
 {% if document.is_converted %}
 <tr>
     <td><a href="{{document.document.url}}" download><p class="user-documents-file">{{ document.document }} </p></a></td>
@@ -41,7 +46,7 @@
         <th><h5><strong>OCR</strong></h5></th>
     </tr>
 
-{% for document in documents_list %}
+{% for document in ocr_list %}
 {% if document.is_ocred%}
 <tr>
     <td><a href="{{document.document.url}}" download><p class="user-documents-file">{{ document.document }} </p></a></td>
