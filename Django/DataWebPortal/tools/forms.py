@@ -4,10 +4,10 @@ from .models import *
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-class JobsForm(forms.ModelForm):
+class JobForm(forms.ModelForm):
 
     class Meta:
-        model = Jobs
+        model = Job
         fields = ('task', 'inloc','outloc')
         exclude = ('user',)
 

@@ -5,8 +5,8 @@ import win32com.client as win32
 import xlrd
 from pathlib import Path
 import json
-import xmltodict
-from xml2xlsx import xml2xlsx
+# import xmltodict
+# from xml2xlsx import xml2xlsx
 import os
 # class File:
 #     def _init_(self, name, type):
@@ -67,7 +67,7 @@ def csv_to_xlsx(input_path, output_path):
     read_file.to_excel (r'{}'.format(output_path), index = None, header=True)
 # csv_to_xlsx("H:\Downloads\DataWebPortal\cities.csv", "H:\Downloads\DataWebPortal\cities_csv_excel.xlsx" )
 
-def csv_parquet(input_path, output_path):
+def csv_to_xlsx(input_path, output_path):
     df = pd.read_csv(r'{}'.format(input_path))
     df.to_parquet(r'{}'.format(output_path))
 # parquet_csv("H:\Downloads\DataWebPortal\cities.parquet", "H:\Downloads\DataWebPortal\cities2.csv" )
@@ -113,19 +113,19 @@ def json_csv(input_path, output_path):
     df.to_csv(r'{}'.format(output_path), index=False, encoding='utf-8')
 # json_csv("H:\Downloads\DataWebPortal\sample.json", "H:\Downloads\DataWebPortal\sample3.csv")
 
-def json_xlsx(input_path, output_path):
+def json_xlsx(input_path, output_pathpa):
     df_json = pd.read_json(r'{}'.format(input_path))
     df_json.to_excel(r'{}'.format(output_path))
 # json_xlsx("H:\Downloads\DataWebPortal\sample.json", "H:\Downloads\DataWebPortal\sample.xlsx")
 
-def XML_json(input_path, output_path):
-    with open(input_path, 'r') as f:
-        data_dict = xmltodict.parse(f.read())
-        f.close()
-    json_data = json.dumps(data_dict)
-    with open(output_path, "w") as json_file:
-        json_file.write(json_data)
-        json_file.close()
+# def XML_json(input_path, output_path):
+#     with open(input_path, 'r') as f:
+#         data_dict = xmltodict.parse(f.read())
+#         f.close()
+#     json_data = json.dumps(data_dict)
+#     with open(output_path, "w") as json_file:
+#         json_file.write(json_data)
+#         json_file.close()
 # XML_json("H:\Downloads\DataWebPortal\sample.xml", "H:\Downloads\DataWebPortal\sample.json")
 
 # def XML_csv(input_path, output_path):

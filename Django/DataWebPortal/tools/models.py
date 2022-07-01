@@ -4,7 +4,7 @@ from django.utils import timezone
 from django.contrib import admin
 from django.contrib.auth.models import User
 import os
-from winmagic import magic
+# from winmagic import magic
 from django.core.exceptions import ValidationError
 
 # class Users(models.Model):
@@ -33,11 +33,15 @@ from django.core.exceptions import ValidationError
 #         raise ValidationError(u'Unsupported file type.')
 
 def validate_file_extension_convert(value):
-    if value.file.content_type != 'text/csv' and value.file.content_type != 'text/plain' and value.file.content_type != 'application/json' and value.file.content_type != 'application/vnd.ms-excel' and value.file.content_type != 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' and not value.name.endswith('.parquet') :
+    ext = os.path.splitext(value.name)[1]
+    valid_extensions = ['.csv','.xlsx','.xls','.txt','.parquet','.json']
+    if not ext in valid_extensions:
         raise ValidationError(u'Wrong File Input, choose csv, xlsx, parquet, txt, xls, or json')
 
 def validate_file_extension_ocr(value):
-    if value.file.content_type != 'application/pdf' and value.file.content_type != 'image/*' :
+    ext = os.path.splitext(value.name)[1]
+    valid_extensions = ['.png','.jpg','.jpeg','.gif','.pdf']
+    if not ext in valid_extensions:
         raise ValidationError(u'Wrong File Input, choose image or pdf')
 
 class Convert(models.Model):
@@ -97,7 +101,7 @@ class OCR(models.Model):
         if not (self.document or self.folder):
             raise ValidationError("You must select either file or folder")
 
-class Jobs(models.Model):
+class Job(models.Model):
     id = models.IntegerField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="jobs", null=True)
     task = models.CharField(max_length=50, unique=False)

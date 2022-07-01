@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alto xmlns="http://www.loc.gov/standards/alto/ns-v3#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/standards/alto/ns-v3# http://www.loc.gov/alto/v3/alto-3-0.xsd">
+	<Description>
+		<MeasurementUnit>pixel</MeasurementUnit>
+		<sourceImageInformation>
+			<fileName>C:\Users\jxu\AppData\Local\Temp\3\tess_e02q8kph.PPM</fileName>
+		</sourceImageInformation>
+		<OCRProcessing ID="OCR_0">
+			<ocrProcessingStep>
+				<processingSoftware>
+					<softwareName>tesseract v5.1.0.20220510</softwareName>
+				</processingSoftware>
+			</ocrProcessingStep>
+		</OCRProcessing>
+	</Description>
+	<Layout>
+		<Page WIDTH="2386" HEIGHT="3286" PHYSICAL_IMG_NR="0" ID="page_0">
+			<PrintSpace HPOS="0" VPOS="0" WIDTH="2386" HEIGHT="3286">
+				<ComposedBlock ID="cblock_0" HPOS="1872" VPOS="116" WIDTH="341" HEIGHT="32">
+					<TextBlock ID="block_0" HPOS="1872" VPOS="116" WIDTH="341" HEIGHT="32">
+						<TextLine ID="line_0" HPOS="1872" VPOS="116" WIDTH="341" HEIGHT="32">
+							<String ID="string_0" HPOS="1872" VPOS="116" WIDTH="341" HEIGHT="32" WC="0.75" CONTENT="http://mrsinvoice.com"/>
+						</TextLine>
+					</TextBlock>
+				</ComposedBlock>
+				<ComposedBlock ID="cblock_1" HPOS="173" VPOS="46" WIDTH="1214" HEIGHT="436">
+					<TextBlock ID="block_1" HPOS="173" VPOS="46" WIDTH="1214" HEIGHT="436">
+						<TextLine ID="line_1" HPOS="173" VPOS="46" WIDTH="1214" HEIGHT="436">
+							<String ID="string_1" HPOS="173" VPOS="46" WIDTH="113" HEIGHT="433" WC="0.22" CONTENT=","/><SP WIDTH="79" VPOS="46" HPOS="286"/>
+							<String ID="string_2" HPOS="365" VPOS="236" WIDTH="1022" HEIGHT="246" WC="0.95" CONTENT="Invoice"/>
+						</TextLine>
+					</TextBlock>
+				</ComposedBlock>
+				<ComposedBlock ID="cblock_2" HPOS="167" VPOS="539" WIDTH="1394" HEIGHT="35">
+					<TextBlock ID="block_2" HPOS="167" VPOS="539" WIDTH="1394" HEIGHT="35">
+						<TextLine ID="line_2" HPOS="167" VPOS="539" WIDTH="1394" HEIGHT="35">
+							<String ID="string_3" HPOS="167" VPOS="541" WIDTH="83" HEIGHT="27" WC="0.96" CONTENT="Your"/><SP WIDTH="9" VPOS="541" HPOS="250"/>
+							<String ID="string_4" HPOS="259" VPOS="541" WIDTH="165" HEIGHT="33" WC="0.96" CONTENT="Company"/><SP WIDTH="11" VPOS="541" HPOS="424"/>
+							<String ID="string_5" HPOS="435" VPOS="541" WIDTH="56" HEIGHT="27" WC="0.96" CONTENT="LLC"/><SP WIDTH="9" VPOS="541" HPOS="491"/>
+							<String ID="string_6" HPOS="500" VPOS="539" WIDTH="136" HEIGHT="29" WC="0.95" CONTENT="Address"/><SP WIDTH="12" VPOS="539" HPOS="636"/>
+							<String ID="string_7" HPOS="648" VPOS="541" WIDTH="70" HEIGHT="33" WC="0.96" CONTENT="123,"/><SP WIDTH="12" VPOS="541" HPOS="718"/>
+							<String ID="string_8" HPOS="730" VPOS="541" WIDTH="96" HEIGHT="33" WC="0.96" CONTENT="State,"/><SP WIDTH="15" VPOS="541" HPOS="826"/>
+							<String ID="string_9" HPOS="841" VPOS="541" WIDTH="52" HEIGHT="32" WC="0.96" CONTENT="My"/><SP WIDTH="11" VPOS="541" HPOS="893"/>
+							<String ID="string_10" HPOS="904" VPOS="541" WIDTH="134" HEIGHT="33" WC="0.93" CONTENT="Country"/><SP WIDTH="12" VPOS="541" HPOS="1038"/>
+							<String ID="string_11" HPOS="1050" VPOS="541" WIDTH="18" HEIGHT="27" WC="0.92" CONTENT="P"/><SP WIDTH="14" VPOS="541" HPOS="1068"/>
+							<String ID="string_12" HPOS="1082" VPOS="541" WIDTH="222" HEIGHT="33" WC="0.93" CONTENT="111-222-333,"/><SP WIDTH="14" VPOS="541" HPOS="1304"/>
+							<String ID="string_13" HPOS="1318" VPOS="541" WIDTH="16" HEIGHT="27" WC="0.93" CONTENT="F"/><SP WIDTH="13" VPOS="541" HPOS="1334"/>
+							<String ID="string_14" HPOS="1347" VPOS="541" WIDTH="214" HEIGHT="27" WC="0.96" CONTENT="111-222-334"/>
+						</TextLine>
+					</TextBlock>
+				</ComposedBlock>
+				<GraphicalElement ID="cblock_3" HPOS="980" VPOS="901" WIDTH="1235" HEIGHT="10"></GraphicalElement >
+				<GraphicalElement ID="cblock_4" HPOS="983" VPOS="981" WIDTH="1232" HEIGHT="10"></GraphicalElement >
+				<GraphicalElement ID="cblock_5" HPOS="983" VPOS="1064" WIDTH="1233" HEIGHT="10"></GraphicalElement >
+				<GraphicalElement ID="cblock_6" HPOS="983" VPOS="1144" WIDTH="1233" HEIGHT="10"></GraphicalElement >
+				<GraphicalElement ID="cblock_7" HPOS="983" VPOS="1227" WIDTH="1233" HEIGHT="10"></GraphicalElement >
+				<GraphicalElement ID="cblock_8" HPOS="1596" VPOS="909" WIDTH="4" HEIGHT="401"></GraphicalElement >
+				<GraphicalElement ID="cblock_9" HPOS="979" VPOS="912" WIDTH="4" HEIGHT="398"></GraphicalElement >
+				<GraphicalElement ID="cblock_10" HPOS="2216" VPOS="909" WIDTH="4" HEIGHT="404"></GraphicalElement >
+				<GraphicalElement ID="cblock_11" HPOS="983" VPOS="1307" WIDTH="1236" HEIGHT="10"></GraphicalElement >
+				<GraphicalElement ID="cblock_12" HPOS="183" VPOS="1762" WIDTH="2019" HEIGHT="14"></GraphicalElement >
+				<ComposedBlock ID="cblock_13" HPOS="167" VPOS="898" WIDTH="2016" HEIGHT="962">
+					<TextBlock ID="block_3" HPOS="167" VPOS="898" WIDTH="2016" HEIGHT="962">
+						<TextLine ID="line_3" HPOS="170" VPOS="898" WIDTH="136" HEIGHT="27">
+							<String ID="string_15" HPOS="170" VPOS="899" WIDTH="69" HEIGHT="26" WC="0.96" CONTENT="BILL"/><SP WIDTH="8" VPOS="899" HPOS="239"/>
+							<String ID="string_16" HPOS="247" VPOS="898" WIDTH="59" HEIGHT="27" WC="0.96" CONTENT="TO:"/>
+						</TextLine>
+						<TextLine ID="line_4" HPOS="167" VPOS="929" WIDTH="1793" HEIGHT="51">
+							<String ID="string_17" HPOS="167" VPOS="950" WIDTH="78" HEIGHT="30" WC="0.95" CONTENT="John"/><SP WIDTH="14" VPOS="950" HPOS="245"/>
+							<String ID="string_18" HPOS="259" VPOS="953" WIDTH="66" HEIGHT="27" WC="0.95" CONTENT="Doe"/><SP WIDTH="893" VPOS="953" HPOS="325"/>
+							<String ID="string_19" HPOS="1218" VPOS="933" WIDTH="118" HEIGHT="27" WC="0.93" CONTENT="Invoice"/><SP WIDTH="11" VPOS="933" HPOS="1336"/>
+							<String ID="string_20" HPOS="1347" VPOS="933" WIDTH="21" HEIGHT="26" WC="0.93" CONTENT="#"/><SP WIDTH="488" VPOS="933" HPOS="1368"/>
+							<String ID="string_21" HPOS="1856" VPOS="929" WIDTH="104" HEIGHT="44" WC="0.95" CONTENT="00001"/>
+						</TextLine>
+						<TextLine ID="line_5" HPOS="168" VPOS="1004" WIDTH="1840" HEIGHT="41">
+							<String ID="string_22" HPOS="168" VPOS="1005" WIDTH="96" HEIGHT="37" WC="0.96" CONTENT="Alpha"/><SP WIDTH="14" VPOS="1005" HPOS="264"/>
+							<String ID="string_23" HPOS="278" VPOS="1007" WIDTH="95" HEIGHT="27" WC="0.96" CONTENT="Bravo"/><SP WIDTH="13" VPOS="1007" HPOS="373"/>
+							<String ID="string_24" HPOS="386" VPOS="1004" WIDTH="82" HEIGHT="30" WC="0.96" CONTENT="Road"/><SP WIDTH="13" VPOS="1004" HPOS="468"/>
+							<String ID="string_25" HPOS="481" VPOS="1007" WIDTH="39" HEIGHT="27" WC="0.96" CONTENT="33"/><SP WIDTH="668" VPOS="1007" HPOS="520"/>
+							<String ID="string_26" HPOS="1188" VPOS="1013" WIDTH="118" HEIGHT="27" WC="0.95" CONTENT="Invoice"/><SP WIDTH="13" VPOS="1013" HPOS="1306"/>
+							<String ID="string_27" HPOS="1319" VPOS="1013" WIDTH="77" HEIGHT="27" WC="0.97" CONTENT="Date"/><SP WIDTH="414" VPOS="1013" HPOS="1396"/>
+							<String ID="string_28" HPOS="1810" VPOS="1007" WIDTH="198" HEIGHT="38" WC="0.96" CONTENT="12/12/2001"/>
+						</TextLine>
+						<TextLine ID="line_6" HPOS="170" VPOS="1064" WIDTH="534" HEIGHT="33">
+							<String ID="string_29" HPOS="170" VPOS="1064" WIDTH="29" HEIGHT="27" WC="0.84" CONTENT="P:"/><SP WIDTH="14" VPOS="1064" HPOS="199"/>
+							<String ID="string_30" HPOS="213" VPOS="1064" WIDTH="223" HEIGHT="33" WC="0.93" CONTENT="111-222-333,"/><SP WIDTH="14" VPOS="1064" HPOS="436"/>
+							<String ID="string_31" HPOS="450" VPOS="1064" WIDTH="25" HEIGHT="27" WC="0.91" CONTENT="F:"/><SP WIDTH="15" VPOS="1064" HPOS="475"/>
+							<String ID="string_32" HPOS="490" VPOS="1064" WIDTH="214" HEIGHT="27" WC="0.96" CONTENT="111-222-334"/>
+						</TextLine>
+						<TextLine ID="line_7" HPOS="198" VPOS="1093" WIDTH="1743" HEIGHT="38">
+							<String ID="string_33" HPOS="198" VPOS="1119" WIDTH="5" HEIGHT="4" WC="0.3" CONTENT=":"/><SP WIDTH="975" VPOS="1119" HPOS="203"/>
+							<String ID="string_34" HPOS="1178" VPOS="1096" WIDTH="98" HEIGHT="27" WC="0.96" CONTENT="Name"/><SP WIDTH="11" VPOS="1096" HPOS="1276"/>
+							<String ID="string_35" HPOS="1287" VPOS="1093" WIDTH="35" HEIGHT="30" WC="0.96" CONTENT="of"/><SP WIDTH="11" VPOS="1093" HPOS="1322"/>
+							<String ID="string_36" HPOS="1333" VPOS="1096" WIDTH="72" HEIGHT="35" WC="0.96" CONTENT="Rep."/><SP WIDTH="473" VPOS="1096" HPOS="1405"/>
+							<String ID="string_37" HPOS="1878" VPOS="1094" WIDTH="63" HEIGHT="29" WC="0.96" CONTENT="Bob"/>
+						</TextLine>
+						<TextLine ID="line_8" HPOS="169" VPOS="1116" WIDTH="342" HEIGHT="38">
+							<String ID="string_38" HPOS="169" VPOS="1116" WIDTH="342" HEIGHT="38" WC="0.86" CONTENT="client@example.net"/>
+						</TextLine>
+						<TextLine ID="line_9" HPOS="1167" VPOS="1173" WIDTH="848" HEIGHT="30">
+							<String ID="string_39" HPOS="1167" VPOS="1176" WIDTH="131" HEIGHT="27" WC="0.96" CONTENT="Contact"/><SP WIDTH="12" VPOS="1176" HPOS="1298"/>
+							<String ID="string_40" HPOS="1310" VPOS="1173" WIDTH="105" HEIGHT="30" WC="0.96" CONTENT="Phone"/><SP WIDTH="387" VPOS="1173" HPOS="1415"/>
+							<String ID="string_41" HPOS="1802" VPOS="1176" WIDTH="213" HEIGHT="27" WC="0.96" CONTENT="101-102-103"/>
+						</TextLine>
+						<TextLine ID="line_10" HPOS="169" VPOS="1230" WIDTH="1806" HEIGHT="33">
+							<String ID="string_42" HPOS="169" VPOS="1230" WIDTH="165" HEIGHT="27" WC="0.96" CONTENT="SHIPPING"/><SP WIDTH="10" VPOS="1230" HPOS="334"/>
+							<String ID="string_43" HPOS="344" VPOS="1230" WIDTH="59" HEIGHT="27" WC="0.95" CONTENT="TO:"/><SP WIDTH="1567" VPOS="1230" HPOS="403"/>
+							<String ID="string_44" HPOS="1970" VPOS="1259" WIDTH="5" HEIGHT="4" WC="0.4" CONTENT=";"/>
+						</TextLine>
+						<TextLine ID="line_11" HPOS="167" VPOS="1256" WIDTH="1884" HEIGHT="55">
+							<String ID="string_45" HPOS="167" VPOS="1282" WIDTH="78" HEIGHT="29" WC="0.48" CONTENT="Joli"/><SP WIDTH="14" VPOS="1282" HPOS="245"/>
+							<String ID="string_46" HPOS="259" VPOS="1284" WIDTH="66" HEIGHT="27" WC="0.49" CONTENT="Dox"/><SP WIDTH="11" VPOS="1284" HPOS="325"/>
+							<String ID="string_47" HPOS="336" VPOS="1281" WIDTH="100" HEIGHT="30" WC="0.0" CONTENT="OFRCE"/><SP WIDTH="725" VPOS="1281" HPOS="436"/>
+							<String ID="string_48" HPOS="1161" VPOS="1259" WIDTH="147" HEIGHT="35" WC="0.96" CONTENT="Payment"/><SP WIDTH="11" VPOS="1259" HPOS="1308"/>
+							<String ID="string_49" HPOS="1319" VPOS="1259" WIDTH="104" HEIGHT="27" WC="0.96" CONTENT="Terms"/><SP WIDTH="345" VPOS="1259" HPOS="1423"/>
+							<String ID="string_50" HPOS="1768" VPOS="1256" WIDTH="78" HEIGHT="30" WC="0.96" CONTENT="Cash"/><SP WIDTH="13" VPOS="1256" HPOS="1846"/>
+							<String ID="string_51" HPOS="1859" VPOS="1264" WIDTH="41" HEIGHT="21" WC="0.96" CONTENT="on"/><SP WIDTH="13" VPOS="1264" HPOS="1900"/>
+							<String ID="string_52" HPOS="1913" VPOS="1256" WIDTH="138" HEIGHT="38" WC="0.96" CONTENT="Delivery"/>
+						</TextLine>
+						<TextLine ID="line_12" HPOS="169" VPOS="1336" WIDTH="248" HEIGHT="30">
+							<String ID="string_53" HPOS="169" VPOS="1336" WIDTH="99" HEIGHT="30" WC="0.96" CONTENT="Office"/><SP WIDTH="13" VPOS="1336" HPOS="268"/>
+							<String ID="string_54" HPOS="281" VPOS="1336" WIDTH="83" HEIGHT="30" WC="0.96" CONTENT="Road"/><SP WIDTH="13" VPOS="1336" HPOS="364"/>
+							<String ID="string_55" HPOS="377" VPOS="1338" WIDTH="40" HEIGHT="27" WC="0.96" CONTENT="38"/>
+						</TextLine>
+						<TextLine ID="line_13" HPOS="170" VPOS="1379" WIDTH="1684" HEIGHT="52">
+							<String ID="string_56" HPOS="170" VPOS="1396" WIDTH="29" HEIGHT="26" WC="0.92" CONTENT="P:"/><SP WIDTH="14" VPOS="1396" HPOS="199"/>
+							<String ID="string_57" HPOS="213" VPOS="1396" WIDTH="223" HEIGHT="32" WC="0.93" CONTENT="111-333-222,"/><SP WIDTH="14" VPOS="1396" HPOS="436"/>
+							<String ID="string_58" HPOS="450" VPOS="1396" WIDTH="25" HEIGHT="26" WC="0.91" CONTENT="F:"/><SP WIDTH="15" VPOS="1396" HPOS="475"/>
+							<String ID="string_59" HPOS="490" VPOS="1396" WIDTH="213" HEIGHT="27" WC="0.96" CONTENT="122-222-334"/><SP WIDTH="640" VPOS="1396" HPOS="703"/>
+							<String ID="string_60" HPOS="1343" VPOS="1384" WIDTH="199" HEIGHT="39" WC="0.96" CONTENT="Amount"/><SP WIDTH="20" VPOS="1384" HPOS="1542"/>
+							<String ID="string_61" HPOS="1562" VPOS="1384" WIDTH="106" HEIGHT="39" WC="0.96" CONTENT="Due:"/><SP WIDTH="21" VPOS="1384" HPOS="1668"/>
+							<String ID="string_62" HPOS="1689" VPOS="1379" WIDTH="165" HEIGHT="52" WC="0.96" CONTENT="$4,170"/>
+						</TextLine>
+						<TextLine ID="line_14" HPOS="169" VPOS="1447" WIDTH="345" HEIGHT="38">
+							<String ID="string_63" HPOS="169" VPOS="1447" WIDTH="345" HEIGHT="38" WC="0.91" CONTENT="office@example.net"/>
+						</TextLine>
+						<TextLine ID="line_15" HPOS="202" VPOS="1776" WIDTH="1981" HEIGHT="38">
+							<String ID="string_64" HPOS="202" VPOS="1782" WIDTH="52" HEIGHT="26" WC="0.86" CONTENT="NO"/><SP WIDTH="45" VPOS="1782" HPOS="254"/>
+							<String ID="string_65" HPOS="299" VPOS="1782" WIDTH="183" HEIGHT="26" WC="0.86" CONTENT="PRODUCTS"/><SP WIDTH="11" VPOS="1782" HPOS="482"/>
+							<String ID="string_66" HPOS="493" VPOS="1776" WIDTH="16" HEIGHT="38" WC="0.92" CONTENT="/"/><SP WIDTH="10" VPOS="1776" HPOS="509"/>
+							<String ID="string_67" HPOS="519" VPOS="1782" WIDTH="138" HEIGHT="26" WC="0.96" CONTENT="SERVICE"/><SP WIDTH="722" VPOS="1782" HPOS="657"/>
+							<String ID="string_68" HPOS="1379" VPOS="1776" WIDTH="204" HEIGHT="37" WC="0.52" CONTENT="QUANTITY"/><SP WIDTH="-12" VPOS="1776" HPOS="1583"/>
+							<String ID="string_69" HPOS="1571" VPOS="1772" WIDTH="20" HEIGHT="48" WC="0.47" CONTENT="/"/><SP WIDTH="20" VPOS="1772" HPOS="1591"/>
+							<String ID="string_70" HPOS="1611" VPOS="1772" WIDTH="32" HEIGHT="48" WC="0.6" CONTENT="—s-"/><SP WIDTH="4" VPOS="1772" HPOS="1643"/>
+							<String ID="string_71" HPOS="1647" VPOS="1782" WIDTH="84" HEIGHT="26" WC="0.82" CONTENT="RATE"/><SP WIDTH="11" VPOS="1782" HPOS="1731"/>
+							<String ID="string_72" HPOS="1742" VPOS="1776" WIDTH="16" HEIGHT="38" WC="0.86" CONTENT="/"/><SP WIDTH="12" VPOS="1776" HPOS="1758"/>
+							<String ID="string_73" HPOS="1770" VPOS="1782" WIDTH="84" HEIGHT="26" WC="0.96" CONTENT="UNIT"/><SP WIDTH="165" VPOS="1782" HPOS="1854"/>
+							<String ID="string_74" HPOS="2019" VPOS="1782" WIDTH="164" HEIGHT="26" WC="0.96" CONTENT="AMOUNT"/>
+						</TextLine>
+						<TextLine ID="line_16" HPOS="1462" VPOS="1833" WIDTH="389" HEIGHT="27">
+							<String ID="string_75" HPOS="1462" VPOS="1833" WIDTH="119" HEIGHT="27" WC="0.96" CONTENT="HOURS"/><SP WIDTH="176" VPOS="1833" HPOS="1581"/>
+							<String ID="string_76" HPOS="1757" VPOS="1833" WIDTH="94" HEIGHT="27" WC="0.96" CONTENT="PRICE"/>
+						</TextLine>
+					</TextBlock>
+				</ComposedBlock>
+				<Illustration ID="cblock_14" HPOS="164" VPOS="1867" WIDTH="1630" HEIGHT="307"></Illustration>
+				<Illustration ID="cblock_15" HPOS="371" VPOS="1871" WIDTH="1830" HEIGHT="76"></Illustration>
+				<GraphicalElement ID="cblock_16" HPOS="168" VPOS="2167" WIDTH="1434" HEIGHT="10"></GraphicalElement >
+				<ComposedBlock ID="cblock_17" HPOS="188" VPOS="1890" WIDTH="1994" HEIGHT="487">
+					<TextBlock ID="block_4" HPOS="188" VPOS="1890" WIDTH="1994" HEIGHT="487">
+						<TextLine ID="line_17" HPOS="190" VPOS="1890" WIDTH="1663" HEIGHT="41">
+							<String ID="string_77" HPOS="190" VPOS="1896" WIDTH="18" HEIGHT="27" WC="0.95" CONTENT="1"/><SP WIDTH="88" VPOS="1896" HPOS="208"/>
+							<String ID="string_78" HPOS="296" VPOS="1896" WIDTH="75" HEIGHT="35" WC="0.96" CONTENT="Tyre"/><SP WIDTH="1419" VPOS="1896" HPOS="371"/>
+							<String ID="string_79" HPOS="1790" VPOS="1890" WIDTH="63" HEIGHT="38" WC="0.96" CONTENT="$20"/>
+						</TextLine>
+						<TextLine ID="line_18" HPOS="190" VPOS="1964" WIDTH="1991" HEIGHT="42">
+							<String ID="string_80" HPOS="190" VPOS="1970" WIDTH="18" HEIGHT="27" WC="0.95" CONTENT="2"/><SP WIDTH="89" VPOS="1970" HPOS="208"/>
+							<String ID="string_81" HPOS="297" VPOS="1970" WIDTH="140" HEIGHT="36" WC="0.96" CONTENT="Steering"/><SP WIDTH="10" VPOS="1970" HPOS="437"/>
+							<String ID="string_82" HPOS="447" VPOS="1967" WIDTH="109" HEIGHT="30" WC="0.96" CONTENT="Wheel"/><SP WIDTH="1006" VPOS="1967" HPOS="556"/>
+							<String ID="string_83" HPOS="1562" VPOS="1970" WIDTH="19" HEIGHT="27" WC="0.96" CONTENT="5"/><SP WIDTH="209" VPOS="1970" HPOS="1581"/>
+							<String ID="string_84" HPOS="1790" VPOS="1964" WIDTH="62" HEIGHT="38" WC="0.96" CONTENT="$10"/><SP WIDTH="267" VPOS="1964" HPOS="1852"/>
+							<String ID="string_85" HPOS="2119" VPOS="1965" WIDTH="62" HEIGHT="38" WC="0.96" CONTENT="$50"/>
+						</TextLine>
+						<TextLine ID="line_19" HPOS="190" VPOS="2039" WIDTH="1992" HEIGHT="41">
+							<String ID="string_86" HPOS="190" VPOS="2044" WIDTH="18" HEIGHT="27" WC="0.96" CONTENT="3"/><SP WIDTH="90" VPOS="2044" HPOS="208"/>
+							<String ID="string_87" HPOS="298" VPOS="2044" WIDTH="113" HEIGHT="36" WC="0.96" CONTENT="Engine"/><SP WIDTH="10" VPOS="2044" HPOS="411"/>
+							<String ID="string_88" HPOS="421" VPOS="2041" WIDTH="45" HEIGHT="31" WC="0.96" CONTENT="Oil"/><SP WIDTH="1076" VPOS="2041" HPOS="466"/>
+							<String ID="string_89" HPOS="1542" VPOS="2044" WIDTH="41" HEIGHT="28" WC="0.96" CONTENT="10"/><SP WIDTH="207" VPOS="2044" HPOS="1583"/>
+							<String ID="string_90" HPOS="1790" VPOS="2039" WIDTH="61" HEIGHT="38" WC="0.95" CONTENT="$15"/><SP WIDTH="246" VPOS="2039" HPOS="1851"/>
+							<String ID="string_91" HPOS="2097" VPOS="2039" WIDTH="85" HEIGHT="38" WC="0.91" CONTENT="$150"/>
+						</TextLine>
+						<TextLine ID="line_20" HPOS="188" VPOS="2109" WIDTH="1993" HEIGHT="51">
+							<String ID="string_92" HPOS="188" VPOS="2119" WIDTH="21" HEIGHT="26" WC="0.96" CONTENT="4"/><SP WIDTH="90" VPOS="2119" HPOS="209"/>
+							<String ID="string_93" HPOS="299" VPOS="2116" WIDTH="94" HEIGHT="30" WC="0.96" CONTENT="Brake"/><SP WIDTH="13" VPOS="2116" HPOS="393"/>
+							<String ID="string_94" HPOS="406" VPOS="2116" WIDTH="59" HEIGHT="30" WC="0.96" CONTENT="Pad"/><SP WIDTH="1077" VPOS="2116" HPOS="465"/>
+							<String ID="string_95" HPOS="1542" VPOS="2119" WIDTH="40" HEIGHT="27" WC="0.95" CONTENT="24"/><SP WIDTH="166" VPOS="2119" HPOS="1582"/>
+							<String ID="string_96" HPOS="1748" VPOS="2109" WIDTH="107" HEIGHT="51" WC="0.96" CONTENT="$1000"/><SP WIDTH="212" VPOS="2109" HPOS="1855"/>
+							<String ID="string_97" HPOS="2067" VPOS="2114" WIDTH="114" HEIGHT="37" WC="0.95" CONTENT="$2,400"/>
+						</TextLine>
+						<TextLine ID="line_21" HPOS="1710" VPOS="2186" WIDTH="470" HEIGHT="51">
+							<String ID="string_98" HPOS="1710" VPOS="2186" WIDTH="141" HEIGHT="51" WC="0.95" CONTENT="Subtotal"/><SP WIDTH="247" VPOS="2186" HPOS="1851"/>
+							<String ID="string_99" HPOS="2098" VPOS="2190" WIDTH="82" HEIGHT="38" WC="0.96" CONTENT="$275"/>
+						</TextLine>
+						<TextLine ID="line_22" HPOS="1686" VPOS="2265" WIDTH="494" HEIGHT="41">
+							<String ID="string_100" HPOS="1686" VPOS="2270" WIDTH="59" HEIGHT="27" WC="0.96" CONTENT="Tax"/><SP WIDTH="11" VPOS="2270" HPOS="1745"/>
+							<String ID="string_101" HPOS="1756" VPOS="2267" WIDTH="95" HEIGHT="39" WC="0.95" CONTENT="(10%)"/><SP WIDTH="236" VPOS="2267" HPOS="1851"/>
+							<String ID="string_102" HPOS="2087" VPOS="2265" WIDTH="93" HEIGHT="37" WC="0.95" CONTENT="$27.5"/>
+						</TextLine>
+						<TextLine ID="line_23" HPOS="1653" VPOS="2339" WIDTH="527" HEIGHT="38">
+							<String ID="string_103" HPOS="1653" VPOS="2341" WIDTH="102" HEIGHT="31" WC="0.96" CONTENT="Grand"/><SP WIDTH="10" VPOS="2341" HPOS="1755"/>
+							<String ID="string_104" HPOS="1765" VPOS="2341" WIDTH="86" HEIGHT="31" WC="0.96" CONTENT="Total"/><SP WIDTH="214" VPOS="2341" HPOS="1851"/>
+							<String ID="string_105" HPOS="2065" VPOS="2339" WIDTH="115" HEIGHT="38" WC="0.96" CONTENT="$302.5"/>
+						</TextLine>
+					</TextBlock>
+				</ComposedBlock>
+				<ComposedBlock ID="cblock_18" HPOS="903" VPOS="3073" WIDTH="581" HEIGHT="27">
+					<TextBlock ID="block_5" HPOS="903" VPOS="3073" WIDTH="581" HEIGHT="27">
+						<TextLine ID="line_24" HPOS="903" VPOS="3073" WIDTH="581" HEIGHT="27">
+							<String ID="string_106" HPOS="903" VPOS="3073" WIDTH="124" HEIGHT="27" WC="0.96" CONTENT="THANK"/><SP WIDTH="9" VPOS="3073" HPOS="1027"/>
+							<String ID="string_107" HPOS="1036" VPOS="3073" WIDTH="76" HEIGHT="27" WC="0.96" CONTENT="YOU"/><SP WIDTH="13" VPOS="3073" HPOS="1112"/>
+							<String ID="string_108" HPOS="1125" VPOS="3073" WIDTH="69" HEIGHT="27" WC="0.96" CONTENT="FOR"/><SP WIDTH="10" VPOS="3073" HPOS="1194"/>
+							<String ID="string_109" HPOS="1204" VPOS="3073" WIDTH="101" HEIGHT="27" WC="0.96" CONTENT="YOUR"/><SP WIDTH="11" VPOS="3073" HPOS="1305"/>
+							<String ID="string_110" HPOS="1316" VPOS="3073" WIDTH="168" HEIGHT="27" WC="0.96" CONTENT="BUSINESS"/>
+						</TextLine>
+					</TextBlock>
+				</ComposedBlock>
+			</PrintSpace>
+		</Page>
+	</Layout>
+</alto>

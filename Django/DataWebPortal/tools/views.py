@@ -1,21 +1,22 @@
-
-from django.views import generic, View
-from django.views.generic import ListView, DetailView, FormView
-from django.views.generic.detail import SingleObjectMixin
-from django.shortcuts import render, get_object_or_404, redirect
+# from django.views import generic, View
+# from django.views.generic import ListView, DetailView, FormView
+# from django.views.generic.detail import SingleObjectMixin
+from django.shortcuts import render, redirect
 from django.utils import timezone
-
-from django.http import Http404, HttpResponse, HttpResponseRedirect, JsonResponse
-from django.urls import reverse
-from django.contrib import messages
-from django.template import loader
-from datetime import datetime
-from .models import Jobs, Activity
+# from django.http import Http404, HttpResponse, HttpResponseRedirect
+# from django.urls import reverse
+# from django.contrib import messages
+# from django.template import loader
+# from datetime import datetime
+from .models import *
 from .forms import *
-import pandas as pd
+from django.contrib.admin.models import LogEntry, ADDITION, CHANGE
+# import pandas as pd
+from django.contrib.contenttypes.models import ContentType
+
 from django.contrib.auth.decorators import login_required, permission_required
-from django.contrib.auth import login, logout, authenticate
-from django.contrib.auth.models import User, Group
+# from django.contrib.auth import login, logout, authenticate
+# from django.contrib.auth.models import User, Group
 import os
 import sys
 sys.path.insert(0, 'H:\Gitlab Repo\bw-cs-web-portal\Django\DataWebPortal\tools\data_processes')
@@ -166,10 +167,10 @@ def about(request):
 #             currentDay = datetime.datetime.now().day
 #             currentMonth = datetime.datetime.now().month
 #             currentYear = datetime.datetime.now().year
-#             isExist = os.path.exists('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+#             isExist = os.path.exists(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
 #             if not isExist:
-#               os.makedirs('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-#             convert('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
+#               os.makedirs(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+#             convert(media_root + str(obj.document), media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
 #             converted = Convert()
 #             converted.user = request.user
 #             converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
@@ -196,10 +197,10 @@ def about(request):
 #             currentDay = datetime.datetime.now().day
 #             currentMonth = datetime.datetime.now().month
 #             currentYear = datetime.datetime.now().year
-#             isExist = os.path.exists('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+#             isExist = os.path.exists(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
 #             if not isExist:
-#               os.makedirs('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-#             convert('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
+#               os.makedirs(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+#             convert(media_root + str(obj.document), media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
 #             converted = Convert()
 #             converted.user = request.user
 #             converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
@@ -226,10 +227,10 @@ def about(request):
 #             currentDay = datetime.datetime.now().day
 #             currentMonth = datetime.datetime.now().month
 #             currentYear = datetime.datetime.now().year
-#             isExist = os.path.exists('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+#             isExist = os.path.exists(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
 #             if not isExist:
-#               os.makedirs('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-#             convert('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
+#               os.makedirs(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+#             convert(media_root + str(obj.document), media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
 #             converted = Convert()
 #             converted.user = request.user
 #             converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
@@ -256,10 +257,10 @@ def about(request):
 #             currentDay = datetime.datetime.now().day
 #             currentMonth = datetime.datetime.now().month
 #             currentYear = datetime.datetime.now().year
-#             isExist = os.path.exists('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+#             isExist = os.path.exists(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
 #             if not isExist:
-#               os.makedirs('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-#             convert('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
+#               os.makedirs(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+#             convert(media_root + str(obj.document), media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
 #             converted = Convert()
 #             converted.user = request.user
 #             converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
@@ -286,10 +287,10 @@ def about(request):
 #             currentDay = datetime.datetime.now().day
 #             currentMonth = datetime.datetime.now().month
 #             currentYear = datetime.datetime.now().year
-#             isExist = os.path.exists('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+#             isExist = os.path.exists(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
 #             if not isExist:
-#               os.makedirs('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-#             convert('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
+#               os.makedirs(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+#             convert(media_root + str(obj.document), media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
 #             converted = Convert()
 #             converted.user = request.user
 #             converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
@@ -316,10 +317,10 @@ def about(request):
 #             currentDay = datetime.datetime.now().day
 #             currentMonth = datetime.datetime.now().month
 #             currentYear = datetime.datetime.now().year
-#             isExist = os.path.exists('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+#             isExist = os.path.exists(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
 #             if not isExist:
-#               os.makedirs('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-#             convert('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
+#               os.makedirs(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+#             convert(media_root + str(obj.document), media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
 #             converted = Convert()
 #             converted.user = request.user
 #             converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
@@ -346,10 +347,10 @@ def about(request):
 #             currentDay = datetime.datetime.now().day
 #             currentMonth = datetime.datetime.now().month
 #             currentYear = datetime.datetime.now().year
-#             isExist = os.path.exists('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+#             isExist = os.path.exists(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
 #             if not isExist:
-#               os.makedirs('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-#             convert('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
+#               os.makedirs(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+#             convert(media_root + str(obj.document), media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
 #             converted = Convert()
 #             converted.user = request.user
 #             converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
@@ -376,10 +377,10 @@ def about(request):
 #             currentDay = datetime.datetime.now().day
 #             currentMonth = datetime.datetime.now().month
 #             currentYear = datetime.datetime.now().year
-#             isExist = os.path.exists('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+#             isExist = os.path.exists(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
 #             if not isExist:
-#               os.makedirs('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-#             convert('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
+#               os.makedirs(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+#             convert(media_root + str(obj.document), media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
 #             converted = Convert()
 #             converted.user = request.user
 #             converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
@@ -406,10 +407,10 @@ def about(request):
 #             currentDay = datetime.datetime.now().day
 #             currentMonth = datetime.datetime.now().month
 #             currentYear = datetime.datetime.now().year
-#             isExist = os.path.exists('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+#             isExist = os.path.exists(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
 #             if not isExist:
-#               os.makedirs('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-#             convert('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
+#               os.makedirs(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+#             convert(media_root + str(obj.document), media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
 #             converted = Convert()
 #             converted.user = request.user
 #             converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
@@ -422,75 +423,78 @@ def about(request):
 #     return render(request, 'tools/convert.html', {
 #         'form': form
 #     })
+media_root = 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/'
 
+def log_addition(request, object, message):
+    """
+    Log that an object has been successfully added.
+    The default implementation creates an admin LogEntry object.
+    """
+    return LogEntry.objects.log_action(
+        user_id=request.user.pk,
+        content_type_id= ContentType.objects.get_for_model(type(object)).pk,
+        object_id=object.pk,
+        object_repr=str(object),
+        action_flag=ADDITION,
+        change_message=message,
+    )
 @login_required
 def convert(request):
-    output_format = request.POST.get('output', False)
-    # print(output_format)
+    output_format = request.POST.get('output', False) #get the output from drop down list
     if request.method == 'POST':
         form = ConvertForm(request.POST, request.FILES)
-        files = request.FILES.getlist('document')
+        files = request.FILES.getlist('document') #get the list of files
         if form.is_valid():
             for f in files:
-                obj = Convert(document=f, user=request.user)
+                obj = Convert(document=f, user=request.user) #create a instance for every file uploaded and link with its user
                 obj.save()
+                log_addition(request, obj, "a file is converted")
                 base = os.path.basename(str(obj.document))
-                file_name = os.path.splitext(base)[0]
+                file_name = os.path.splitext(base)[0] #get the file name of the file that is uploaded
                 currentDay = datetime.datetime.now().day
                 currentMonth = datetime.datetime.now().month
                 currentYear = datetime.datetime.now().year
-                isExist = os.path.exists('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+                isExist = os.path.exists(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/') #check if converted folder exist, create it if doesn't
                 if not isExist:
-                    os.makedirs('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-                convert_document('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ output_format, output_type = output_format )
-                converted = Convert()
+                    os.makedirs(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+                convert_document(media_root + str(obj.document), media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ output_format, output_type = output_format ) #call convert_document function to convert a file to desired type and save it at converted folder
+                converted = Convert() #create an instance for the converted file and link it to the user with saved path
                 converted.user = request.user
                 converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + output_format
                 converted.save()
-            return redirect('/mydocuments')
+            return redirect('/mydocuments') #redirect to view my document after complete conversion
     else:
         form = ConvertForm()
     return render(request, 'tools/convert.html', {
         'form': form
     })
 
-# def read_file_type(request):
-#     if request.method == 'POST':
-#         file = request.FILES['document']
-#         print('1')
-#         file_name, file_extension = os.path.splitext(file.document)
-#         input_type = file_extension
-#         print(input_type)
-#         context = {'input_type': input_type}
-#     return render(request, "tools/convert.html", context)
-
 @login_required
 def ocr(request):
-    output_format = request.POST.get('output', False)
-    # print(output_format)
+    output_format = request.POST.get('output', False) #get the output from drop down list
     if request.method == 'POST':
         form = OCRForm(request.POST, request.FILES)
-        files = request.FILES.getlist('document')
-        folder = request.FILES.getlist('folder')
+        files = request.FILES.getlist('document') #get the list of files from files that are uploaded
+        folder = request.FILES.getlist('folder') #get the list of all files from the directory that is uploaded
         if form.is_valid():
-            for f in files:
-                if str(f).endswith('.jpg') or str(f).endswith('.png') or str(f).endswith('.pdf'):
-                    obj = OCR(document=f, user=request.user)
+            for f in files: # for every files that are uploaded from multiple files upload
+                if str(f).endswith('.jpg') or str(f).endswith('.png') or str(f).endswith('.pdf'): #check if file is an image or pdf type
+                    obj = OCR(document=f, user=request.user) #create a instance for every file uploaded and link with its user
                     obj.save()
                     base = os.path.basename(str(obj.document))
-                    file_name = os.path.splitext(base)[0]
+                    file_name = os.path.splitext(base)[0] #get the file name of the file that is uploaded
                     currentDay = datetime.datetime.now().day
                     currentMonth = datetime.datetime.now().month
                     currentYear = datetime.datetime.now().year
-                    isExist = os.path.exists('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+                    isExist = os.path.exists(media_root + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/') #check if ocred folder exist, create it if doesn't
                     if not isExist:
-                        os.makedirs('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-                    ocr_file('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ output_format, output_format )
+                        os.makedirs(media_root + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+                    ocr_file(media_root + str(obj.document), media_root + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ output_format, output_format ) #call ocr_file function to ocr a file to desired type and save it at ocred folder
                     ocred = OCR()
-                    ocred.user = request.user
+                    ocred.user = request.user #create an instance for the ocred file and link it to the user with saved path
                     ocred.document = 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + output_format
                     ocred.save()
-            for f in folder:
+            for f in folder: # for every files that are uploaded from a directory, repeat the same process on the top.
                 if str(f).endswith('.jpg') or str(f).endswith('.png') or str(f).endswith('.pdf'):
                     obj = OCR(document=f, user=request.user)
                     obj.save()
@@ -499,10 +503,10 @@ def ocr(request):
                     currentDay = datetime.datetime.now().day
                     currentMonth = datetime.datetime.now().month
                     currentYear = datetime.datetime.now().year
-                    isExist = os.path.exists('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+                    isExist = os.path.exists(media_root + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
                     if not isExist:
-                        os.makedirs('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-                    ocr_file('H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + str(obj.document), 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/' + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ output_format, output_format )
+                        os.makedirs(media_root + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
+                    ocr_file(media_root + str(obj.document), media_root + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ output_format, output_format )
                     ocred = OCR()
                     ocred.user = request.user
                     ocred.document = 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + output_format
