@@ -31,13 +31,9 @@
     </tr>
 
 {% for document in convert_list %}
-{% if document.is_converted %}
 <tr>
-    <td><a href="{{document.document.url}}" download><p class="user-documents-file">{{ document.document }} </p></a></td>
+    <td><a href="{{document.document.url}}" download><p class="user-documents-file">{{ document.is_converted }} </p></a></td>
 </tr>
-{% else %}
-
-{% endif %}
 {% endfor %}
 </table>
 
@@ -47,13 +43,9 @@
     </tr>
 
 {% for document in ocr_list %}
-{% if document.is_ocred%}
 <tr>
-    <td><a href="{{document.document.url}}" download><p class="user-documents-file">{{ document.document }} </p></a></td>
+    <td><a href="{{document.document.url}}" download><p class="user-documents-file">{{ document.is_ocred }} </p></a></td>
 </tr>
-{% else %}
-
-{% endif %}
 {% endfor %}
 </table>
 

@@ -48,55 +48,64 @@ class Convert(models.Model):
     description = models.CharField(max_length=255, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="converted_document", null=True)
     document = models.FileField(upload_to='documents/uploaded/%Y/%m/%d/', blank=True, null=True, validators=[validate_file_extension_convert])
+    converted_document = models.FileField(upload_to=None, blank=True, null=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)
-    def file_type(self):
-        name, extension = os.path.splitext(str(self.document))
-        input_type = extension
-        return input_type
-    def is_uploaded(self):
-        path = os.path.normpath(str(self.document))
-        path_list = path.split(os.sep)
-        if 'uploaded' in path_list:
-            return True
-    def is_converted(self):
-        path = os.path.normpath(str(self.document))
-        path_list = path.split(os.sep)
-        if 'converted' in path_list:
-            return True
-    def is_ocred(self):
-        path = os.path.normpath(str(self.document))
-        path_list = path.split(os.sep)
-        if 'ocred' in path_list:
-            return True
+    # def file_type(self):
+    #     name, extension = os.path.splitext(str(self.document))
+    #     input_type = extension
+    #     return input_type
+    # def is_uploaded(self):
+    #     path = os.path.normpath(str(self.document))
+    #     path_list = path.split(os.sep)
+    #     if 'uploaded' in path_list:
+    #         return True
+    # def is_converted(self):
+    #     path = os.path.normpath(str(self.document))
+    #     path_list = path.split(os.sep)
+    #     if 'converted' in path_list:
+    #         return True
+    # def is_ocred(self):
+    #     path = os.path.normpath(str(self.document))
+    #     path_list = path.split(os.sep)
+    #     if 'ocred' in path_list:
+    #         return True
     # def clean(self):
     #     if not (self.document or self.folder):
     #         raise ValidationError("You must select either file or folder")
-
+    def is_uploaded(self):
+        return self.document
+    def is_converted(self):
+        return self.converted_document
 class OCR(models.Model):
     description = models.CharField(max_length=255, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="ocred_document", null=True)
     document = models.FileField(upload_to='documents/uploaded/%Y/%m/%d/', blank=True, null=True, validators=[validate_file_extension_ocr])
+    ocred_document = models.FileField(upload_to=None, blank=True, null=True)
     folder = models.FileField(upload_to='documents/uploaded/%Y/%m/%d/', blank=True, null=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)
-    def file_type(self):
-        name, extension = os.path.splitext(str(self.document))
-        input_type = file_extension
-        return input_type
+    # def file_type(self):
+    #     name, extension = os.path.splitext(str(self.document))
+    #     input_type = file_extension
+    #     return input_type
+    # def is_uploaded(self):
+    #     path = os.path.normpath(str(self.document))
+    #     path_list = path.split(os.sep)
+    #     if 'uploaded' in path_list:
+    #         return True
+    # def is_converted(self):
+    #     path = os.path.normpath(str(self.document))
+    #     path_list = path.split(os.sep)
+    #     if 'converted' in path_list:
+    #         return True
+    # def is_ocred(self):
+    #     path = os.path.normpath(str(self.document))
+    #     path_list = path.split(os.sep)
+    #     if 'ocred' in path_list:
+    #         return True
     def is_uploaded(self):
-        path = os.path.normpath(str(self.document))
-        path_list = path.split(os.sep)
-        if 'uploaded' in path_list:
-            return True
-    def is_converted(self):
-        path = os.path.normpath(str(self.document))
-        path_list = path.split(os.sep)
-        if 'converted' in path_list:
-            return True
+        return self.document
     def is_ocred(self):
-        path = os.path.normpath(str(self.document))
-        path_list = path.split(os.sep)
-        if 'ocred' in path_list:
-            return True
+        return self.ocred_document
     def clean(self):
         if not (self.document or self.folder):
             raise ValidationError("You must select either file or folder")

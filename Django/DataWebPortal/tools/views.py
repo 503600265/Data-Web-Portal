@@ -448,7 +448,6 @@ def convert(request):
             for f in files:
                 obj = Convert(document=f, user=request.user) #create a instance for every file uploaded and link with its user
                 obj.save()
-                log_addition(request, obj, "a file is converted")
                 base = os.path.basename(str(obj.document))
                 file_name = os.path.splitext(base)[0] #get the file name of the file that is uploaded
                 currentDay = datetime.datetime.now().day
@@ -458,10 +457,13 @@ def convert(request):
                 if not isExist:
                     os.makedirs(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
                 convert_document(media_root + str(obj.document), media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ output_format, output_type = output_format ) #call convert_document function to convert a file to desired type and save it at converted folder
-                converted = Convert() #create an instance for the converted file and link it to the user with saved path
-                converted.user = request.user
-                converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + output_format
-                converted.save()
+                # converted = Convert() #create an instance for the converted file and link it to the user with saved path
+                # converted.user = request.user
+                # converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + output_format
+                # converted.save()
+                obj.converted_document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + output_format
+                obj.save()
+                log_addition(request, obj, "a file is converted")
             return redirect('/mydocuments') #redirect to view my document after complete conversion
     else:
         form = ConvertForm()
@@ -490,10 +492,11 @@ def ocr(request):
                     if not isExist:
                         os.makedirs(media_root + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
                     ocr_file(media_root + str(obj.document), media_root + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ output_format, output_format ) #call ocr_file function to ocr a file to desired type and save it at ocred folder
-                    ocred = OCR()
-                    ocred.user = request.user #create an instance for the ocred file and link it to the user with saved path
-                    ocred.document = 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + output_format
-                    ocred.save()
+                    # ocred = OCR()
+                    # ocred.user = request.user #create an instance for the ocred file and link it to the user with saved path
+                    obj.ocred_document = 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + output_format
+                    obj.save()
+                    log_addition(request, obj, "a file is ocred")
             for f in folder: # for every files that are uploaded from a directory, repeat the same process on the top.
                 if str(f).endswith('.jpg') or str(f).endswith('.png') or str(f).endswith('.pdf'):
                     obj = OCR(document=f, user=request.user)
@@ -507,10 +510,13 @@ def ocr(request):
                     if not isExist:
                         os.makedirs(media_root + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
                     ocr_file(media_root + str(obj.document), media_root + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ output_format, output_format )
-                    ocred = OCR()
-                    ocred.user = request.user
-                    ocred.document = 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + output_format
-                    ocred.save()
+                    # ocred = OCR()
+                    # ocred.user = request.user
+                    # ocred.document = 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + output_format
+                    # ocred.save()
+                    obj.ocred_document = 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + output_format
+                    obj.save()
+                    log_addition(request, obj, "a file is ocred")
             return redirect('/mydocuments')
     else:
         form = OCRForm()
