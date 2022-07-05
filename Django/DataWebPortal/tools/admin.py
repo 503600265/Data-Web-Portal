@@ -30,7 +30,7 @@ class LogEntryAdmin(admin.ModelAdmin):
         'action_time',
         'user',
         'content_type',
-        # 'object_link',
+        'object_link',
         'action_flag',
     ]
 
@@ -46,16 +46,20 @@ class LogEntryAdmin(admin.ModelAdmin):
     def has_view_permission(self, request, obj=None):
         return request.user.is_superuser
 
-    # def object_link(self, obj):
-    #     if obj.action_flag == DELETION:
-    #         link = escape(obj.object_repr)
-    #     else:
-    #         ct = obj.content_type
-    #         link = '<a href="%s">%s</a>' % (
-    #             reverse('admin:%s_%s_change' % (ct.app_label, ct.model), args=[obj.object_id]),
-    #             escape(obj.object_repr),
-    #         )
-    #     return mark_safe(link)
-    # object_link.admin_order_field = "object_repr"
-    # object_link.short_description = "object"
+    def object_link(self, obj):
+        if obj.action_flag == DELETION:
+            link = escape(obj.object_repr)
+        else:
+            ct = obj.content_type
+            print(ct.app_label)
+            print(ct.model)
+            link = '<a href="%s">%s</a>' % (
+                reverse('admin:%s_%s_change' % (ct.app_label, ct.model), args=[obj.object_id]),
+                escape(obj.object_repr),
+            )
+            # link = "<a href=\"/admin/%s/%s/%s\">%s</a>" % (ct.app_label, ct.model, obj.object_id,  link)
+        return mark_safe(link)
+        # http://127.0.0.1:8000/admin/tools/convert/45/change/
+    object_link.admin_order_field = "object_repr"
+    object_link.short_description = "object"
 admin.site.register(LogEntry, LogEntryAdmin)
