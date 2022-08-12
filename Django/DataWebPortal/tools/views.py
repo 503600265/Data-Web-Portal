@@ -7,7 +7,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.auth.decorators import login_required
 import os
 import sys
-sys.path.insert(0, '/home/jxu@bateswhite.com/bw-cs-web-portal/Django/DataWebPortal/tools/data_processes')
+sys.path.insert(0, '/home/xxx@xxxx.com/bw-cs-web-portal/Django/DataWebPortal/tools/data_processes')
 from .data_processes.convert_data import *
 from .data_processes.ocr_docs import *
 
@@ -40,7 +40,7 @@ def select_tools(request):
 def about(request):
     return render(request, 'tools/about.html')
 
-media_root = '/home/jxu@bateswhite.com/bw-cs-web-portal/Django/DataWebPortal/media/'
+media_root = '/home/xxx@xxxxx.com/bw-cs-web-portal/Django/DataWebPortal/media/'
 
 def log_addition(request, object, message):
     """
