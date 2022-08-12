@@ -19,7 +19,7 @@ git clone git@gitlab.bateswhite.com:ts/dataengineering/bw-cs-web-portal.git
 ```
 Or
 ```
-git clone https://gitlab.bateswhite.com/ts/dataengineering/bw-cs-web-portal.git
+git clone https://github.com/503600265/Data-Web-Portal.git
 ```
 
 ## Support
