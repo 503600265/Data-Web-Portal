@@ -12,10 +12,7 @@ This web application is meant to act as a self service location for Client Servi
 To install and setup this repository, you can simply clone it to the server you are working on.
 
 ```
-git config --global user.name "<user name>"
-git config --global user.email "<user email>"
-git config --global http.sslVerify flase
-git clone git@gitlab.bateswhite.com:ts/dataengineering/bw-cs-web-portal.git
+git clone git@github.com:503600265/Data-Web-Portal.git
 ```
 Or
 ```
@@ -23,8 +20,7 @@ git clone https://github.com/503600265/Data-Web-Portal.git
 ```
 
 ## Support
-douglas.post@bateswhite.com
-balaji.lakshmanan@bateswhite.com
+xhw503600265@gmail.com
 
 ## Run 
 Install required packages
