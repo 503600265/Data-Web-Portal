@@ -1,25 +1,13 @@
-# from django.views import generic, View
-# from django.views.generic import ListView, DetailView, FormView
-# from django.views.generic.detail import SingleObjectMixin
 from django.shortcuts import render, redirect
 from django.utils import timezone
-# from django.http import Http404, HttpResponse, HttpResponseRedirect
-# from django.urls import reverse
-# from django.contrib import messages
-# from django.template import loader
-# from datetime import datetime
 from .models import *
 from .forms import *
 from django.contrib.admin.models import LogEntry, ADDITION, CHANGE
-# import pandas as pd
 from django.contrib.contenttypes.models import ContentType
-
-from django.contrib.auth.decorators import login_required, permission_required
-# from django.contrib.auth import login, logout, authenticate
-# from django.contrib.auth.models import User, Group
+from django.contrib.auth.decorators import login_required
 import os
 import sys
-sys.path.insert(0, 'H:\Gitlab Repo\bw-cs-web-portal\Django\DataWebPortal\tools\data_processes')
+sys.path.insert(0, '/home/jxu@bateswhite.com/bw-cs-web-portal/Django/DataWebPortal/tools/data_processes')
 from .data_processes.convert_data import *
 from .data_processes.ocr_docs import *
 
@@ -47,383 +35,12 @@ def document(request):
 @login_required
 def select_tools(request):
     return render(request, 'tools/select_tools.html')
-# @login_required
-# def detail(request, labeling_id):
-#     labeling = get_object_or_404(Labeling, pk=labeling_id)
-#     return render(request, 'tools/detail.html', {'labeling': labeling})
 
 # @login_required
 def about(request):
     return render(request, 'tools/about.html')
 
-# @login_required
-# def upload(request):
-#     if request.method == 'POST':
-#         form = DocumentForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             obj= form.save(commit=False)
-#             obj.user = request.user
-#             obj.save()
-#             return redirect('/mydocuments')
-#         if not form.is_valid():
-#             return render(request=request, template_name="tools/failedupload.html")
-#     else:
-#         form = DocumentForm()
-#     return render(request, 'tools/upload.html', {
-#         'form': form
-#     })
-
-# def convert(request, document_dir, download_dir, type):
-#     document = Document.objects.filter(document= document_dir).all()
-#     convert_document(document.document, download_dir, type)
-#     return render(request, 'tools/convert.html')
-
-# def convert(request):
-#     if request.method == "POST":
-#         # creating random folder name for each user
-#         res = ''.join(random.choice(string.ascii_lowercase) for x in range(10))
-#         path_to_upload = os.path.join('./convertor/static/uploaded_files/jpg2pdf', str(res))
-#         os.makedirs(path_to_upload)
-#         files = request.FILES
-#         files_list = []
-#         for file in files.getlist('files'):
-#             files_list.append(file)
-#
-#         a4inpt = (img2pdf.mm_to_pt(210), img2pdf.mm_to_pt(297))
-#         layout_fun = img2pdf.get_layout_fun(a4inpt)
-#         with open(path_to_upload + "/sample.pdf", "wb") as f:
-#             f.write(img2pdf.convert(files_list, layout_fun=layout_fun))
-#         os.rename(path_to_upload + "/sample.pdf", path_to_upload + "/sample.txt")
-#         return render(request, 'jpgtopdf.html', {'url': str(res)})
-#     return render(request, 'jpgtopdf.html')
-# def csv2xlsx(request):
-#     if request.method == 'POST':
-#         form = DocumentForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             obj= form.save(commit=False)
-#             obj.user = request.user
-#             obj.save()
-#             file_name, file_extension = os.path.splitext(obj.document)
-#             csv_to_xlsx(obj.document, file_name + ".xlsx", "xlsx" )
-#             converted = Document()
-#             converted.user = request.user
-#             converted.document = file_name + ".xlsx"
-#             return redirect('/mydocuments')
-#         if not form.is_valid():
-#             return render(request=request, template_name="tools/failedupload.html")
-#     else:
-#         form = DocumentForm()
-#     return render(request, 'tools/upload.html', {
-#         'form': form
-#     })
-
-# def upload(request):
-#     if request.method == 'POST':
-#         form = DocumentForm(request.POST, request.FILES)
-#         files = request.FILES.getlist('document')
-#         if form.is_valid():
-#             for f in files:
-#                 file_instance = Document(document=f, user=request.user)
-#                 file_instance.save()
-#             # obj= form.save(commit=False)
-#             # obj.user = request.user
-#             # obj.save()
-#             return redirect('/mydocuments')
-#         if not form.is_valid():
-#             return render(request=request, template_name="tools/failedupload.html")
-#     else:
-#         form = DocumentForm()
-#     return render(request, 'tools/upload.html', {
-#         'form': form
-#     })
-
-# def converts(request):
-#     if request.method == 'POST':
-#         form = ConvertForm(request.POST, request.FILES)
-#         files = request.FILES.getlist('document')
-#         if form.is_valid():
-#             for f in files:
-#                 file_instance = Convert(document=f, user=request.user)
-#                 file_instance.save()
-#             return redirect('/mydocuments')
-#         if not form.is_valid():
-#             return render(request=request, template_name="tools/failedupload.html")
-#     else:
-#         form = ConvertForm()
-#     return render(request, 'tools/convert.html', {
-#         'form': form
-#     })
-
-# def csv2xlsx(request):
-#     if request.method == 'POST':
-#         form = ConvertForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             obj= form.save(commit=False)
-#             obj.user = request.user
-#             obj.save()
-#             base = os.path.basename(str(obj.document))
-#             file_name = os.path.splitext(base)[0]
-#             convert_type = 'xlsx'
-#             currentDay = datetime.datetime.now().day
-#             currentMonth = datetime.datetime.now().month
-#             currentYear = datetime.datetime.now().year
-#             isExist = os.path.exists(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-#             if not isExist:
-#               os.makedirs(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-#             convert(media_root + str(obj.document), media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
-#             converted = Convert()
-#             converted.user = request.user
-#             converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
-#             converted.save()
-#             return redirect('/mydocuments')
-#         if not form.is_valid():
-#             return render(request=request, template_name="tools/failedupload.html")
-#     else:
-#         form = ConvertForm()
-#     return render(request, 'tools/convert.html', {
-#         'form': form
-#     })
-#
-# def csv2parquet(request):
-#     if request.method == 'POST':
-#         form = ConvertForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             obj= form.save(commit=False)
-#             obj.user = request.user
-#             obj.save()
-#             base = os.path.basename(str(obj.document))
-#             file_name = os.path.splitext(base)[0]
-#             convert_type = 'parquet'
-#             currentDay = datetime.datetime.now().day
-#             currentMonth = datetime.datetime.now().month
-#             currentYear = datetime.datetime.now().year
-#             isExist = os.path.exists(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-#             if not isExist:
-#               os.makedirs(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-#             convert(media_root + str(obj.document), media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
-#             converted = Convert()
-#             converted.user = request.user
-#             converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
-#             converted.save()
-#             return redirect('/mydocuments')
-#         if not form.is_valid():
-#             return render(request=request, template_name="tools/failedupload.html")
-#     else:
-#         form = ConvertForm()
-#     return render(request, 'tools/convert.html', {
-#         'form': form
-#     })
-#
-# def parquet2csv(request):
-#     if request.method == 'POST':
-#         form = ConvertForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             obj= form.save(commit=False)
-#             obj.user = request.user
-#             obj.save()
-#             base = os.path.basename(str(obj.document))
-#             file_name = os.path.splitext(base)[0]
-#             convert_type = 'csv'
-#             currentDay = datetime.datetime.now().day
-#             currentMonth = datetime.datetime.now().month
-#             currentYear = datetime.datetime.now().year
-#             isExist = os.path.exists(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-#             if not isExist:
-#               os.makedirs(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-#             convert(media_root + str(obj.document), media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
-#             converted = Convert()
-#             converted.user = request.user
-#             converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
-#             converted.save()
-#             return redirect('/mydocuments')
-#         if not form.is_valid():
-#             return render(request=request, template_name="tools/failedupload.html")
-#     else:
-#         form = ConvertForm()
-#     return render(request, 'tools/convert.html', {
-#         'form': form
-#     })
-#
-# def xlsx2parquet(request):
-#     if request.method == 'POST':
-#         form = ConvertForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             obj= form.save(commit=False)
-#             obj.user = request.user
-#             obj.save()
-#             base = os.path.basename(str(obj.document))
-#             file_name = os.path.splitext(base)[0]
-#             convert_type = 'parquet'
-#             currentDay = datetime.datetime.now().day
-#             currentMonth = datetime.datetime.now().month
-#             currentYear = datetime.datetime.now().year
-#             isExist = os.path.exists(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-#             if not isExist:
-#               os.makedirs(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-#             convert(media_root + str(obj.document), media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
-#             converted = Convert()
-#             converted.user = request.user
-#             converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
-#             converted.save()
-#             return redirect('/mydocuments')
-#         if not form.is_valid():
-#             return render(request=request, template_name="tools/failedupload.html")
-#     else:
-#         form = ConvertForm()
-#     return render(request, 'tools/convert.html', {
-#         'form': form
-#     })
-#
-# def txt2csv(request):
-#     if request.method == 'POST':
-#         form = ConvertForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             obj= form.save(commit=False)
-#             obj.user = request.user
-#             obj.save()
-#             base = os.path.basename(str(obj.document))
-#             file_name = os.path.splitext(base)[0]
-#             convert_type = 'csv'
-#             currentDay = datetime.datetime.now().day
-#             currentMonth = datetime.datetime.now().month
-#             currentYear = datetime.datetime.now().year
-#             isExist = os.path.exists(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-#             if not isExist:
-#               os.makedirs(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-#             convert(media_root + str(obj.document), media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
-#             converted = Convert()
-#             converted.user = request.user
-#             converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
-#             converted.save()
-#             return redirect('/mydocuments')
-#         if not form.is_valid():
-#             return render(request=request, template_name="tools/failedupload.html")
-#     else:
-#         form = ConvertForm()
-#     return render(request, 'tools/convert.html', {
-#         'form': form
-#     })
-#
-# def txt2xlsx(request):
-#     if request.method == 'POST':
-#         form = ConvertForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             obj= form.save(commit=False)
-#             obj.user = request.user
-#             obj.save()
-#             base = os.path.basename(str(obj.document))
-#             file_name = os.path.splitext(base)[0]
-#             convert_type = 'xlsx'
-#             currentDay = datetime.datetime.now().day
-#             currentMonth = datetime.datetime.now().month
-#             currentYear = datetime.datetime.now().year
-#             isExist = os.path.exists(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-#             if not isExist:
-#               os.makedirs(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-#             convert(media_root + str(obj.document), media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
-#             converted = Convert()
-#             converted.user = request.user
-#             converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
-#             converted.save()
-#             return redirect('/mydocuments')
-#         if not form.is_valid():
-#             return render(request=request, template_name="tools/failedupload.html")
-#     else:
-#         form = ConvertForm()
-#     return render(request, 'tools/convert.html', {
-#         'form': form
-#     })
-#
-# def xls2xlsx(request):
-#     if request.method == 'POST':
-#         form = ConvertForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             obj= form.save(commit=False)
-#             obj.user = request.user
-#             obj.save()
-#             base = os.path.basename(str(obj.document))
-#             file_name = os.path.splitext(base)[0]
-#             convert_type = 'xlsx'
-#             currentDay = datetime.datetime.now().day
-#             currentMonth = datetime.datetime.now().month
-#             currentYear = datetime.datetime.now().year
-#             isExist = os.path.exists(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-#             if not isExist:
-#               os.makedirs(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-#             convert(media_root + str(obj.document), media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
-#             converted = Convert()
-#             converted.user = request.user
-#             converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
-#             converted.save()
-#             return redirect('/mydocuments')
-#         if not form.is_valid():
-#             return render(request=request, template_name="tools/failedupload.html")
-#     else:
-#         form = ConvertForm()
-#     return render(request, 'tools/convert.html', {
-#         'form': form
-#     })
-#
-# def json2csv(request):
-#     if request.method == 'POST':
-#         form = ConvertForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             obj= form.save(commit=False)
-#             obj.user = request.user
-#             obj.save()
-#             base = os.path.basename(str(obj.document))
-#             file_name = os.path.splitext(base)[0]
-#             convert_type = 'csv'
-#             currentDay = datetime.datetime.now().day
-#             currentMonth = datetime.datetime.now().month
-#             currentYear = datetime.datetime.now().year
-#             isExist = os.path.exists(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-#             if not isExist:
-#               os.makedirs(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-#             convert(media_root + str(obj.document), media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
-#             converted = Convert()
-#             converted.user = request.user
-#             converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
-#             converted.save()
-#             return redirect('/mydocuments')
-#         if not form.is_valid():
-#             return render(request=request, template_name="tools/failedupload.html")
-#     else:
-#         form = ConvertForm()
-#     return render(request, 'tools/convert.html', {
-#         'form': form
-#     })
-#
-# def json2xlsx(request):
-#     if request.method == 'POST':
-#         form = ConvertForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             obj= form.save(commit=False)
-#             obj.user = request.user
-#             obj.save()
-#             base = os.path.basename(str(obj.document))
-#             file_name = os.path.splitext(base)[0]
-#             convert_type = 'xlsx'
-#             currentDay = datetime.datetime.now().day
-#             currentMonth = datetime.datetime.now().month
-#             currentYear = datetime.datetime.now().year
-#             isExist = os.path.exists(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-#             if not isExist:
-#               os.makedirs(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
-#             convert(media_root + str(obj.document), media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ convert_type, output_type = convert_type )
-#             converted = Convert()
-#             converted.user = request.user
-#             converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + convert_type
-#             converted.save()
-#             return redirect('/mydocuments')
-#         if not form.is_valid():
-#             return render(request=request, template_name="tools/failedupload.html")
-#     else:
-#         form = ConvertForm()
-#     return render(request, 'tools/convert.html', {
-#         'form': form
-#     })
-media_root = 'H:/Gitlab Repo/bw-cs-web-portal/Django/DataWebPortal/media/'
+media_root = '/home/jxu@bateswhite.com/bw-cs-web-portal/Django/DataWebPortal/media/'
 
 def log_addition(request, object, message):
     """
@@ -457,10 +74,6 @@ def convert(request):
                 if not isExist:
                     os.makedirs(media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
                 convert_document(media_root + str(obj.document), media_root + 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ output_format, output_type = output_format ) #call convert_document function to convert a file to desired type and save it at converted folder
-                # converted = Convert() #create an instance for the converted file and link it to the user with saved path
-                # converted.user = request.user
-                # converted.document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + output_format
-                # converted.save()
                 obj.converted_document = 'documents/converted/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + output_format
                 obj.save()
                 log_addition(request, obj, "a file is converted")
@@ -492,8 +105,6 @@ def ocr(request):
                     if not isExist:
                         os.makedirs(media_root + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
                     ocr_file(media_root + str(obj.document), media_root + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ output_format, output_format ) #call ocr_file function to ocr a file to desired type and save it at ocred folder
-                    # ocred = OCR()
-                    # ocred.user = request.user #create an instance for the ocred file and link it to the user with saved path
                     obj.ocred_document = 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + output_format
                     obj.save()
                     log_addition(request, obj, "a file is ocred")
@@ -510,10 +121,6 @@ def ocr(request):
                     if not isExist:
                         os.makedirs(media_root + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/')
                     ocr_file(media_root + str(obj.document), media_root + 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.'+ output_format, output_format )
-                    # ocred = OCR()
-                    # ocred.user = request.user
-                    # ocred.document = 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + output_format
-                    # ocred.save()
                     obj.ocred_document = 'documents/ocred/' + str(currentYear) + '/' + str(currentMonth) + '/' + str(currentDay) + '/' + file_name + '.' + output_format
                     obj.save()
                     log_addition(request, obj, "a file is ocred")
